@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a1d2e;
+  color: white;
+}
+
+.navbar-bg {
+  background-color: #0a1d2e;
+  height: 8vh;
+}
+
+.sidebar{
+   
+    background-color: #0a1d2e;
+    width: 15%;
+    min-width: fit-content;
+    height: 92vh; 
+}
