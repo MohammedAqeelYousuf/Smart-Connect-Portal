@@ -6,12 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const subjectError = document.getElementById('subjectError');
   const messageError = document.getElementById('messageError');
-  const categoryError = category.nextElementSibling; // targets .invalid-feedback
+  const categoryError = category.nextElementSibling; 
 
   form.addEventListener('submit', function (event) {
     let isValid = true;
 
-    // Reset all error messages
+
     subjectError.style.display = 'none';
     messageError.style.display = 'none';
     categoryError.style.display = 'none';
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     message.classList.remove('is-invalid');
     category.classList.remove('is-invalid');
 
-    // Subject validation
+
     if (subject.value.trim() === '') {
       subjectError.textContent = 'Subject is required.';
       subjectError.style.display = 'block';
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
       isValid = false;
     }
 
-    // Message (feedback) validation
+ 
     if (message.value.trim() === '') {
       messageError.textContent = 'Feedback is required.';
       messageError.style.display = 'block';
@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
       isValid = false;
     }
 
-    // Category validation
     if (category.value.trim() === '') {
       categoryError.textContent = 'Please select a category.';
       categoryError.style.display = 'block';
