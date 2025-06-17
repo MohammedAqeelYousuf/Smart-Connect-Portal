@@ -4,157 +4,31 @@
   <meta charset="UTF-8">
   <title>Dashboard - Smart Campus Connect</title>
   <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/feedback.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      background: white;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      /* margin-bottom: 0.5rem; */
-      letter-spacing: -0.5px;
-      
-    }
-    
-    .text-muted {
-      color: #94a3b8 !important;
-      font-size: 1.1rem;
-      font-weight: 400;
-      /* margin-bottom: 3rem !important; */
-     
-    }
-    
-    form {
-      background: #0a1d2e;
-      border: 1px solid white;
-      border-radius: 20px;
-      padding: 2.5rem;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #ffffff;
-      line-height: 1.6;
-      position: relative;
-    }
-    
-    form::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.8), rgba(168, 85, 247, 0.8), transparent);
-      border-radius: 20px 20px 0 0;
-    }
-    
-    .form-label {
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.75rem;
-      display: block;
-      letter-spacing: 0.3px;
-    }
-    
-    .form-control, .form-select {
-      background: rgba(255, 255, 255, 0.08);
-      border: 2px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      color: #ffffff;
-      font-size: 1rem;
-      padding: 0.875rem 1.25rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      backdrop-filter: blur(5px);
-    }
-    
-    .form-control:focus, .form-select:focus {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      outline: none;
-      transform: translateY(-1px);
-    }
-    
-    .form-control::placeholder {
-      color: #94a3b8;
-    }
-    
-    .form-select option {
-      background-color: #0a1d2e;
-      color: #ffffff;
-      padding: 0.5rem;
-    }
-    
-    textarea.form-control {
-      resize: vertical;
-      min-height: 140px;
-    }
-    
-    .form-text {
-      color: #94a3b8;
-      font-size: 0.875rem;
-      margin-top: 0.5rem;
-      font-style: italic;
-    }
-    
-    .invalid-feedback {
-      color: #fca5a5;
-      font-weight: 500;
-      margin-top: 0.5rem;
-    }
-    
-    .form-control.is-invalid, .form-select.is-invalid {
-      border-color: #fca5a5;
-      box-shadow: 0 0 0 3px rgba(252, 165, 165, 0.2);
-    }
-    
-    .mb-3 {
-      margin-bottom: 2rem !important;
-    }
-    
-    
-    @media (max-width: 768px) {
-      form {
-        padding: 2rem 1.5rem;
-        border-radius: 16px;
-      }
-      
-      h2 {
-        font-size: 2rem;
-      }
-      
-    }
-  </style>
+  
 </head>
 <body>
+ <body>
   <!-- Navbar Section -->
   <header>
-      <nav class="navbar navbar-bg text-white">
-       <div class="container-fluid">
-          <a class="navbar-brand text-white">Connect Portal</a>
-          <div class="">
-            <button class="btn btn-primary position-relative">
-              Announcements
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                5
-              </span>
-            </button>
-            <!-- <a class="text-decoration-none" href="/pages/index.html">
+    <nav class="navbar navbar-bg text-white">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white">Connect Portal</a>
+        <div class="">
+          <button class="btn btn-primary position-relative">
+            Announcements
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              5
+            </span>
+          </button>
+          <!-- <a class="text-decoration-none" href="/pages/index.html">
               <button id="logout-button" class="btn btn-outline-danger">Logout</button>
             </a> -->
-          </div>
         </div>
-      </nav>
+      </div>
+    </nav>
   </header>
 
   <section class="d-flex main-content">
@@ -177,19 +51,22 @@
           </a>
         </li>
         <li>
-          <a href="/pages/feedback-home.html" class="nav-link active text-white px-3 text-center" id="openFeedback">
+          <a href="/pages/feedback-form.html" class="nav-link active text-white px-3 text-center" id="openFeedback">
             Feedback
           </a>
         </li>
       </ul>
       <hr>
       <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+          data-bs-toggle="dropdown" aria-expanded="false">
           <strong>User</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/pages/profile.html">Profile</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
           <li class="dropdown-item" onclick="logoutUser()">Sign out</li>
         </ul>
       </div>
@@ -198,47 +75,52 @@
       <div class="container mt-12">
 
 
-    <form id="feedbackForm" novalidate>
-      <!-- Category -->
-      <div class="mb-10">
-        <h2 class="mb-1 text-center">Submit Your Feedback</h2>
-    <p class="text-center text-muted mb-4">Help us improve by sharing your experience, suggestions, or concerns.</p>
-        <label for="category" class="form-label">Category</label>
-        <select class="form-select" id="category" name="category" required>
-          <option value="">Select Category</option>
-          <option value="website">Website Usability</option>
-          <option value="event">Event Feedback</option>
-          <option value="announcement">Announcement Feedback</option>
-          <option value="general">General Suggestion</option>
-          <option value="issue">Report an Issue</option>
-        </select>
-        <div class="invalid-feedback">Please select a category.</div>
-      </div>
+        <form id="feedbackForm" novalidate>
+          <!-- Category -->
+          <div class="mb-10">
+            <h2 class="mb-1 text-center">Submit Your Feedback</h2>
+            <p class="text-center text-muted mb-4">Help us improve by sharing your experience, suggestions, or concerns.
+            </p>
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" id="category" name="category" required>
+              <option value="">Select Category</option>
+              <option value="website">Website Usability</option>
+              <option value="event">Event Feedback</option>
+              <option value="announcement">Announcement Feedback</option>
+              <option value="general">General Suggestion</option>
+              <option value="issue">Report an Issue</option>
+            </select>
+            <div class="invalid-feedback">Please select a category.</div>
+          </div>
 
-      <!-- Subject -->
-      <div class="mb-3">
-        <label for="subject" class="form-label">Subject</label>
-        <input type="text" class="form-control" placeholder="Max 20 words" id="subject" name="subject" maxlength="100" required />
-        <div class="invalid-feedback" id="subjectError">Subject is required and should not exceed 20 words.</div>
-      </div>
+          <!-- Subject -->
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" placeholder="Max 20 words" id="subject" name="subject"
+              maxlength="100" required />
+            <div class="invalid-feedback" id="subjectError">Subject is required and should not exceed 20 words.</div>
+          </div>
 
-      <!-- Message -->
-      <div class="mb-3">
-        <label for="message" class="form-label">Feedback</label>
-        <textarea class="form-control" placeholder="Write your feedback" id="message" name="message" rows="3" required></textarea>
-        <div class="invalid-feedback" id="messageError">Please enter your feedback.</div>
-      </div>
+          <!-- Message -->
+          <div class="mb-3">
+            <label for="message" class="form-label">Feedback</label>
+            <textarea class="form-control" placeholder="Write your feedback" id="message" name="message" rows="3"
+              required></textarea>
+            <div class="invalid-feedback" id="messageError">Please enter your feedback.</div>
+          </div>
 
-      <!-- Submit -->
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary">Submit </button>
+          <!-- Submit -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit </button>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
     </main>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
   <script src="/modules/form-validation.js"></script>
   <script src="../modules/commonFeature.js"></script>
 </body>
