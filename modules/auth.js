@@ -45,7 +45,7 @@ const loginUser = (e) => {
 
   // Login successful
   localStorage.setItem('currentUser', JSON.stringify({ name: user.name, email: mailid, role: user.role }));
-  window.location.href = '/pages/home.html';
+  window.location.href = '/pages/stud-dash.html';
 };
 
 document.getElementById("login-form").addEventListener("submit", loginUser);
