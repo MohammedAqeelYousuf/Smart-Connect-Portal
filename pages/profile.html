@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Smart Campus Connect</title>
+  <link rel="stylesheet" href="../styles/index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar Section -->
+  <header>
+    <nav class="navbar navbar-bg text-white">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white text-uppercase">Connect Portal</a>
+        <div class="">
+          <button class="btn btn-primary position-relative">
+            Announcements
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              5
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="d-flex main-content">
+    <!-- Sidebar for better navigation experience -->
+    <aside class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar text-uppercase">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="/pages/home.html" class="nav-link active px-3 text-center" aria-current="page">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/pages/events.html" class="nav-link text-white px-3 text-center">
+            Events
+          </a>
+        </li>
+        <li>
+          <a href="/pages/query.html" class="nav-link text-white px-3 text-center">
+            Query
+          </a>
+        </li>
+        <li>
+          <a href="/pages/feedback-home.html" class="nav-link text-white px-3 text-center" id="openFeedback">
+            Feedback
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <strong>User</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li class="dropdown-item" onclick="logoutUser()">Sign out</li>
+        </ul>
+      </div>
+    </aside>
+
+    
+    <main class="dashboard px-4 py-5 w-100">
+  <div class="container bg-light rounded shadow-sm p-5">
+    <div class="row align-items-center mb-4">
+      <div id="user-data" class="col-md-9">
+        <h2 class="mb-1">Demo User</h2>
+        <p class="text-muted mb-2">Email: demo.user@example.com</p>
+        <p class="text-muted mb-2">Role: Student</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Account Settings</h5>
+        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editUserModal">Edit Profile</button>
+        <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatePasswordModal">Change Password</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+  </section>
+
+<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="editUserForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editUserModalLabel">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="editName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="editName">
+          </div>
+          <div class="mb-3">
+            <label for="editEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="editEmail" value="demo.user@example.com" disabled>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="updatePasswordModal" tabindex="-1" aria-labelledby="updatePasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="updatePasswordForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updatePasswordModalLabel">Update Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="text-danger mt-1" id="passwordError"></div>
+          <div class="mb-3">
+            <label for="currentPassword" class="form-label">Current Password</label>
+            <input type="password" class="form-control" id="currentPassword" required>
+          </div>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label">New Password</label>
+            <input type="password" class="form-control" id="newPassword" required>
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm New Password</label>
+            <input type="password" class="form-control" id="confirmPassword" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Update Password</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script src="../modules/profile.js"></script>
+  <script src="../modules/commonFeature.js"></script>
+</body>
+</html>
