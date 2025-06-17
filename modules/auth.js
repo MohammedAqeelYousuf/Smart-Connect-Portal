@@ -13,37 +13,41 @@ const loginUser = (e) => {
   const mailid = document.getElementById("mailid").value.trim();
   const password = document.getElementById("password").value;
 
+  const mailidError = document.getElementById("mailid-error");
+  const passwordError = document.getElementById("password-error");
+
+  mailidError.textContent = "";
+  passwordError.textContent = "";
+
+  let hasError = false;
+
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  errorTag.innerHTML = '';
+  errorTag.innerHTML = ''; 
 
   let errors = [];
-
-  // Check if email is valid format
-  if (mailid === '') {
-    errors.push("Email is required.");
+if (mailid === "") {
+    mailidError.textContent = "Email is required.";
+    hasError = true;
   } else if (!emailPattern.test(mailid)) {
-    errors.push("Invalid email format.");
-  }
-
-  // Stop early if basic email checks fail
-  if (errors.length > 0) {
-    errorTag.innerHTML = errors.map(err => `<div class="alert alert-danger">${err}</div>`).join("");
-    return;
+    mailidError.textContent = "Invalid email format.";
+    hasError = true;
   }
 
   const user = fetchUserByEmail(mailid);
 
-  if (!user) {
-    errorTag.innerHTML = `<div class="alert alert-danger">User with this email does not exist.</div>`;
-    return;
+ if (!hasError && !user) {
+    mailidError.textContent = "User with this email does not exist.";
+    hasError = true;
   }
 
-  if (user.password !== password) {
-    errorTag.innerHTML = `<div class="alert alert-danger">Password is incorrect.</div>`;
-    return;
+  if (!hasError && user.password !== password) {
+    passwordError.textContent = "Password is incorrect.";
+    hasError = true;
   }
 
-  // Login successful
+  if (hasError) return;
+
+  
   localStorage.setItem('currentUser', JSON.stringify({ name: user.name, email: mailid, role: user.role }));
   window.location.href = '/pages/stud-dash.html';
 };

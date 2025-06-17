@@ -5,7 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const password = document.getElementById("password");
   const confirmPassword = document.getElementById("confirmPassword");
   const role = document.getElementById("role");
-  const errorTag = document.getElementById("error-tag");
+
+  const errorFields = {
+    name: document.getElementById("name-error"),
+    email: document.getElementById("email-error"),
+    password: document.getElementById("password-error"),
+    confirm: document.getElementById("confirm-error"),
+    role: document.getElementById("role-error")
+  };
 
   const fetchUsers = () => JSON.parse(localStorage.getItem("users")) || [];
 
@@ -16,41 +23,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    let errors = [];
-
-
-    const passwordVal = password.value;
-    const specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
-    const emailVal = mailid.value.trim();
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     
-    if (name.value.trim() === "") errors.push("Name is required.");
+    Object.values(errorFields).forEach(el => el.innerText = "");
+
+    const nameVal = name.value.trim();
+    const emailVal = mailid.value.trim();
+    const passwordVal = password.value;
+    const confirmPasswordVal = confirmPassword.value;
+    const roleVal = role.value;
+
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
+
+    let isValid = true;
+
+    if (nameVal === "") {
+      errorFields.name.innerText = "Name is required.";
+      isValid = false;
+    }
+
     if (emailVal === "") {
-      errors.push("Email is required.");
+      errorFields.email.innerText = "Email is required.";
+      isValid = false;
     } else if (!emailPattern.test(emailVal)) {
-      errors.push("Invalid email format.");
+      errorFields.email.innerText = "Invalid email format.";
+      isValid = false;
+    } else if (emailExists(emailVal)) {
+      errorFields.email.innerText = "Email already exists.";
+      isValid = false;
     }
 
-    if ((passwordVal.length < 6)  && (!specialCharPattern.test(passwordVal)) ) errors.push("Password must be at least 6 characters with 1 special Charrecter.");
-    if (passwordVal !== confirmPassword.value) errors.push("Passwords do not match.");
-    if (role.value === "default") errors.push("Please select a role.");
-
-    if (emailExists(mailid.value.trim())) {
-      errors.push("Email already exists.");
+    if (passwordVal.length < 6 || !specialCharPattern.test(passwordVal)) {
+      errorFields.password.innerText = "Password must be at least 6 characters and include a special character.";
+      isValid = false;
     }
 
-    if (errors.length > 0) {
-      errorTag.innerHTML = errors.map(err => `<div class="alert alert-danger">${err}</div>`).join("");
-      return;
+    if (passwordVal !== confirmPasswordVal) {
+      errorFields.confirm.innerText = "Passwords do not match.";
+      isValid = false;
     }
+
+    if (roleVal === "default") {
+      errorFields.role.innerText = "Please select a role.";
+      isValid = false;
+    }
+
+    if (!isValid) return;
 
     const users = fetchUsers();
     users.push({
-      name: name.value.trim(),
-      email: mailid.value.trim(),
-      password: password.value,
-      role: role.value
+      name: nameVal,
+      email: emailVal,
+      password: passwordVal,
+      role: roleVal
     });
 
     localStorage.setItem("users", JSON.stringify(users));

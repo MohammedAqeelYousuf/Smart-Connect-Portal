@@ -31,10 +31,12 @@
     <form id="login-form" class="login-form">
       <label for="mailid">Email ID</label>
       <input type="text" id="mailid" placeholder="Enter your registered Email" name="mailid" required>
+       <div class="error" id="mailid-error"></div>
 
       <label for="password">Password</label>
       <input type="password" id="password" placeholder="Enter your password" name="password" required>
-
+      <div class="error" id="password-error"></div>
+      
       <button class="btn btn-outline-success text-white" type="submit">Login</button>
     </form>
   </main>

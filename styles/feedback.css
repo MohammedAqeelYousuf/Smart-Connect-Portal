@@ -67,7 +67,6 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.8), rgba(168, 85, 247, 0.8), transparent);
       border-radius: 20px 20px 0 0;
     }
 
