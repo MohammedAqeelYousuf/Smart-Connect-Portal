@@ -26,7 +26,8 @@
 
   <main class="login-container text-white shadow-md">
     <h2>Signup</h2>
-    <form action="/pages/home.html" method="get" class="login-form">
+    <h2 id="error-tag"></h2>
+    <form id="signup-form" class="login-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
 
@@ -36,12 +37,22 @@
       <label for="password">Password</label>
       <input type="password" id="password" name="password" required>
 
-      <button class="btn btn-outline-success text-white" type="submit">Signup</button>
+        <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+      <label for="role">Role</label>
+      <select name="role" id="role" class="shadow p-1">
+        <option value="default" default>Select role</option>
+        <option value="student">Student</option>
+        <option value="staff">Staff</option>
+      </select>
+
+      <button class="btn btn-outline-success text-white">Signup</button>
     </form>
   </main>
 
   <!-- Footer Section -->
-  <footer class="bg-body-tertiary fixed-bottom py-3">
+  <footer class="bg-body-tertiary  py-3">
     <div class="container text-center">
       <p>&copy; 2025 Connect Portal. All rights reserved.</p>
       <ul class="list-inline">
@@ -52,5 +63,6 @@
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script src="../../modules/register.js"></script>
 </body>
 </html>

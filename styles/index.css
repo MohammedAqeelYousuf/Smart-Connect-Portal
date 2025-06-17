@@ -12,12 +12,33 @@ body {
 .navbar-bg {
   background-color: #0a1d2e;
   height: 8vh;
+  min-height: fit-content;
 }
 
 .sidebar{
-   
     background-color: #0a1d2e;
     width: 15%;
     min-width: fit-content;
     height: 92vh; 
+}
+
+.main-content{
+    height: 92vh; 
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

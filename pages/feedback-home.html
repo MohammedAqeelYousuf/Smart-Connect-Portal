@@ -157,44 +157,44 @@
       </nav>
   </header>
 
-  <section class="d-flex">
+  <section class="d-flex main-content">
     <!-- Sidebar for better navigation experience -->
-    <aside class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar">
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="/pages/home.html" class="nav-link text-white px-3 text-center" aria-current="page">
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white px-3 text-center">
-          Events
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white px-3 text-center">
-          Query
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link active px-3 text-center">
-          Feedback
-        </a>
-      </li>
-    </ul>
-    <hr>
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <strong>User</strong>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
+    <aside class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar text-uppercase">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="/pages/home.html" class="nav-link text-white px-3 text-center" aria-current="page">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/pages/events.html" class="nav-link text-white px-3 text-center">
+            Events
+          </a>
+        </li>
+        <li>
+          <a href="/pages/query.html" class="nav-link text-white px-3 text-center">
+            Query
+          </a>
+        </li>
+        <li>
+          <a href="/pages/feedback-home.html" class="nav-link active text-white px-3 text-center" id="openFeedback">
+            Feedback
+          </a>
+        </li>
       </ul>
-    </div>
-  </aside>
-    <main class="dashboard  px-4 py-2">
+      <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <strong>User</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li class="dropdown-item" onclick="logoutUser()">Sign out</li>
+        </ul>
+      </div>
+    </aside>
+    <main class="dashboard  px-4 py-2 main-content">
       <div class="container mt-12">
 
 
@@ -240,5 +240,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   <script src="/modules/form-validation.js"></script>
+  <script src="../modules/commonFeature.js"></script>
 </body>
 </html>
