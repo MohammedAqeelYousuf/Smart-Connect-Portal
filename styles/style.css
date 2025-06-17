@@ -1,9 +1,11 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
   background-color: #0a1d2e;
   color: white;
+  font-family: 'Segoe UI', sans-serif;
 }
+
 
 .navbar-bg {
   display: flex;
@@ -16,8 +18,10 @@ body {
 
 .hero {
   text-align: center;
-  padding: 80px 20px;
+  padding: 80px 20px 30px 20px; /* reduce bottom padding */
 }
+
+
 
 .hero h1 {
   font-size: 36px;
@@ -92,6 +96,62 @@ body {
 .star-rating .fa-solid {
   color: gold;
 }
+
+/* ===== Homepage Cards Section ===== */
+
+.card {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  color: #0a1d2e; /* Optional: ensure headings are dark too */
+}
+
+.card-text {
+  font-size: 0.95rem;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+.card-section {
+  background-color: transparent;
+  padding: 40px 0;
+}
+
+.page-wrapper {
+  background-color: #0a1d2e;
+  min-height: 100vh;
+  color: white;
+}
+
+.hero, .card-section {
+  background-color: transparent !important;
+}
+
+.card {
+  background-color: #ffffff;
+  color: #0a1d2e;
+}
+
 
  
 /* body, html {

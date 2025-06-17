@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Navbar */
+.navbar-bg {
+  background-color: #0a1d2e;
+  padding: 1rem 2rem;
+}
+
+.navbar a,
+.navbar .navbar-brand {
+  color: white !important;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background-color: #0a1d2e;
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #ddd !important;
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+  background-color: #0d2f47;
+  color: white !important;
+}
+
+/* Dashboard Content */
+.dashboard {
+  flex-grow: 1;
+  background-color: #f5f7fa;
+}
+
+.dashboard h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.dashboard-section {
+  margin-top: 2rem;
+}
+
+/* Cards */
+.card {
+  background-color: #0a1d2e !important;
+  color: white !important;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #bbbba3;
+}
+
+/* Responsive Layout */
+.main-content {
+  display: flex;
+}
+
+/* Badge style (if used later) */
+.badge {
+  font-size: 0.75rem;
+}
+
+/* Dropdown in sidebar */
+.sidebar .dropdown-toggle {
+  font-weight: 500;
+  color: #ccc;
+}
+
+.sidebar .dropdown-toggle:hover {
+  color: white;
+}
