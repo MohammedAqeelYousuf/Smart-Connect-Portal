@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Smart Campus Connect</title>
+  <link rel="stylesheet" href="/styles/admin-dashboard.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="#">Admin Dashboard</a>
+    <div class="ms-auto">
+      <span class="text-white me-3">Welcome, Admin</span>
+      <button class="btn btn-outline-light btn-sm">Logout</button>
+    </div>
+  </nav>
+
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <aside class="bg-dark text-white p-3" style="min-height: 100vh; width: 220px;">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Dashboard</a></li>
+        <!-- <li class="nav-item"><a class="nav-link text-white" href="#">Manage Users</a></li> -->
+        <li class="nav-item"><a class="nav-link text-white" href="#">Post Announcements</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">View Feedback</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Resolve Queries</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-grow-1 p-4 bg-light">
+      <h2>Dashboard Overview</h2>
+
+      <!-- Stat Cards -->
+      <div class="row my-4">
+        <div class="col-md-4">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Total Students</h5>
+              <p class="card-text fs-4">1,204</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Active Queries</h5>
+              <p class="card-text fs-4">36</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Pending Feedback</h5>
+              <p class="card-text fs-4">17</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Sections -->
+      <section class="my-5">
+        <h4>Post a New Announcement</h4>
+        <textarea class="form-control mb-3" rows="3" placeholder="Type your announcement here..."></textarea>
+        <button class="btn btn-primary">Submit</button>
+      </section>
+
+      <section class="my-5">
+        <h4>Latest Feedback</h4>
+        <ul class="list-group">
+          <li class="list-group-item">Feedback #1032 - “Please fix attendance report delay.”</li>
+          <li class="list-group-item">Feedback #1025 - “Improve cafeteria hygiene.”</li>
+          <li class="list-group-item">Feedback #1019 - “Great initiative with new ID cards!”</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

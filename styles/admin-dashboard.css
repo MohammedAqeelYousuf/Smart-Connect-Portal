@@ -1,0 +1,31 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+aside .nav-link {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+aside .nav-link:hover {
+  background-color: #1a1a1a;
+  border-radius: 5px;
+}
+
+main h2 {
+  font-weight: 600;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+textarea {
+  resize: none;
+}
