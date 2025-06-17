@@ -1,51 +1,28 @@
-const fetchUsers = () => JSON.parse(localStorage.getItem('users')) || [];
+const fetchUser = (email,password) =>{
+    const users = JSON.parse(localStorage.getItem('users')) || []
+    const user = users.filter((u)=>u.email===email&&u.password===password)
 
-const fetchUserByEmail = (email) => {
-  const users = fetchUsers();
-  return users.find(user => user.email === email);
-};
+    return user.length>0?user[0]:null;
+}
 
-let errorTag = document.getElementById('error-tag');
+let errorTag = document.getElementById('error-tag')
 
-const loginUser = (e) => {
-  e.preventDefault();
+const loginUser = (e)=>{
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-  const mailid = document.getElementById("mailid").value.trim();
-  const password = document.getElementById("password").value;
+    errorTag.innerText = ''
 
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  errorTag.innerHTML = '';
+    const user = fetchUser(username,password);
 
-  let errors = [];
+    if(!user){
+        errorTag.innerText = "User does not exists"
+    }
 
-  // Check if email is valid format
-  if (mailid === '') {
-    errors.push("Email is required.");
-  } else if (!emailPattern.test(mailid)) {
-    errors.push("Invalid email format.");
-  }
+    localStorage.setItem('currentUser',JSON.stringify({name:user.name,email:username,role:user.role}));
 
-  // Stop early if basic email checks fail
-  if (errors.length > 0) {
-    errorTag.innerHTML = errors.map(err => `<div class="alert alert-danger">${err}</div>`).join("");
-    return;
-  }
-
-  const user = fetchUserByEmail(mailid);
-
-  if (!user) {
-    errorTag.innerHTML = `<div class="alert alert-danger">User with this email does not exist.</div>`;
-    return;
-  }
-
-  if (user.password !== password) {
-    errorTag.innerHTML = `<div class="alert alert-danger">Password is incorrect.</div>`;
-    return;
-  }
-
-  // Login successful
-  localStorage.setItem('currentUser', JSON.stringify({ name: user.name, email: mailid, role: user.role }));
-  window.location.href = '/pages/home.html';
-};
+    window.location.href = '/pages/home.html';
+}
 
 document.getElementById("login-form").addEventListener("submit", loginUser);

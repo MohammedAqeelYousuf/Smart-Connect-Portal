@@ -1,59 +1,39 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("signup-form");
-  const name = document.getElementById("name");
-  const mailid = document.getElementById("mailid");
-  const password = document.getElementById("password");
-  const confirmPassword = document.getElementById("confirmPassword");
-  const role = document.getElementById("role");
-  const errorTag = document.getElementById("error-tag");
+const fetchUsers = () =>{
+    return JSON.parse(localStorage.getItem('users')) || []
+}
 
-  const fetchUsers = () => JSON.parse(localStorage.getItem("users")) || [];
+const emailExists = (email) => {
+    const users = localStorage.getItem('users') || []
 
-  const emailExists = (email) => {
-    const users = fetchUsers();
-    return users.some(user => user.email === email);
-  };
+    const existingUser = users.filter(user=>user.email===email);
 
-  form.addEventListener("submit", function (e) {
+    return existingUser.length>0?true:false
+}
+let errorTag = document.getElementById('error-tag')
+
+const createUser = (e)=>{
     e.preventDefault();
-
-    let errors = [];
-
-
-    const passwordVal = password.value;
-    const specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
-    const emailVal = mailid.value.trim();
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const name = document.getElementById("name").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value
+    const role = document.getElementById("role").value
     
-    if (name.value.trim() === "") errors.push("Name is required.");
-    if (emailVal === "") {
-      errors.push("Email is required.");
-    } else if (!emailPattern.test(emailVal)) {
-      errors.push("Invalid email format.");
+    errorTag.innerText = ''
+
+    if(emailExists(username)){
+        errorTag.innerText = 'Username already exists';
+        return
     }
 
-    if ((passwordVal.length < 6)  && (!specialCharPattern.test(passwordVal)) ) errors.push("Password must be at least 6 characters with 1 special Charrecter.");
-    if (passwordVal !== confirmPassword.value) errors.push("Passwords do not match.");
-    if (role.value === "default") errors.push("Please select a role.");
-
-    if (emailExists(mailid.value.trim())) {
-      errors.push("Email already exists.");
+    if(password!==confirmPassword){
+        errorTag.innerText = "Password does not match with confirm password"
     }
 
-    if (errors.length > 0) {
-      errorTag.innerHTML = errors.map(err => `<div class="alert alert-danger">${err}</div>`).join("");
-      return;
-    }
+    let users = fetchUsers();
+    localStorage.setItem('users',JSON.stringify([...users,{name,email:username,password,role}]));
 
-    const users = fetchUsers();
-    users.push({
-      name: name.value.trim(),
-      email: mailid.value.trim(),
-      password: password.value,
-      role: role.value
-    });
+    window.location.href = '/pages/auth/login.html';
+}
 
-    localStorage.setItem("users", JSON.stringify(users));
-    window.location.href = "/pages/auth/login.html";
-  });
-});
+document.getElementById("signup-form").addEventListener("submit", createUser);
