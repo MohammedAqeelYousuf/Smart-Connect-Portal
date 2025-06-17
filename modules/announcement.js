@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed"); // Debugging log
+
     // Sample announcements data (without images)
     const announcements = [
         {
@@ -42,28 +44,67 @@ document.addEventListener('DOMContentLoaded', function() {
             content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
             category: "academic",
             date: "12.12.2023"
+        },
+          {
+            id: 7,
+            title: "New Course Offerings",
+            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+            category: "academic",
+            date: "12.12.2023"
+        },
+          {
+            id: 8,
+            title: "New Course Offerings",
+            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+            category: "academic",
+            date: "12.12.2023"
+        },
+          {
+            id: 9,
+            title: "New Course Offerings",
+            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+            category: "academic",
+            date: "12.12.2023"
+        },
+          {
+            id: 10,
+            title: "New Course Offerings",
+            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+            category: "academic",
+            date: "12.12.2023"
         }
     ];
 
-    // DOM elements
-    const announcementGrid = document.querySelector('.announcement-grid');
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // DOM elements with updated class names
+    const announcementGrid = document.querySelector('.announcement-present-grid');
+    const filterButtons = document.querySelectorAll('.announcement-present-filter-btn');
     const announcementModal = document.getElementById('announcement-modal');
     const addAnnouncementModal = document.getElementById('add-announcement-modal');
-    const closeButtons = document.querySelectorAll('.close-btn');
+    const closeButtons = document.querySelectorAll('.announcement-present-close-btn');
     const announcementForm = document.getElementById('announcement-form');
     const addAnnouncementBtn = document.getElementById('add-announcement-btn');
+
+    // Debugging: Check if elements are found
+    console.log('Grid element:', announcementGrid);
+    console.log('Filter buttons:', filterButtons);
+    console.log('Modals:', announcementModal, addAnnouncementModal);
 
     // For demo purposes, assume user is admin
     const isAdmin = true;
 
     // Display admin controls if user is admin
-    if (isAdmin) {
-        document.querySelector('.admin-controls').style.display = 'block';
+    const adminControls = document.querySelector('.announcement-present-admin-controls');
+    if (isAdmin && adminControls) {
+        adminControls.style.display = 'block';
     }
 
     // Render announcements
     function renderAnnouncements(filter = 'all') {
+        if (!announcementGrid) {
+            console.error('Announcement grid element not found');
+            return;
+        }
+        
         announcementGrid.innerHTML = '';
         
         const filteredAnnouncements = filter === 'all' 
@@ -72,15 +113,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         filteredAnnouncements.forEach(announcement => {
             const card = document.createElement('div');
-            card.className = 'announcement-card';
+            card.className = 'announcement-present-card';
             card.dataset.category = announcement.category;
             
             card.innerHTML = `
-                <div class="card-content">
-                    <span class="category-tag ${announcement.category}">${announcement.category}</span>
+                <div class="announcement-present-card-content">
+                    <span class="announcement-present-category-tag announcement-present-${announcement.category}">${announcement.category}</span>
                     <h3>${announcement.title}</h3>
                     <p>${announcement.content.substring(0, 100)}...</p>
-                    <div class="card-meta">
+                    <div class="announcement-present-card-meta">
                         <span>${announcement.date}</span>
                     </div>
                 </div>
@@ -93,13 +134,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Open announcement modal with full details
     function openAnnouncementModal(announcement) {
-        const modalBody = announcementModal.querySelector('.modal-body');
+        if (!announcementModal) {
+            console.error('Announcement modal not found');
+            return;
+        }
+        
+        const modalBody = announcementModal.querySelector('.announcement-present-modal-body');
+        if (!modalBody) {
+            console.error('Modal body not found');
+            return;
+        }
+        
         modalBody.innerHTML = `
             <h2>${announcement.title}</h2>
-            <span class="date">Published on ${announcement.date}</span>
+            <span class="announcement-present-date">Published on ${announcement.date}</span>
             <p>${announcement.content}</p>
-            ${isAdmin ? `<div class="admin-actions">
-                <button class="delete-btn" data-id="${announcement.id}">Delete Announcement</button>
+            ${isAdmin ? `<div class="announcement-present-admin-actions">
+                <button class="announcement-present-delete-btn" data-id="${announcement.id}">Delete Announcement</button>
             </div>` : ''}
         `;
         
@@ -107,23 +158,27 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add event listener for delete button if admin
         if (isAdmin) {
-            const deleteBtn = modalBody.querySelector('.delete-btn');
-            deleteBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                deleteAnnouncement(announcement.id);
-            });
+            const deleteBtn = modalBody.querySelector('.announcement-present-delete-btn');
+            if (deleteBtn) {
+                deleteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    deleteAnnouncement(announcement.id);
+                });
+            }
         }
     }
 
     // Open add announcement modal
     function openAddAnnouncementModal() {
-        addAnnouncementModal.style.display = 'block';
+        if (addAnnouncementModal) {
+            addAnnouncementModal.style.display = 'block';
+        }
     }
 
     // Close modal
     function closeModal() {
-        announcementModal.style.display = 'none';
-        addAnnouncementModal.style.display = 'none';
+        if (announcementModal) announcementModal.style.display = 'none';
+        if (addAnnouncementModal) addAnnouncementModal.style.display = 'none';
     }
 
     // Delete announcement
@@ -132,7 +187,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const index = announcements.findIndex(ann => ann.id === id);
             if (index !== -1) {
                 announcements.splice(index, 1);
-                renderAnnouncements(document.querySelector('.filter-btn.active').dataset.filter);
+                const activeFilter = document.querySelector('.announcement-present-filter-btn.active');
+                renderAnnouncements(activeFilter ? activeFilter.dataset.filter : 'all');
                 closeModal();
             }
         }
@@ -149,40 +205,52 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         announcements.unshift(newAnnouncement);
-        renderAnnouncements(document.querySelector('.filter-btn.active').dataset.filter);
+        const activeFilter = document.querySelector('.announcement-present-filter-btn.active');
+        renderAnnouncements(activeFilter ? activeFilter.dataset.filter : 'all');
         closeModal();
     }
 
-    // Event listeners
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            renderAnnouncements(button.dataset.filter);
+    // Event listeners with null checks
+    if (filterButtons.length) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                renderAnnouncements(button.dataset.filter);
+            });
         });
-    });
+    }
 
-    closeButtons.forEach(button => {
-        button.addEventListener('click', closeModal);
-    });
+    if (closeButtons.length) {
+        closeButtons.forEach(button => {
+            button.addEventListener('click', closeModal);
+        });
+    }
 
     window.addEventListener('click', (e) => {
-        if (e.target === announcementModal || e.target === addAnnouncementModal) {
+        if ((announcementModal && e.target === announcementModal) || 
+            (addAnnouncementModal && e.target === addAnnouncementModal)) {
             closeModal();
         }
     });
 
-    addAnnouncementBtn.addEventListener('click', openAddAnnouncementModal);
+    if (addAnnouncementBtn) {
+        addAnnouncementBtn.addEventListener('click', openAddAnnouncementModal);
+    }
 
-    announcementForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const title = document.getElementById('title').value;
-        const category = document.getElementById('category').value;
-        const content = document.getElementById('content').value;
-        
-        addAnnouncement(title, category, content);
-        announcementForm.reset();
-    });
+    if (announcementForm) {
+        announcementForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('title')?.value;
+            const category = document.getElementById('category')?.value;
+            const content = document.getElementById('content')?.value;
+            
+            if (title && category && content) {
+                addAnnouncement(title, category, content);
+                announcementForm.reset();
+            }
+        });
+    }
 
     // Initial render
     renderAnnouncements();

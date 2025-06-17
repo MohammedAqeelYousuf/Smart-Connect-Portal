@@ -5,46 +5,125 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0a1d2e;
-    color: #e0e0e0;
-    min-height: 100vh;
-    padding: 2rem;
-    line-height: 1.6;
+.navbar-bg {
+  background-color: #0a1d2e;
+  height: 8vh;
+  min-height: fit-content;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.container {
+
+.sidebar {
+  background-color: #0a1d2e;
+  width: 15%;
+  min-width: fit-content;
+  height: 92vh;
+  position: sticky;
+  top: 8vh;
+  overflow-y: auto;
+}
+
+.main-content {
+  display: flex;
+  height: 92vh;
+  overflow: hidden;
+}
+
+.dashboard {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.announcement-present-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+}
+
+@media (min-width: 1440px) {
+    .announcement-present-container {
+        width: 1254px;
+        max-width: none;
+        padding: 1rem 0;
+    }
+}
+
+
+
+.announcement-present-container {
+    max-width: 1200px;
+ 
+    margin: 0 auto;
+    padding: 1rem; 
+    position: relative;
+}
+
+@media (min-width: 1440px) {
+    .announcement-present-container {
+        width: 1254px;
+        max-width: none;
+        padding: 1rem 0;
+    }
+}
+
+@media (min-width: 2560px) {
+    .announcement-present-container {
+        margin-left: auto;
+        margin-right: auto;
+        width:260%;
+    }
 }
 
 /* Header Styles */
-header {
+.announcement-present-header {
     text-align: center;
     margin-bottom: 2rem;
     padding: 1.5rem;
     background-color: #122a42;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative; 
+    padding-top: 3rem; 
 }
 
-header h1 {
+.announcement-present-header h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     font-weight: 600;
     color: white;
 }
 
-/* Filter Button Styles */
-.filters {
+.announcement-present-filters {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem; 
+    margin-bottom: 0; 
 }
 
-.filter-btn {
+
+.announcement-present-filter-btn {
     padding: 0.5rem 1.5rem;
     border: none;
     border-radius: 25px;
@@ -56,26 +135,24 @@ header h1 {
     transition: all 0.3s ease;
 }
 
-.filter-btn:hover {
+.announcement-present-filter-btn:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.filter-btn.active {
+.announcement-present-filter-btn.active {
    background-color: rgb(255 255 255 / 99%);
     color: #0a1d2e;
-
 }
 
 /* Announcement Grid Styles */
-.announcement-grid {
+.announcement-present-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.announcement-card {
-    /* background-color: rgba(255, 255, 255, 0.08); */
+.announcement-present-card {
     background-color: rgb(255, 255, 255, 0.94);
     border-radius: 10px;
     overflow: hidden;
@@ -87,25 +164,25 @@ header h1 {
     backdrop-filter: blur(5px);
 }
 
-.announcement-card:hover {
+.announcement-present-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     background-color: rgba(255, 255, 255, 0.905);
 }
 
-.card-content h3 {
+.announcement-present-card-content h3 {
     margin-bottom: 0.8rem;
     font-size: 1.2rem;
     color: #0a1d2e;
 }
 
-.card-content p {
+.announcement-present-card-content p {
     margin-bottom: 1rem;
     color: #0a1d2e;
     opacity: 0.9;
 }
 
-.card-meta {
+.announcement-present-card-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -113,7 +190,7 @@ header h1 {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.category-tag {
+.announcement-present-category-tag {
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.7rem;
@@ -126,23 +203,23 @@ header h1 {
 }
 
 /* Category Specific Styles */
-.academic {
+.announcement-present-academic {
     border-left-color: #4a89dc;
     background-color: rgb(74 137 220 / 96%);
 }
 
-.events {
+.announcement-present-events {
     border-left-color: #967adc;
     background-color: rgb(150 122 220 / 95%);
 }
 
-.general {
+.announcement-present-general {
     border-left-color: #48cfad;
     background-color: rgb(72 207 173 / 99%);
 }
 
-/* Modal Styles */
-.modal {
+
+.announcement-present-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -154,7 +231,7 @@ header h1 {
     overflow-y: auto;
 }
 
-.modal-content {
+.announcement-present-modal-content {
     background-color: #122a42;
     margin: 5% auto;
     padding: 2rem;
@@ -166,7 +243,7 @@ header h1 {
     border-top: 4px solid #3a66d9;
 }
 
-.close-btn {
+.announcement-present-close-btn {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -176,37 +253,41 @@ header h1 {
     transition: color 0.2s ease;
 }
 
-.close-btn:hover {
+.announcement-present-close-btn:hover {
     color: white;
 }
 
-.modal-body {
+.announcement-present-modal-body {
     padding: 1rem 0;
 }
 
-.modal-body h2 {
+.announcement-present-modal-body h2 {
     color: white;
     margin-bottom: 1rem;
 }
 
-.modal-body .date {
+.announcement-present-modal-body .announcement-present-date {
     color: rgba(255, 255, 255, 0.6);
     margin-bottom: 1.5rem;
     font-style: italic;
 }
 
-.modal-body p {
+.announcement-present-modal-body p {
     margin-bottom: 1.5rem;
     line-height: 1.7;
+    color: #e0e0e0;
+}.announcement-present-modal-content h2{
+    color: white;
 }
 
-/* Admin Control Styles */
-.admin-controls {
-    text-align: center;
-    margin-top: 2rem;
+.announcement-present-admin-controls {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1; 
 }
 
-.admin-btn {
+.announcement-present-admin-btn {
     padding: 0.8rem 1.8rem;
     background-color: #3a66d9;
     color: white;
@@ -222,27 +303,52 @@ header h1 {
     box-shadow: 0 4px 12px rgba(58, 102, 217, 0.3);
 }
 
-.admin-btn:hover {
+.announcement-present-admin-btn:hover {
     background-color: #2a56c5;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(58, 102, 217, 0.4);
 }
 
-/* Form Styles */
-.form-group {
+
+.announcement-present-container {
+    position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+     .announcement-present-header {
+        padding-top: 1.5rem;
+    }
+    
+    .announcement-present-admin-controls {
+        position: static;
+        text-align: center;
+        margin: 1rem 0;
+    }
+    .announcement-present-filters {
+        flex-wrap: wrap;
+    }
+    .announcement-present-admin-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.announcement-present-form-group {
     margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.announcement-present-form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
     color: white;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.announcement-present-form-group input,
+.announcement-present-form-group select,
+.announcement-present-form-group textarea {
     width: 100%;
     padding: 0.8rem;
     background-color: rgba(255, 255, 255, 0.1);
@@ -253,19 +359,19 @@ header h1 {
     transition: border-color 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.announcement-present-form-group input:focus,
+.announcement-present-form-group select:focus,
+.announcement-present-form-group textarea:focus {
     outline: none;
     border-color: #3a66d9;
 }
 
-.form-group textarea {
+.announcement-present-form-group textarea {
     min-height: 150px;
     resize: vertical;
 }
 
-.submit-btn {
+.announcement-present-submit-btn {
     width: 100%;
     padding: 1rem;
     background-color: #3a66d9;
@@ -279,13 +385,13 @@ header h1 {
     margin-top: 1rem;
 }
 
-.submit-btn:hover {
+.announcement-present-submit-btn:hover {
     background-color: #2a56c5;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(58, 102, 217, 0.4);
 }
 
-.delete-btn {
+.announcement-present-delete-btn {
     padding: 0.6rem 1.2rem;
     background-color: #e74c3c;
     color: white;
@@ -298,25 +404,26 @@ header h1 {
     margin-top: 1.5rem;
 }
 
-.delete-btn:hover {
+.announcement-present-delete-btn:hover {
     background-color: #c0392b;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .announcement-grid {
+    .announcement-present-grid {
         grid-template-columns: 1fr;
     }
     
-    header h1 {
-        font-size: 2rem;
+      .announcement-present-header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
     }
     
     body {
         padding: 1rem;
     }
     
-    .modal-content {
+    .announcement-present-modal-content {
         padding: 1.5rem;
     }
 }
