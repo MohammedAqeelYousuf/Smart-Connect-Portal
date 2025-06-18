@@ -7,7 +7,7 @@ const isLoggedIn = () => {
 const logoutUser = () => {
     localStorage.removeItem('currentUser');
 
-    window.location.href = '/pages/index.html'
+    window.location.href = '/index.html'
 }
 
 
