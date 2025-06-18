@@ -5,34 +5,6 @@ body {
   color: #333;
 }
 
-/* Navbar */
-.navbar-bg {
-  background-color: #0a1d2e;
-  padding: 1rem 2rem;
-}
-
-.navbar a,
-.navbar .navbar-brand {
-  color: white !important;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 220px;
-  min-height: 100vh;
-  background-color: #0a1d2e;
-}
-
-.sidebar .nav-link {
-  font-weight: 500;
-  color: #ddd !important;
-}
-
-.sidebar .nav-link.active,
-.sidebar .nav-link:hover {
-  background-color: #0d2f47;
-  color: white !important;
-}
 
 /* Dashboard Content */
 .dashboard {
@@ -78,9 +50,9 @@ body {
 }
 
 /* Responsive Layout */
-.main-content {
+/* .main-content {
   display: flex;
-}
+} */
 
 /* Badge style (if used later) */
 .badge {
