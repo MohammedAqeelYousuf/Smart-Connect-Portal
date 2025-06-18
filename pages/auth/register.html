@@ -10,52 +10,55 @@
 
   <!-- Navbar Section -->
   <header>
-      <nav class="navbar navbar-bg text-white">
-       <div class="container-fluid">
-          <a href="/pages/index.html" class="navbar-brand text-white">Connect Portal</a>
-          <div>
-            <a class="text-decoration-none" href="login.html">
-              <button id="login-button" class="btn btn-outline-success">Login</button>
-            </a>
-            <a class="text-decoration-none" href="register.html">
-              <button id="signup-button" class="btn btn-outline-primary">Signup</button>
-            </a>
-          </div>
+    <nav class="navbar navbar-bg text-white">
+      <div class="container-fluid">
+        <a href="/pages/index.html" class="navbar-brand text-white">Connect Portal</a>
+        <div>
+          <a class="text-decoration-none" href="login.html">
+            <button id="login-button" class="btn btn-outline-success">Login</button>
+          </a>
+          <a class="text-decoration-none" href="register.html">
+            <button id="signup-button" class="btn btn-outline-primary">Signup</button>
+          </a>
         </div>
-      </nav>
+      </div>
+    </nav>
   </header>
 
   <div class="signup-wrapper">
-   
-      
-      <div class="form-section">
-        <main class="login-container text-white shadow-md">
-          <h2>Register Now</h2>
-          <h2 id="error-tag"></h2>
-          <form id="signup-form" class="login-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Enter your name" name="name" required>
+    <div class="form-section">
+      <main class="login-container text-white shadow-md">
+        <h2>Register Now</h2>
 
-            <label for="mailid">Email ID</label>
-            <input type="text" id="mailid" placeholder="Enter your mail ID" name="mailid" required>
+        <form id="signup-form" class="login-form">
 
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password( 1 special character)" name="password" required>
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="Enter your name" name="name" required>
+          <div class="error" id="name-error"></div>
 
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" placeholder="Re-enter your password" name="confirmPassword" required>
+          <label for="mailid">Email ID</label>
+          <input type="text" id="mailid" placeholder="Enter your mail ID" name="mailid" required>
+          <div class="error" id="email-error"></div>
 
-            <label for="role">Role</label>
-            <select name="role" id="role" class="shadow p-1">
-              <option value="default" default>Select role</option>
-              <option value="student">Student</option>
-              <option value="staff">Staff</option>
-            </select>
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password (1 special character)" name="password" required>
+          <div class="error" id="password-error"></div>
 
-            <button class="btn btn-outline-success text-white">Signup</button>
-          </form>
-        </main>
-      </div>
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Re-enter your password" name="confirmPassword" required>
+          <div class="error" id="confirm-error"></div>
+
+          <label for="role">Role</label>
+          <select name="role" id="role" class="shadow p-1">
+            <option value="default" default>Select role</option>
+            <option value="student">Student</option>
+            <option value="staff">Staff</option>
+          </select>
+          <div class="error" id="role-error"></div>
+
+          <button class="btn btn-outline-success text-white">Signup</button>
+        </form>
+      </main>
     </div>
   </div>
 
@@ -71,7 +74,7 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="../../modules/register.js"></script>
 </body>
 </html>
