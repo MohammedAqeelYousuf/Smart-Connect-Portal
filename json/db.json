@@ -23,139 +23,232 @@
     }
   ],
 
+  "announcements": [
+    {
+      "id": 1,
+      "title": "Update for Smart Connect Portal",
+      "content": "We have updated the portal with new features to enhance your experience. Check out the new dashboard layout and improved navigation.",
+      "category": "general",
+      "date": "26.12.2023"
+    },
+    {
+      "id": 2,
+      "title": "Midterm Exam Schedule",
+      "content": "The midterm exam schedule for all courses has been published. Please check your department notice board or the online portal for details.",
+      "category": "academic",
+      "date": "24.12.2023"
+    },
+    {
+      "id": 3,
+      "title": "Annual Sports Week",
+      "content": "Join us for the annual sports week starting next Monday. Registrations are open for various competitions including cricket, football, and athletics.",
+      "category": "events",
+      "date": "20.12.2023"
+    },
+    {
+      "id": 4,
+      "title": "Library Hours Extended",
+      "content": "The central library will remain open until 10 PM during exam preparation weeks. Please make use of the extended hours for your studies.",
+      "category": "academic",
+      "date": "18.12.2023"
+    },
+    {
+      "id": 5,
+      "title": "Career Counseling Session",
+      "content": "A career counseling session will be held next Friday for final year students. Industry experts will be present to guide you about career opportunities.",
+      "category": "events",
+      "date": "15.12.2023"
+    },
+    {
+      "id": 6,
+      "title": "New Course Offerings",
+      "content": "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+      "category": "academic",
+      "date": "12.12.2023"
+    },
+    {
+      "id": 7,
+      "title": "New Course Offerings",
+      "content": "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+      "category": "academic",
+      "date": "12.12.2023"
+    },
+    {
+      "id": 8,
+      "title": "New Course Offerings",
+      "content": "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+      "category": "academic",
+      "date": "12.12.2023"
+    },
+    {
+      "id": 9,
+      "title": "New Course Offerings",
+      "content": "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+      "category": "academic",
+      "date": "12.12.2023"
+    },
+    {
+      "id": 10,
+      "title": "New Course Offerings",
+      "content": "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
+      "category": "academic",
+      "date": "12.12.2023"
+    }
+  ],
+
   "events": [
     {
       "id": 1,
-      "title": "Guest Lecture: Future of AI",
-      "description": "An inspiring talk on how AI will shape the future of jobs and education.",
+      "title": "AI Guest Lecture",
+      "description": "A lecture on the impact of AI in education and industry.",
       "location": "Auditorium A",
-      "date": "2025-07-05"
+      "date": "2025-07-01"
     },
     {
       "id": 2,
       "title": "Hackathon 2025",
-      "description": "A 24-hour coding event for all departments. Solve problems, win prizes!",
-      "location": "Lab 3",
+      "description": "Compete in coding challenges and win prizes.",
+      "location": "Computer Lab 2",
+      "date": "2025-07-05"
+    },
+    {
+      "id": 3,
+      "title": "Cultural Fest",
+      "description": "A week-long celebration of dance, drama and music.",
+      "location": "Main Stage",
+      "date": "2025-07-10"
+    },
+    {
+      "id": 4,
+      "title": "Photography Walk",
+      "description": "Explore the campus through your lens with our photography club.",
+      "location": "Campus Grounds",
       "date": "2025-07-15"
     },
     {
-      "id": 3,
-      "title": "Cybersecurity Workshop",
-      "description": "Learn ethical hacking and network security essentials.",
-      "location": "Seminar Hall B",
+      "id": 5,
+      "title": "Resume Workshop",
+      "description": "Get tips from HR experts on building a strong resume.",
+      "location": "Training Room 1",
+      "date": "2025-07-18"
+    },
+    {
+      "id": 6,
+      "title": "Blood Donation Camp",
+      "description": "Organized in collaboration with Red Cross.",
+      "location": "Medical Block",
       "date": "2025-07-20"
     },
     {
-      "id": 4,
-      "title": "Entrepreneurship Bootcamp",
-      "description": "Build and pitch your startup ideas in a 3-day bootcamp.",
-      "location": "Innovation Cell",
+      "id": 7,
+      "title": "Coding Bootcamp",
+      "description": "2-day intensive JavaScript workshop.",
+      "location": "Lab 5",
+      "date": "2025-07-22"
+    },
+    {
+      "id": 8,
+      "title": "Green Campus Drive",
+      "description": "Tree plantation around hostel areas.",
+      "location": "North Gate Garden",
       "date": "2025-07-25"
     },
     {
-      "id": 5,
-      "title": "Women in Tech Panel",
-      "description": "Join top women leaders in tech for a panel discussion and Q&A.",
-      "location": "Auditorium B",
-      "date": "2025-08-01"
-    },
-    {
-      "id": 6,
-      "title": "Photography Exhibition",
-      "description": "Photography club showcases its best works — open for public viewing.",
-      "location": "Gallery Hall",
-      "date": "2025-08-03"
-    },
-    {
-      "id": 7,
-      "title": "Annual Tech Fest",
-      "description": "Exhibitions, coding contests, and tech games throughout the week.",
-      "location": "Main Campus",
-      "date": "2025-08-10"
-    },
-    {
-      "id": 8,
-      "title": "Resume Building Workshop",
-      "description": "Learn to create professional resumes for placements and internships.",
-      "location": "Career Cell",
-      "date": "2025-08-12"
-    },
-    {
       "id": 9,
-      "title": "Blood Donation Camp",
-      "description": "Help save lives by donating blood. Organized with Red Cross Society.",
-      "location": "Medical Block",
-      "date": "2025-08-14"
+      "title": "Alumni Talk Series",
+      "description": "Interactive session with past graduates sharing industry experiences.",
+      "location": "Seminar Hall B",
+      "date": "2025-07-28"
     },
     {
       "id": 10,
-      "title": "Green Campus Drive",
-      "description": "Join the NSS team in planting trees around campus.",
-      "location": "Garden Area",
-      "date": "2025-08-20"
+      "title": "Internship Fair",
+      "description": "Companies offering internships for 3rd-year students.",
+      "location": "Placement Cell",
+      "date": "2025-07-30"
     }
   ],
 
-  "feedback": [
-    {
-      "id": 1,
-      "userId": 1,
-      "message": "The new dashboard layout is really helpful!",
-      "submittedOn": "2025-06-01"
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "message": "Can we get a dark mode option in the portal?",
-      "submittedOn": "2025-06-05"
-    },
-    {
-      "id": 3,
-      "userId": 3,
-      "message": "The announcements are very informative. Keep them coming!",
-      "submittedOn": "2025-06-10"
-    },
-    {
-      "id": 4,
-      "userId": 1,
-      "message": "Loved the recent AI guest lecture. Very engaging.",
-      "submittedOn": "2025-06-12"
-    },
-    {
-      "id": 5,
-      "userId": 2,
-      "message": "Portal is loading slower than usual in the evenings.",
-      "submittedOn": "2025-06-14"
-    },
-    {
-      "id": 6,
-      "userId": 3,
-      "message": "Can the events page show only upcoming events by default?",
-      "submittedOn": "2025-06-15"
-    },
-    {
-      "id": 7,
-      "userId": 1,
-      "message": "Appreciate the extra library hours during exams!",
-      "submittedOn": "2025-06-17"
-    },
-    {
-      "id": 8,
-      "userId": 2,
-      "message": "It would be great if we had notification alerts for new announcements.",
-      "submittedOn": "2025-06-18"
-    },
-    {
-      "id": 9,
-      "userId": 3,
-      "message": "Feedback section is useful. I hope someone actually reads these!",
-      "submittedOn": "2025-06-19"
-    },
-    {
-      "id": 10,
-      "userId": 1,
-      "message": "Is there a way to contact faculty directly from the portal?",
-      "submittedOn": "2025-06-20"
-    }
-  ]
+ "feedback": [
+  {
+    "id": 1,
+    "userId": 1,
+    "category": "website",
+    "subject": "Dashboard is clean",
+    "feedback": "The dashboard layout is user-friendly and fast.",
+    "date": "2025-06-01"
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "category": "announcement",
+    "subject": "More details needed",
+    "feedback": "The announcement about new electives lacked specific prerequisites.",
+    "date": "2025-06-02"
+  },
+  {
+    "id": 3,
+    "userId": 3,
+    "category": "event",
+    "subject": "Great sports week",
+    "feedback": "I really enjoyed the cricket tournament during Sports Week.",
+    "date": "2025-06-03"
+  },
+  {
+    "id": 4,
+    "userId": 1,
+    "category": "issue",
+    "subject": "Login problem",
+    "feedback": "Sometimes I get logged out automatically while browsing.",
+    "date": "2025-06-04"
+  },
+  {
+    "id": 5,
+    "userId": 2,
+    "category": "general",
+    "subject": "Add FAQ section",
+    "feedback": "It would be great to have a FAQ section for common issues.",
+    "date": "2025-06-05"
+  },
+  {
+    "id": 6,
+    "userId": 3,
+    "category": "event",
+    "subject": "Event notifications",
+    "feedback": "Please notify students about upcoming events via email.",
+    "date": "2025-06-06"
+  },
+  {
+    "id": 7,
+    "userId": 1,
+    "category": "website",
+    "subject": "Dark mode request",
+    "feedback": "Can you please add a dark mode toggle in settings?",
+    "date": "2025-06-07"
+  },
+  {
+    "id": 8,
+    "userId": 2,
+    "category": "announcement",
+    "subject": "Better formatting",
+    "feedback": "The announcement text looks too long on mobile screens.",
+    "date": "2025-06-08"
+  },
+  {
+    "id": 9,
+    "userId": 3,
+    "category": "issue",
+    "subject": "Slow loading",
+    "feedback": "The portal slows down in the evening hours.",
+    "date": "2025-06-09"
+  },
+  {
+    "id": 10,
+    "userId": 1,
+    "category": "general",
+    "subject": "Keep up the good work",
+    "feedback": "I appreciate the consistent updates and improvements!",
+    "date": "2025-06-10"
+  }
+]
 }
