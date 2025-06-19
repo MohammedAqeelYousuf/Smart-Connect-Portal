@@ -1,49 +1,124 @@
 "use strict";
-var _a, _b;
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+const updateUser = (id, name) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const response = yield fetch(`http://localhost:5503/users/${id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name })
+        });
+        const res = yield response.json();
+        return res;
+    }
+    catch (error) {
+        console.error("Error in updating user");
+        return null;
+    }
+});
+const updatePasswordByID = (id, oldPassword, newPassword) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const userFetchResponse = yield fetch(`http://localhost:5503/users/${id}`);
+        const userFetchRes = yield userFetchResponse.json();
+        if (oldPassword !== userFetchRes.password) {
+            console.error("Incorrect current password");
+            return null;
+        }
+        const response = yield fetch(`http://localhost:5503/users/${id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password: newPassword })
+        });
+        const res = yield response.json();
+        return res;
+    }
+    catch (error) {
+        console.error("Error in updating password");
+        return null;
+    }
+});
+const navLinks = {
+    admin: [
+        { title: "Home", url: "/pages/admin-dash.html" },
+        { title: "Announcements", url: "/pages/announcement.html" },
+        { title: "Events", url: "/pages/events.html" },
+        { title: "View Feedback", url: "/pages/view-feedback.html" },
+        { title: "Resolve Queries", url: "/pages/resolve-queries.html" }
+    ],
+    student: [
+        { title: "Home", url: "/pages/stud-dash.html" },
+        { title: "Events", url: "/pages/events.html" },
+        { title: "Feedback", url: "/pages/feedback-home.html" }
+    ]
+};
 const displayProfile = () => {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
-    const userData = document.getElementById('user-data');
-    if (userData && currentUser) {
-        userData.innerHTML = `
-            <h2 class="mb-1">${currentUser.name}</h2>
-            <p class="text-muted mb-2">Email: ${currentUser.email}</p>
-            <p class="text-muted mb-2">Role: ${currentUser.role}</p>
-        `;
+    const userDataDiv = document.getElementById('user-data');
+    const sidebarLinksUl = document.getElementById('sidebar-links');
+    if (!currentUser || !userDataDiv || !sidebarLinksUl)
+        return;
+    userDataDiv.innerHTML = `
+    <h2 class="mb-1">${currentUser.name}</h2>
+    <p class="text-muted mb-2">Email: ${currentUser.email}</p>
+    <p class="text-muted mb-2">Role: ${currentUser.role}</p>
+  `;
+    sidebarLinksUl.innerHTML = '';
+    const links = currentUser.role === "staff" ? navLinks.admin : navLinks.student;
+    for (const link of links) {
+        sidebarLinksUl.innerHTML += `
+      <li class="nav-item">
+        <a href="${link.url}" class="nav-link px-3 text-white text-center" aria-current="page">
+          ${link.title}
+        </a>
+      </li>
+    `;
     }
 };
 const setDefaultValues = () => {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
-    if (currentUser) {
-        const nameInput = document.getElementById('editName');
-        const emailInput = document.getElementById('editEmail');
-        if (nameInput)
-            nameInput.value = currentUser.name;
-        if (emailInput)
-            emailInput.value = currentUser.email;
-    }
-};
-const editUserProfile = (e) => {
-    e.preventDefault();
+    if (!currentUser)
+        return;
     const nameInput = document.getElementById('editName');
     const emailInput = document.getElementById('editEmail');
-    if (!nameInput || !emailInput)
-        return;
-    const name = nameInput.value;
-    const email = emailInput.value;
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    if (nameInput)
+        nameInput.value = currentUser.name;
+    if (emailInput)
+        emailInput.value = currentUser.email;
+};
+const editUserProfile = (e) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a, _b;
+    e.preventDefault();
+    const name = (_a = document.getElementById('editName')) === null || _a === void 0 ? void 0 : _a.value;
+    const email = (_b = document.getElementById('editEmail')) === null || _b === void 0 ? void 0 : _b.value;
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].email === (currentUser === null || currentUser === void 0 ? void 0 : currentUser.email)) {
-            users[i].name = name;
-            users[i].email = email;
-        }
+    if (!currentUser)
+        return;
+    const updated = yield updateUser(currentUser.id, name);
+    if (!updated) {
+        alert("Error in updating user");
+        return;
     }
-    localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('currentUser', JSON.stringify({ name, email, role: (currentUser === null || currentUser === void 0 ? void 0 : currentUser.role) || "" }));
+    localStorage.setItem('currentUser', JSON.stringify({
+        id: currentUser.id,
+        name,
+        email,
+        role: currentUser.role
+    }));
     alert("Profile is updated");
     displayProfile();
-};
-const updatePassword = (e) => {
+});
+const updatePassword = (e) => __awaiter(void 0, void 0, void 0, function* () {
     e.preventDefault();
     const currentPasswordInput = document.getElementById('currentPassword');
     const newPasswordInput = document.getElementById('newPassword');
@@ -55,25 +130,29 @@ const updatePassword = (e) => {
     const currentPassword = currentPasswordInput.value;
     const newPassword = newPasswordInput.value;
     const confirmNewPassword = confirmPasswordInput.value;
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+    if (!currentUser)
+        return;
     if (newPassword !== confirmNewPassword) {
         passwordError.innerText = "Password and Confirm Password does not match";
         return;
     }
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].email === (currentUser === null || currentUser === void 0 ? void 0 : currentUser.email)) {
-            if (users[i].password !== currentPassword) {
-                passwordError.innerText = "Invalid Password";
-                return;
-            }
-            users[i].password = newPassword;
-        }
+    const updated = yield updatePasswordByID(currentUser.id, currentPassword, newPassword);
+    if (!updated) {
+        alert("Error in updating password");
+        return;
     }
-    localStorage.setItem('users', JSON.stringify(users));
     alert("Password is updated");
-};
-(_a = document.getElementById('editUserForm')) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', editUserProfile);
-(_b = document.getElementById('updatePasswordModal')) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', updatePassword);
-displayProfile();
-setDefaultValues();
+});
+document.addEventListener('DOMContentLoaded', () => {
+    displayProfile();
+    setDefaultValues();
+});
+const editForm = document.getElementById('editUserForm');
+if (editForm) {
+    editForm.addEventListener('submit', editUserProfile);
+}
+const passwordForm = document.getElementById('updatePasswordModal');
+if (passwordForm) {
+    passwordForm.addEventListener('submit', updatePassword);
+}
