@@ -52,6 +52,14 @@
           </li>
           <li>
             <a
+              href="/pages/events.html"
+              class="nav-link text-white px-3 text-center"
+            >
+              Events
+            </a>
+          </li>
+          <li>
+            <a
               href="/pages/view-feedback.html"
               class="nav-link text-white px-3 text-center"
               id="openFeedback"
@@ -102,41 +110,39 @@
           <div class="card text-white bg-primary mb-3">
             <div class="card-body">
               <h5 class="card-title">Total Students</h5>
-              <p class="card-text fs-4">1,204</p>
+              <p id="student-stats" class="card-text fs-4"></p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card text-white bg-success mb-3">
             <div class="card-body">
-              <h5 class="card-title">Active Queries</h5>
-              <p class="card-text fs-4">36</p>
+              <h5 class="card-title">Queries</h5>
+              <p id="queries-stats" class="card-text fs-4"></p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card text-white bg-warning mb-3">
             <div class="card-body">
-              <h5 class="card-title">Pending Feedback</h5>
-              <p class="card-text fs-4">17</p>
+              <h5 class="card-title">Feedback</h5>
+              <p id="feedback-stats" class="card-text fs-4"></p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Action Sections -->
-      <section class="my-5">
+      <!-- <section class="my-5">
         <h4>Post a New Announcement</h4>
         <textarea class="form-control mb-3" rows="3" placeholder="Type your announcement here..."></textarea>
         <button class="btn btn-primary">Submit</button>
-      </section>
+      </section> -->
 
       <section class="my-5">
         <h4>Latest Feedback</h4>
-        <ul class="list-group">
-          <li class="list-group-item">Feedback #1032 - “Please fix attendance report delay.”</li>
-          <li class="list-group-item">Feedback #1025 - “Improve cafeteria hygiene.”</li>
-          <li class="list-group-item">Feedback #1019 - “Great initiative with new ID cards!”</li>
+        <ul id="feedback-content" class="list-group">
+          <!-- Dynamically loading latest 3 feedbacks -->
         </ul>
       </section>
     </main>
@@ -147,5 +153,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="../modules/commonFeature.js"></script>
+    <script src="../modules/admin-dashboard.js"></script>
 </body>
 </html>

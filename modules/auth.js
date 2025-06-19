@@ -61,7 +61,7 @@ if (mailid === "") {
   if (hasError) return;
 
   
-  localStorage.setItem('currentUser', JSON.stringify({ name: user.name, email: mailid, role: user.role }));
+  localStorage.setItem('currentUser', JSON.stringify({id:user.id, name: user.name, email: mailid, role: user.role }));
 
   if( user.role === 'staff') {
     window.location.href = '/pages/admin-dash.html';
