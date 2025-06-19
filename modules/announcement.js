@@ -28,10 +28,10 @@ const navLinks = {
       title: "View Feedback",
       url: "/pages/view-feedback.html"
     },
-    {
-      title: "Resolve Queries",
-      url: "/pages/resolve-queries.html"
-    }
+    // {
+    //   title: "Resolve Queries",
+    //   url: "/pages/resolve-queries.html"
+    // }
   ],
   student: [
     {
