@@ -34,6 +34,13 @@
       "email": "test2@example.com",
       "password": "test@1234",
       "role": "student"
+    },
+    {
+      "id": "8580",
+      "name": "demo1",
+      "email": "demo1@example.com",
+      "password": "@123456",
+      "role": "student"
     }
   ],
   "announcements": [
