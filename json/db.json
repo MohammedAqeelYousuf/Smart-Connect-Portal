@@ -9,9 +9,9 @@
     },
     {
       "id": "2",
-      "name": "Staff User",
+      "name": "Staff User 1",
       "email": "staffuser@example.com",
-      "password": "staff@password",
+      "password": "staff1@password",
       "role": "staff"
     },
     {
