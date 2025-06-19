@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Smart Campus Connect</title>
+  <link rel="stylesheet" href="events.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar Section -->
+  <header>
+    <nav class="navbar navbar-bg text-white">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white text-uppercase">Connect Portal</a>
+        <div class="">
+          <a class="btn btn-primary position-relative" href="/pages/announcement.html">
+            Announcements
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="d-flex main-content">
+    <!-- Sidebar for better navigation experience -->
+    <aside class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar text-uppercase">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="stud-dash.html" class="nav-link text-white px-3 text-center" aria-current="page">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="events.html" class="nav-link text-white px-3 text-center">
+            Events
+          </a>
+        </li>
+        <li>
+          <a href="/pages/feedback-home.html" class="nav-link text-white px-3 text-center" id="openFeedback">
+            Feedback
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <strong>User</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="/pages/profile.html">Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li class="dropdown-item" onclick="logoutUser()">Sign out</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="dashboard px-4 py-2">
+    <div class="announcement-present-container">
+    <header class="announcement-present-header">
+        <h1>Events</h1>
+        <!-- <div class="announcement-present-filters">
+            <button class="announcement-present-filter-btn active" data-filter="all">All</button>
+            <button class="announcement-present-filter-btn" data-filter="academic">Academic</button>
+            <button class="announcement-present-filter-btn" data-filter="events">Events</button>
+        </div> -->
+    </header>
+
+    <div class="announcement-present-grid">
+        <!-- Announcement cards will be dynamically inserted here -->
+    </div>
+
+    <div class="announcement-present-admin-controls">
+        <button id="add-announcement-btn" class="announcement-present-admin-btn">
+            <i class="fas fa-plus"></i> Add Announcement
+        </button>
+    </div>
+</div>
+
+<!-- Modal for announcement details -->
+<div id="announcement-modal" class="announcement-present-modal">
+    <div class="announcement-present-modal-content">
+        <span class="announcement-present-close-btn">&times;</span>
+        <div class="announcement-present-modal-body">
+            <!-- Content will be dynamically inserted -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal for adding new event -->
+<div id="add-announcement-modal" class="announcement-present-modal">
+    <div class="announcement-present-modal-content">
+        <span class="announcement-present-close-btn">&times;</span>
+        <h2>Add New Event</h2>
+        <form id="announcement-form">
+            <div class="announcement-present-form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" required>
+            </div>
+            <div class="announcement-present-form-group">
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="academic">Academic</option>
+                    <option value="events">Events</option>
+                    <option value="general">General</option>
+                </select>
+            </div>
+            <div class="announcement-present-form-group">
+                <label for="content">Content</label>
+                <textarea id="content" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="announcement-present-submit-btn">Publish Event</button>
+        </form>
+    </div>
+</div>
+    </main>
+  </section>
+ 
+    <script src="events.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script src="../modules/commonFeature.js"></script>
+</body>
+</html>
