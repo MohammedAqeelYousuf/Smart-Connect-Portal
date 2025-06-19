@@ -1,79 +1,94 @@
-document.addEventListener('DOMContentLoaded', function() {
+const fetchEvents = async () => {
+    try {
+        const response = await fetch('http://localhost:5503/events')
+        .then(res => res.json())
+        return response;
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        return [];
+    }
+};
+
+const navLinks = {
+  admin: [
+    {
+      title: "Home",
+      url: "/pages/admin-dash.html"
+    },
+    {
+      title: "Announcements",
+      url: "/pages/announcement.html"
+    },
+    {
+      title: "Events",
+      url: "/pages/events.html"
+    },
+    {
+      title: "View Feedback",
+      url: "/pages/view-feedback.html"
+    },
+    {
+      title: "Resolve Queries",
+      url: "/pages/resolve-queries.html"
+    }
+  ],
+  student: [
+    {
+      title: "Home",
+      url: "/pages/stud-dash.html"
+    },
+    {
+      title: "Events",
+      url: "/pages/events.html"
+    },
+    {
+      title: "Feedback",
+      url: "/pages/feedback-home.html"
+    }
+  ]
+};
+
+const displayNavContents = () => {   
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    document.getElementById('sidebar-links').innerHTML = '';
+
+    if(currentUser.role==="staff"){
+        for(let i=0;i<navLinks.admin.length;i++){
+
+            document.getElementById('sidebar-links').innerHTML += `<li class="nav-item">
+            <a
+                href="${navLinks.admin[i].url}"
+                class="nav-link px-3 ${navLinks.admin[i].title==='Events'?'active':''} text-white text-center"
+                aria-current="page"
+            >
+                ${navLinks.admin[i].title}
+            </a>
+            </li>
+            `;
+        }
+    }else{
+        for(let i=0;i<navLinks.student.length;i++){
+
+            document.getElementById('sidebar-links').innerHTML += `<li class="nav-item">
+            <a
+                href="${navLinks.student[i].url}"
+                class="nav-link px-3 ${navLinks.student[i].title==='Events'?'active':''} text-white text-center"
+                aria-current="page"
+            >
+                ${navLinks.student[i].title}
+            </a>
+            </li>
+            `;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
     console.log("DOM fully loaded and parsed"); // Debugging log
 
+    displayNavContents();
     // Sample announcements data (without images)
-    const announcements = [
-        {
-            id: 1,
-            title: "Update for Smart Connect Portal",
-            content: "We have updated the portal with new features to enhance your experience. Check out the new dashboard layout and improved navigation.",
-            category: "general",
-            date: "26.12.2023"
-        },
-        {
-            id: 2,
-            title: "Midterm Exam Schedule",
-            content: "The midterm exam schedule for all courses has been published. Please check your department notice board or the online portal for details.",
-            category: "academic",
-            date: "24.12.2023"
-        },
-        {
-            id: 3,
-            title: "Annual Sports Week",
-            content: "Join us for the annual sports week starting next Monday. Registrations are open for various competitions including cricket, football, and athletics.",
-            category: "events",
-            date: "20.12.2023"
-        },
-        {
-            id: 4,
-            title: "Library Hours Extended",
-            content: "The central library will remain open until 10 PM during exam preparation weeks. Please make use of the extended hours for your studies.",
-            category: "academic",
-            date: "18.12.2023"
-        },
-        {
-            id: 5,
-            title: "Career Counseling Session",
-            content: "A career counseling session will be held next Friday for final year students. Industry experts will be present to guide you about career opportunities.",
-            category: "events",
-            date: "15.12.2023"
-        },
-        {
-            id: 6,
-            title: "New Course Offerings",
-            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
-            category: "academic",
-            date: "12.12.2023"
-        },
-          {
-            id: 7,
-            title: "New Course Offerings",
-            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
-            category: "academic",
-            date: "12.12.2023"
-        },
-          {
-            id: 8,
-            title: "New Course Offerings",
-            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
-            category: "academic",
-            date: "12.12.2023"
-        },
-          {
-            id: 9,
-            title: "New Course Offerings",
-            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
-            category: "academic",
-            date: "12.12.2023"
-        },
-          {
-            id: 10,
-            title: "New Course Offerings",
-            content: "The department is introducing three new elective courses next semester. Check the course catalog for details and prerequisites.",
-            category: "academic",
-            date: "12.12.2023"
-        }
-    ];
+    const announcements = await fetchEvents();
 
     // DOM elements with updated class names
     const announcementGrid = document.querySelector('.announcement-present-grid');
@@ -118,10 +133,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             card.innerHTML = `
                 <div class="announcement-present-card-content">
-                    <span class="announcement-present-category-tag announcement-present-${announcement.category}">${announcement.category}</span>
                     <h3>${announcement.title}</h3>
-                    <p>${announcement.content.substring(0, 100)}...</p>
+                    <p>${announcement.description}...</p>
                     <div class="announcement-present-card-meta">
+                        <span>${announcement.location}</span>
                         <span>${announcement.date}</span>
                     </div>
                 </div>
@@ -148,9 +163,9 @@ document.addEventListener('DOMContentLoaded', function() {
         modalBody.innerHTML = `
             <h2>${announcement.title}</h2>
             <span class="announcement-present-date">Published on ${announcement.date}</span>
-            <p>${announcement.content}</p>
+            <p>${announcement.description}</p>
             ${isAdmin ? `<div class="announcement-present-admin-actions">
-                <button class="announcement-present-delete-btn" data-id="${announcement.id}">Delete Announcement</button>
+                <button class="announcement-present-delete-btn" data-id="${announcement.id}">Delete Event</button>
             </div>` : ''}
         `;
         
@@ -250,6 +265,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 announcementForm.reset();
             }
         });
+    }
+
+    let user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if(user.role==='staff'){
+        document.getElementById("add-button").innerHTML = `<button id="add-announcement-btn" class="announcement-present-admin-btn">
+            <i class="fas fa-plus"></i> Add Events
+        </button>`
     }
 
     // Initial render

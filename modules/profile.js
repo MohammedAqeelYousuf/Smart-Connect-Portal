@@ -1,3 +1,47 @@
+const updateUser = async(id,name)=>{
+  try {
+    const response = await fetch(`http://localhost:5503/users/${id}`,{
+      method: "PATCH",
+      headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name})
+    })
+
+    let res = await response.json();
+    return res
+  } catch (error) {
+    console.log("Error in updating user");
+    return null;
+  }
+}
+
+const updatePasswordByID = async(id,oldPassword,newPassword)=>{
+  try {
+    const userFetchResponse = await fetch(`http://localhost:5503/users/${id}`)
+    let userFetchRes = await userFetchResponse.json();
+    
+    if(oldPassword!=userFetchRes.password){
+      console.log("Error in updating user");
+      return null;  
+    }
+
+    const response = await fetch(`http://localhost:5503/users/${id}`,{
+      method: "PATCH",
+      headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({password:newPassword})
+    })
+
+    let res = await response.json();
+    return res
+  } catch (error) {
+    console.log("Error in updating user");
+    return null;
+  }
+}
+
 const navLinks = {
   admin: [
     {
@@ -7,6 +51,10 @@ const navLinks = {
     {
       title: "Announcements",
       url: "/pages/announcement.html"
+    },
+    {
+      title: "Events",
+      url: "/pages/events.html"
     },
     {
       title: "View Feedback",
@@ -80,26 +128,25 @@ const setDefaultValues = () => {
     document.getElementById('editEmail').value = currentUser?.email
 }
 
-const editUserProfile = (e) => {
+const editUserProfile = async(e) => {
     e.preventDefault();
     const name = document.getElementById('editName')?.value;
     const email = document.getElementById('editEmail')?.value;
-    let users = JSON.parse(localStorage.getItem('users')) || []
     let currentUser = JSON.parse(localStorage.getItem('currentUser'))
 
-    for(let i=0;i<users.length;i++){
-        if(users[i]?.email===email){
-            users[i].name = name
-        }
+    const updated = await updateUser(currentUser?.id,name);
+
+    if(!updated){
+      alert("Error in updating user")
+      return;
     }
 
-    localStorage.setItem('users',JSON.stringify(users));
-    localStorage.setItem('currentUser',JSON.stringify({name,email,role:currentUser?.role}))
+    localStorage.setItem('currentUser',JSON.stringify({id:currentUser?.id,name,email,role:currentUser?.role}))
     alert("Profile is updated")
     displayProfile();
 }
 
-const updatePassword = (e) => {
+const updatePassword = async(e) => {
     e.preventDefault();
     const currentPassword = document.getElementById('currentPassword')?.value;
     const newPassword = document.getElementById('newPassword')?.value;
@@ -115,18 +162,13 @@ const updatePassword = (e) => {
         return
     }
 
-    for(let i=0;i<users.length;i++){
-        if(users[i]?.email===currentUser?.email){
-            if(users[i].password!==currentPassword){
-                passwordError.innerText = "Invalid Password"
-                return  
-            }
-
-            users[i].password = newPassword;
-        }
+    const updated = await updatePasswordByID(currentUser?.id,currentPassword,newPassword)
+    
+    if(!updated){
+      alert("Error in updating password")
+      return;
     }
 
-    localStorage.setItem('users',JSON.stringify(users));
     alert("Password is updated")
 }
 

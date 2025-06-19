@@ -32,7 +32,7 @@
       "id": "f107",
       "name": "Test 2",
       "email": "test2@example.com",
-      "password": "test2@123",
+      "password": "test@1234",
       "role": "student"
     }
   ],

@@ -21,6 +21,10 @@ const navLinks = {
       url: "/pages/announcement.html"
     },
     {
+      title: "Events",
+      url: "/pages/events.html"
+    },
+    {
       title: "View Feedback",
       url: "/pages/view-feedback.html"
     },
@@ -56,7 +60,7 @@ const displayNavContents = () => {
             document.getElementById('sidebar-links').innerHTML += `<li class="nav-item">
             <a
                 href="${navLinks.admin[i].url}"
-                class="nav-link px-3 text-white text-center"
+                class="nav-link px-3 ${navLinks.admin[i].title==='Announcements'?'active':''} text-white text-center"
                 aria-current="page"
             >
                 ${navLinks.admin[i].title}
@@ -70,7 +74,7 @@ const displayNavContents = () => {
             document.getElementById('sidebar-links').innerHTML += `<li class="nav-item">
             <a
                 href="${navLinks.student[i].url}"
-                class="nav-link px-3 text-white text-center"
+                class="nav-link px-3 ${navLinks.student[i].title==='Announcements'?'active':''} text-white text-center"
                 aria-current="page"
             >
                 ${navLinks.student[i].title}
