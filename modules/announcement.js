@@ -10,18 +10,42 @@ const fetchAnnouncements = async () => {
 };
 
 const navLinks = {
-    admin: [
-        { title: "Home", url: "/pages/admin-dash.html" },
-        { title: "Announcements", url: "/pages/announcement.html" },
-        { title: "Events", url: "/pages/events.html" },
-        { title: "View Feedback", url: "/pages/view-feedback.html" },
-        { title: "Resolve Queries", url: "/pages/resolve-queries.html" }
-    ],
-    student: [
-        { title: "Home", url: "/pages/stud-dash.html" },
-        { title: "Events", url: "/pages/events.html" },
-        { title: "Feedback", url: "/pages/feedback-home.html" }
-    ]
+  admin: [
+    {
+      title: "Home",
+      url: "/pages/admin-dash.html"
+    },
+    {
+      title: "Announcements",
+      url: "/pages/announcement.html"
+    },
+    {
+      title: "Events",
+      url: "/pages/events.html"
+    },
+    {
+      title: "View Feedback",
+      url: "/pages/view-feedback.html"
+    },
+    // {
+    //   title: "Resolve Queries",
+    //   url: "/pages/resolve-queries.html"
+    // }
+  ],
+  student: [
+    {
+      title: "Home",
+      url: "/pages/stud-dash.html"
+    },
+    {
+      title: "Events",
+      url: "/pages/events.html"
+    },
+    {
+      title: "Feedback",
+      url: "/pages/feedback-home.html"
+    }
+  ]
 };
 
 const displayNavContents = () => {   

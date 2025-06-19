@@ -9,7 +9,7 @@
     },
     {
       "id": "2",
-      "name": "Staff User 1",
+      "name": "Staff User",
       "email": "staffuser@example.com",
       "password": "staff1@password",
       "role": "staff"
