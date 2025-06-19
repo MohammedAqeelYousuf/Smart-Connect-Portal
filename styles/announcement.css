@@ -144,6 +144,64 @@
     color: #0a1d2e;
 }
 
+
+
+/* Edit Button Styles */
+.announcement-present-edit-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: #3498db; /* Blue color for edit */
+    color: white;
+    border: none;
+    height: 43px;
+    margin-top: 24px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 1rem; /* Space between edit and delete buttons */
+}
+
+.announcement-present-edit-btn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for action buttons */
+.announcement-present-admin-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+/* Update button style in edit mode */
+#add-announcement-modal .announcement-present-submit-btn.update-mode {
+    background-color: #3498db; /* Match edit button color */
+}
+
+#add-announcement-modal .announcement-present-submit-btn.update-mode:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments for buttons */
+@media (max-width: 768px) {
+    .announcement-present-admin-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .announcement-present-edit-btn,
+    .announcement-present-delete-btn {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+
+
+
 /* Announcement Grid Styles */
 .announcement-present-grid {
     display: grid;
