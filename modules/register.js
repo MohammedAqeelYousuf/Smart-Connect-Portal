@@ -1,4 +1,38 @@
-document.addEventListener("DOMContentLoaded", () => {
+const fetchUsers = async() => {
+  try {
+  const res = await fetch('http://localhost:5503/users')
+    .then(response => response.json())
+
+  console.log('Fetched users:', res);
+
+  return res;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    return [];
+  }
+}
+
+const createUser = async(user) => {
+  try {
+    console.log('Creating user:', user);
+    const response = await fetch('http://localhost:5503/users',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      }
+    ).then(res => res.json());
+    console.log('User created:', response);
+    return response
+  }catch (error) {
+    console.error('Error creating user:', error);
+    return null;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", async() => {
   const form = document.getElementById("signup-form");
   const name = document.getElementById("name");
   const mailid = document.getElementById("mailid");
@@ -14,14 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
     role: document.getElementById("role-error")
   };
 
-  const fetchUsers = () => JSON.parse(localStorage.getItem("users")) || [];
 
-  const emailExists = (email) => {
-    const users = fetchUsers();
+  const emailExists = async(email) => {
+    const users = await fetchUsers();
     return users.some(user => user.email === email);
   };
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
     
     Object.values(errorFields).forEach(el => el.innerText = "");
@@ -48,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (!emailPattern.test(emailVal)) {
       errorFields.email.innerText = "Invalid email format.";
       isValid = false;
-    } else if (emailExists(emailVal)) {
+    } else if (await emailExists(emailVal)) {
       errorFields.email.innerText = "Email already exists.";
       isValid = false;
     }
@@ -68,15 +101,30 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     }
 
+    console.log("Form validation status:", isValid);
+
     if (!isValid) return;
 
-    const users = fetchUsers();
-    users.push({
+    // const users = await fetchUsers();
+    // users.push({
+    //   name: nameVal,
+    //   email: emailVal,
+    //   password: passwordVal,
+    //   role: roleVal
+    // });
+
+    const newUser = {
       name: nameVal,
       email: emailVal,
       password: passwordVal,
       role: roleVal
-    });
+    };
+
+    const users = await createUser(newUser);
+    if (!users) {
+      errorFields.email.innerText = "Error creating user. Please try again.";
+      return;
+    }
 
     localStorage.setItem("users", JSON.stringify(users));
     window.location.href = "/pages/auth/login.html";
