@@ -5,7 +5,7 @@ const isLoggedIn = () => {
 };
 const logoutUser = () => {
     localStorage.removeItem('currentUser');
-    window.location.href = '/index.html';
+    window.location.href = '/spa-index.html';
 };
 if (!isLoggedIn()) {
     window.location.href = "/pages/auth/login.html";
