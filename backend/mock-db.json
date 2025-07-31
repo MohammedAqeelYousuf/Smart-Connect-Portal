@@ -1,0 +1,402 @@
+{
+    "user": [
+        {
+            "id": "user1",
+            "firstName": "John",
+            "middleName": "Banega",
+            "lastName": "Don",
+            "email": "johnthedon@smartcon.edu.in",
+            "password": "Test@1234",
+            "mobile": "+91-9876543210",
+            "class": "Second Year",
+            "department": "CSE",
+            "batch": "2025",
+            "placementStatus": "Placed",
+            "placementCompanies": ["company1"],
+            "noOfSem": 8,
+            "semCGPA": [{"1": 8.9, "2": 8.9, "3": 8.7, "4": 9.0, "5": 8.8, "6": 8.5, "7": 9.1, "8": 9.2}]
+        },
+        {
+            "id": "user2",
+            "firstName": "Alice",
+            "middleName": "Rae",
+            "lastName": "Smith",
+            "email": "alice.smith@smartcon.edu.in",
+            "password": "Pass@1234",
+            "mobile": "+91-9123456789",
+            "class": "Third Year",
+            "department": "CSE",
+            "batch": "2024",
+            "placementStatus": "Placed",
+            "placementCompanies": ["company2", "company3"],
+            "noOfSem": 6,
+            "semCGPA": [{"1": 7.8, "2": 8.2, "3": 8.5, "4": 8.7, "5": 8.6, "6": 9.0}]
+        },
+        {
+            "id": "user3",
+            "firstName": "Bob",
+            "middleName": "B",
+            "lastName": "Johnson",
+            "email": "bob.johnson@smartcon.edu.in",
+            "password": "Pass@5678",
+            "mobile": "+91-9345678910",
+            "class": "First Year",
+            "department": "ECE",
+            "batch": "2026",
+            "placementStatus": "Not Placed",
+            "placementCompanies": [],
+            "noOfSem": 2,
+            "semCGPA": [{"1": 7.2, "2": 7.5}]
+        },
+        {
+            "id": "user4",
+            "firstName": "Charlie",
+            "middleName": "M",
+            "lastName": "Davis",
+            "email": "charlie.davis@smartcon.edu.in",
+            "password": "Charlie@123",
+            "mobile": "+91-9265432100",
+            "class": "Second Year",
+            "department": "Mechanical",
+            "batch": "2025",
+            "placementStatus": "Not Placed",
+            "placementCompanies": [],
+            "noOfSem": 6,
+            "semCGPA": [{"1": 6.9, "2": 7.3, "3": 7.8, "4": 8.0, "5": 8.2, "6": 8.5}]
+        },
+        {
+            "id": "user5",
+            "firstName": "Eve",
+            "middleName": "L",
+            "lastName": "Martin",
+            "email": "eve.martin@smartcon.edu.in",
+            "password": "Eve@4567",
+            "mobile": "+91-9789345678",
+            "class": "Second Year",
+            "department": "CSE",
+            "batch": "2025",
+            "placementStatus": "Not Placed",
+            "placementCompanies": [],
+            "noOfSem": 6,
+            "semCGPA": [{"1": 8.0, "2": 8.5, "3": 8.2, "4": 8.0, "5": 8.4, "6": 8.7}]
+        },
+        {
+            "id": "user6",
+            "firstName": "David",
+            "middleName": "W",
+            "lastName": "Clark",
+            "email": "david.clark@smartcon.edu.in",
+            "password": "David@1234",
+            "mobile": "+91-9976543210",
+            "class": "Third Year",
+            "department": "Mechanical",
+            "batch": "2024",
+            "placementStatus": "Placed",
+            "placementCompanies": ["company4", "company5"],
+            "noOfSem": 6,
+            "semCGPA": [{"1": 7.5, "2": 7.8, "3": 8.3, "4": 8.6, "5": 8.7, "6": 9.0}]
+        },
+        {
+            "id": "user7",
+            "firstName": "Fay",
+            "middleName": "K",
+            "lastName": "Green",
+            "email": "fay.green@smartcon.edu.in",
+            "password": "Fay@5678",
+            "mobile": "+91-9234567890",
+            "class": "Second Year",
+            "department": "Electrical",
+            "batch": "2025",
+            "placementStatus": "Not Placed",
+            "placementCompanies": [],
+            "noOfSem": 6,
+            "semCGPA": [{"1": 7.2, "2": 7.5, "3": 7.8, "4": 8.2, "5": 8.3, "6": 8.5}]
+        },
+        {
+            "id": "user8",
+            "firstName": "Grace",
+            "middleName": "B",
+            "lastName": "Taylor",
+            "email": "grace.taylor@smartcon.edu.in",
+            "password": "Grace@1234",
+            "mobile": "+91-9998776655",
+            "class": "Third Year",
+            "department": "CSE",
+            "batch": "2024",
+            "placementStatus": "Placed",
+            "placementCompanies": ["company6"],
+            "noOfSem": 6,
+            "semCGPA": [{"1": 8.1, "2": 8.4, "3": 8.7, "4": 8.8, "5": 8.9, "6": 9.0}]
+        },
+        {
+            "id": "user9",
+            "firstName": "Henry",
+            "middleName": "S",
+            "lastName": "Williams",
+            "email": "henry.williams@smartcon.edu.in",
+            "password": "Henry@1234",
+            "mobile": "+91-9865321078",
+            "class": "First Year",
+            "department": "CSE",
+            "batch": "2026",
+            "placementStatus": "Not Placed",
+            "placementCompanies": [],
+            "noOfSem": 1,
+            "semCGPA": [{"1": 7.5}]
+        }
+    ],
+    "class": [
+        {
+            "id": "class1",
+            "name": "Second Year",
+            "department": "CSE",
+            "batch": "2025",
+            "students": ["user1", "user5", "user4"]
+        },
+        {
+            "id": "class2",
+            "name": "Third Year",
+            "department": "CSE",
+            "batch": "2024",
+            "students": ["user2", "user8"]
+        },
+        {
+            "id": "class3",
+            "name": "First Year",
+            "department": "CSE",
+            "batch": "2026",
+            "students": ["user3", "user9"]
+        },
+        {
+            "id": "class4",
+            "name": "Second Year",
+            "department": "Mechanical",
+            "batch": "2025",
+            "students": ["user4", "user6"]
+        }
+    ],
+    "department": [
+        {
+            "id": "dept1",
+            "name": "CSE",
+            "course": "Engineering"
+        },
+        {
+            "id": "dept2",
+            "name": "Mechanical",
+            "course": "Engineering"
+        },
+        {
+            "id": "dept3",
+            "name": "ECE",
+            "course": "Engineering"
+        },
+        {
+            "id": "dept4",
+            "name": "Electrical",
+            "course": "Engineering"
+        }
+    ],
+    "companyDetails": [
+        {
+            "id": "company1",
+            "name": "CTS",
+            "description": "Leading IT services company offering a wide range of solutions.",
+            "skills": ["JavaScript", "HTML", "CSS", "Node.js"],
+            "lastRegisterationDate": "27-08-2025",
+            "Restrictions": ["Must have a CGPA above 7.0", "No active backlogs"],
+            "appliedStudents": ["user1"]
+        },
+        {
+            "id": "company2",
+            "name": "TCS",
+            "description": "A global IT services and consulting company.",
+            "skills": ["Java", "Spring", "Microservices"],
+            "lastRegisterationDate": "15-08-2025",
+            "Restrictions": ["No backlog", "Willing to relocate"],
+            "appliedStudents": ["user2"]
+        },
+        {
+            "id": "company3",
+            "name": "Wipro",
+            "description": "IT, consulting, and business process services company.",
+            "skills": ["Python", "Django", "ML"],
+            "lastRegisterationDate": "20-08-2025",
+            "Restrictions": ["Must have a minimum of 75% in 12th grade"],
+            "appliedStudents": ["user2"]
+        },
+        {
+            "id": "company4",
+            "name": "Accenture",
+            "description": "Global management consulting, technology services, and outsourcing company.",
+            "skills": ["SQL", "C#", "Angular"],
+            "lastRegisterationDate": "25-09-2025",
+            "Restrictions": ["Minimum CGPA of 8.0"],
+            "appliedStudents": ["user6"]
+        },
+        {
+            "id": "company5",
+            "name": "IBM",
+            "description": "Technology and consulting company.",
+            "skills": ["Cloud", "AI", "Data Science"],
+            "lastRegisterationDate": "22-09-2025",
+            "Restrictions": ["Must have internship experience"],
+            "appliedStudents": ["user6"]
+        }
+    ],
+    "examSchedules": [
+        {
+            "id": "exam1",
+            "name": "Mid Term",
+            "department": "CSE",
+            "class": "class1",
+            "dates": [
+                {
+                    "date": "31-07-2025",
+                    "subject": "subject1"
+                },
+                {
+                    "date": "03-08-2025",
+                    "subject": "subject2"
+                }
+            ]
+        },
+        {
+            "id": "exam2",
+            "name": "End Term",
+            "department": "Mechanical",
+            "class": "class4",
+            "dates": [
+                {
+                    "date": "10-12-2025",
+                    "subject": "subject3"
+                }
+            ]
+        }
+    ],
+    "studentMarks": [
+        {
+            "id": "marks1",
+            "department": "CSE",
+            "class": "class1",
+            "exam": "exam1",
+            "marks": [
+                {
+                    "student": "user1",
+                    "score": [
+                        {
+                            "subject": "subject1",
+                            "subjectScore": 72
+                        },
+                        {
+                            "subject": "subject2",
+                            "subjectScore": 85
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "marks2",
+            "department": "CSE",
+            "class": "class2",
+            "exam": "exam2",
+            "marks": [
+                {
+                    "student": "user2",
+                    "score": [
+                        {
+                            "subject": "subject1",
+                            "subjectScore": 88
+                        },
+                        {
+                            "subject": "subject2",
+                            "subjectScore": 91
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    
+    "subjects": [
+        {
+            "id": "subject1",
+            "name": "HPC",
+            "department": "CSE",
+            "class": "class1",
+            "semester": 8
+        },
+        {
+            "id": "subject2",
+            "name": "Algorithms",
+            "department": "CSE",
+            "class": "class1",
+            "semester": 8
+        },
+        {
+            "id": "subject3",
+            "name": "Thermodynamics",
+            "department": "Mechanical",
+            "class": "class4",
+            "semester": 6
+        }
+    ],
+    "batch": [
+        {
+            "id": "batch1",
+            "name": "2025",
+            "students": ["user1", "user4", "user5"],
+            "placedStudents": 10
+        },
+        {
+            "id": "batch2",
+            "name": "2024",
+            "students": ["user2", "user8", "user6"],
+            "placedStudents": 8
+        }
+    ],
+    "announcements": [
+        {
+            "id": "ann1",
+            "title": "Lorem",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "category": "general",
+            "publishedDate": "15-02-2025",
+            "eventDate": "15-02-2025",
+            "location": "Seminar Hall"
+        },
+        {
+            "id": "ann2",
+            "title": "Placement Drive",
+            "description": "Placement drive for CSE students by top tech companies.",
+            "category": "placement",
+            "publishedDate": "01-08-2025",
+            "eventDate": "10-08-2025",
+            "location": "Auditorium"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "Fest",
+            "description": "Annual cultural fest with performances and workshops.",
+            "publishedDate": "15-02-2025",
+            "eventDate": "15-03-2025",
+            "lastRegisterationDate": "01-03-2025",
+            "location": "Seminar Hall",
+            "registeredStudents": ["user1", "user7"]
+        },
+        {
+            "id": "event2",
+            "name": "Hackathon",
+            "description": "24-hour coding competition.",
+            "publishedDate": "10-08-2025",
+            "eventDate": "20-08-2025",
+            "lastRegisterationDate": "18-08-2025",
+            "location": "Innovation Lab",
+            "registeredStudents": ["user2", "user3"]
+        }
+    ]
+}
+

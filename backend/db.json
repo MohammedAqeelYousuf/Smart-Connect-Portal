@@ -1,0 +1,104 @@
+{
+    "user":[
+        {
+            "firstName": "John",
+            "middleName": "Banega",
+            "lastName": "Don",
+            "email":"johnthedon@smartcon.edu.in",
+            "password":"Test@1234",
+            "class": "idofClass",
+            "department": "idOfDepartment",
+            "batch": "2025",
+            "placementStatus": "Placed",
+            "placementCompanies": ["idOfCompanyDetails"],
+            "noOfSem":8,
+            "semCGPA":[{"1":8.9,"2":8.9}]
+        }
+    ],
+    "class": [
+        {
+            "name": "Second Year",
+            "department": "idOfDepartment",
+            "batch": "2025",
+            "students":["idOfStudents"]
+        }
+    ],
+    "department": [
+        {
+            "name": "CSE",
+            "course": "Engineering"
+        }
+    ],
+    "examSchedules": [
+        {
+            "name": "Mid Term",
+            "department": "idOfDepartment",
+            "class": "idofClass",
+            "dates": [{"date":"31-07-2025","subject":"HPC"}]
+        }
+    ],
+  "studentMarks": [
+    {
+        "department": "idOfDepartment",
+        "class": "idofClass",
+        "exam": "idofExam",
+        "marks":[
+            {
+                "student": "idOfStudent",
+                "score": [
+                    {
+                        "subject":"idOfSubject",
+                        "subjectScore":70
+                    }
+                ]
+            }
+        ]
+    }
+  ],
+  "subjects": [
+    {
+        "name": "HPC",
+        "department": "idOfDepartment",
+        "class":"idofClass",
+        "semester":8
+    }
+  ],
+  "companyDetails":[
+    {
+        "name": "CTS",
+        "description":"lorem",
+        "skills":["JavaScript","HTML"],
+        "lastRegisterationDate": "27-08-2025",
+        "Restrictions": ["lorem"],
+        "appliedStudents":["idOfStudent"]
+    }
+  ],
+  "batch":[
+    {
+        "name":"2025",
+        "students":["idOfStudents"],
+        "placedStudents":10
+    }
+  ],
+  "announcements": [
+    {
+        "title":"Lorem",
+        "description":"lorem",
+        "category":"general",
+        "publishedDate":"15-02-2025",
+        "eventDate":"15-02-2025",
+        "location":"semianar hall"
+    }
+  ],
+  "events":[
+    {
+        "name":"Fest",
+        "description":"lorem",
+        "publishedDate":"15-02-2025",
+        "eventDate":"15-02-2025",
+        "lastRegisterationDate":"15-02-2025",
+        "location":"semianar hall",
+        "registerdStudents":["idOfStudent"]
+    }
+  ]
+}
