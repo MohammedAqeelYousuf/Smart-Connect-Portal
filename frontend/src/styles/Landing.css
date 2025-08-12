@@ -1,0 +1,135 @@
+.smartcon-container {
+  font-family: 'Segoe UI', sans-serif;
+  color:black;
+  background-color: #e4ecf6;
+  
+}
+.Logo{
+height : 40px;
+width: 40px;
+ 
+}
+.landing-navbar,footer{
+  background-color: #375CB8!important;
+}
+navbar-nav{
+  align-items:center ;
+}
+/* Hero Section */
+
+ .hero-section {
+  position: relative;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  
+  background: url("https://t4.ftcdn.net/jpg/06/34/14/27/240_F_634142702_krpVzitHatLALEzzwN5TXBJGr8JeOr1C.jpg") center / cover no-repeat;
+  filter: blur(1px);
+  transform: scale(1.05); 
+  z-index: 0;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 1; 
+}
+
+.hero-content{
+    margin-top: 10rem;
+    width: 50%;
+    margin-left: 28px;
+ 
+}
+
+/* About Section */
+.about-section {
+  background-color: #f3f6fa;
+}
+
+/* Services Section */
+.services-section {
+  background-color: #f3f6fa;
+}
+
+
+.service-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+}
+.service-row {
+  margin-top: 2rem; 
+  font-size: 14px;
+}
+.service-icon{
+  height: 3rem; 
+
+}
+.container{
+  background-color: #CCDCEC;
+  padding: 20px;
+  width: 100%;
+  border-radius: 10px;
+      width: 95%;
+    max-width: 100%;
+}
+/* Apply extra width/height to all containers */
+
+.container.no-bg {
+  background-color: transparent; /* override */
+  padding: 0px;
+}
+/* FAQ Section */
+.faq-section {
+  background-color: #f3f6fa;
+  border: 2px;
+}
+/* Limit width and center */
+.faq-section .accordion {
+  max-width: 800px; /* smaller horizontally */
+  margin: auto;
+}
+
+/* Rounded border for each FAQ item */
+.faq-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden; /* ensures corners are rounded for both button & body */
+  margin-bottom: 1rem;
+}
+
+/* Remove default Bootstrap shadow */
+.faq-card .accordion-button {
+  box-shadow: none;
+}
+
+/* Style for open question + answer */
+.faq-card .accordion-button:not(.collapsed),
+.faq-card .accordion-collapse.show .accordion-body {
+  background-color: #f0f6ff; /* light blue shade */
+  color: #003366; /* text color */
+}
+
+/* Smooth transition */
+.faq-card .accordion-body {
+  transition: background-color 0.3s ease;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 50vh;
+    text-align: center;
+    padding: 2rem;
+  }
+}
