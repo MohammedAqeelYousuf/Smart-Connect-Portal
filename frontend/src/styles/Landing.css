@@ -82,10 +82,9 @@ navbar-nav{
       width: 95%;
     max-width: 100%;
 }
-/* Apply extra width/height to all containers */
 
 .container.no-bg {
-  background-color: transparent; /* override */
+  background-color: transparent;
   padding: 0px;
 }
 /* FAQ Section */
@@ -93,33 +92,32 @@ navbar-nav{
   background-color: #f3f6fa;
   border: 2px;
 }
-/* Limit width and center */
+
 .faq-section .accordion {
-  max-width: 800px; /* smaller horizontally */
+  max-width: 800px; 
   margin: auto;
 }
 
-/* Rounded border for each FAQ item */
+
 .faq-card {
   border: 1px solid #ddd;
   border-radius: 12px;
-  overflow: hidden; /* ensures corners are rounded for both button & body */
+  overflow: hidden; 
   margin-bottom: 1rem;
 }
 
-/* Remove default Bootstrap shadow */
+
 .faq-card .accordion-button {
   box-shadow: none;
 }
 
-/* Style for open question + answer */
+
 .faq-card .accordion-button:not(.collapsed),
 .faq-card .accordion-collapse.show .accordion-body {
-  background-color: #f0f6ff; /* light blue shade */
-  color: #003366; /* text color */
+  background-color: #f0f6ff; 
+  color: #003366; 
 }
 
-/* Smooth transition */
 .faq-card .accordion-body {
   transition: background-color 0.3s ease;
 }
