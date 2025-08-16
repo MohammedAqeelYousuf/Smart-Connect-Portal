@@ -1,0 +1,358 @@
+/* ===== Main Container ===== */
+*{
+  font-family: "Poppins", sans-serif;
+}
+.announcement-present-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* ===== Header Section ===== */
+.announcement-present-header {
+  margin-bottom: 2rem;
+}
+
+.announcement-present-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* ===== Filter Buttons ===== */
+.announcement-filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-btn {
+  background: #DDC8F0;
+  color: #7b2cbf;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+.filter-btn:hover {
+  background: #d4b8e8;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #7b2cbf;
+  color: white;
+  box-shadow: 0 4px 12px rgba(123, 44, 191, 0.3);
+}
+
+.announcement-present-admin-btn {
+  background: #6a0dad;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  margin-left: auto;
+}
+
+.announcement-present-admin-btn:hover {
+  background: #5a0b9a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.3);
+}
+
+/* ===== Grid Layout ===== */
+.announcement-present-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ===== Announcement Cards ===== */
+.announcement-present-card {
+  background: #122F78;
+  border: none;
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+}
+
+.announcement-present-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(30, 58, 138, 0.25);
+  background: #1e40af;
+}
+
+.announcement-present-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.announcement-present-card-content span:first-child {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
+  backdrop-filter: blur(10px);
+}
+
+.announcement-present-card-content h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0.8rem 0 0.5rem 0;
+  color: white;
+  line-height: 1.3;
+}
+
+.announcement-present-card-content p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.announcement-present-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.announcement-present-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ===== Loading/Empty State ===== */
+.text-center {
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 3rem;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* ===== Modal Styles ===== */
+.announcement-present-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.announcement-present-modal-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.announcement-present-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.announcement-present-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.announcement-present-modal-body {
+  margin-top: 0.5rem;
+}
+
+.announcement-present-modal-body h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: white;
+  line-height: 1.2;
+}
+
+.announcement-present-date {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 1rem 0;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.announcement-present-modal-body p {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+/* Register Section */
+.announcement-present-modal-content > div:last-child {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.announcement-present-modal-content > div:last-child p {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.announcement-present-modal-content button {
+  background: white;
+  color: #667eea;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.announcement-present-modal-content button:hover {
+  background: #f8f9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .announcement-present-container {
+    padding: 1rem;
+  }
+  
+  .announcement-present-header h1 {
+    font-size: 2rem;
+  }
+  
+  .announcement-filters {
+    gap: 0.5rem;
+  }
+  
+  .filter-btn,
+  .announcement-present-admin-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .announcement-present-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .announcement-present-card {
+    height: 180px;
+  }
+  
+  .announcement-present-modal-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .announcement-present-modal-body h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .announcement-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-btn,
+  .announcement-present-admin-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .announcement-present-admin-btn {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
