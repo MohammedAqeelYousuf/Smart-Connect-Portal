@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+//import "bootstrap-icons/font/bootstrap-icons.css";
 import Logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 // import examIcon from "../Assets/exam-icon.png";

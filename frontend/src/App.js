@@ -9,6 +9,8 @@ import Student from "./pages/Student";
 import Admin from "./pages/Admin";
 import StudentAnnouncement from "./features/Student/StudentAnnouncement";
 import FeedbackForm from "./features/Student/FeedbackForm";
+import AdminDashboard from "./features/Admin/Dashboard";
+import Announcements from "./features/Admin/Annoucment";
 
 export default function App() {
   return (
@@ -25,6 +27,9 @@ export default function App() {
         <Route path="/student/announcement" element={<StudentAnnouncement/>} />
         <Route path="/student/feedback" element={<FeedbackForm/>} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
+        <Route path="/admin/annoucment" element={<Announcements/>}/>
+
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

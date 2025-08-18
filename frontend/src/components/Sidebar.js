@@ -1,31 +1,48 @@
-
-
-import { Link } from "react-router-dom";
-import { FaBullhorn, FaUser, FaClipboardList, FaBriefcase, FaChartBar, FaComment } from "react-icons/fa";
-
-export default function Sidebar() {
+function Sidebar() {
   return (
-    <div style={{
-      backgroundColor: "#3f62c2",
-      width: "60px",
-      height: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      paddingTop: "100px"
-    }}>
-      <Link to="/announcements" title="Announcements">
-        <FaBullhorn size={30} color="white" style={{ marginBottom: "30px", cursor: "pointer" }} />
-      </Link>
-      <Link to="/feedback" title="Feedback">
-        <FaComment size={30} color="white" style={{ marginBottom: "30px", cursor: "pointer" }} />
-      </Link>
-      <Link to="/exams" title="Exams">
-        <FaClipboardList size={30} color="white" style={{ marginBottom: "30px", cursor: "pointer" }} />
-      </Link>
-      <Link to="/jobs" title="Jobs">
-        <FaBriefcase size={30} color="white" style={{ cursor: "pointer" }} />
-      </Link>
+    <div
+      className="d-flex flex-column p-3"
+      style={{ width: "250px", height: "100vh", backgroundColor: "powderblue" }}
+    >
+      <a href="#" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span className="fs-4">Sidebar</span>
+      </a>
+     
+      {/* <ul className="nav nav-pills flex-column mb-auto">
+        <li className="nav-item">
+          <a href="#" className="nav-link active bg-primary text-white" aria-current="page">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link text-dark">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link text-dark">
+            Orders
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link text-dark">
+            Products
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link text-dark">
+            Customers
+          </a>
+        </li>
+      </ul> */}
+      <hr />
+      {/* <div>
+        <a href="#" className="d-flex align-items-center text-dark text-decoration-none">
+          <strong>User</strong>
+        </a>
+      </div> */}
     </div>
   );
 }
+
+export default Sidebar;
