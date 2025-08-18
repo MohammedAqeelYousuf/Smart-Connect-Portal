@@ -40,7 +40,7 @@ npm install
 ### 3️⃣ Start JSON Server (for mock backend)
 
 ```bash
-npx json-server --watch db.json --port 5500
+npx json-server --watch backend/mock-db.json --port 5500
 ```
 
 ### 4️⃣ Run the React App

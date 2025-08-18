@@ -11,6 +11,7 @@ import StudentAnnouncement from "./features/Student/StudentAnnouncement";
 import FeedbackForm from "./features/Student/FeedbackForm";
 import AdminDashboard from "./features/Admin/Dashboard";
 import Announcements from "./features/Admin/Annoucment";
+import ExamSchedule from "./features/Admin/ExamSchedule";
 
 export default function App() {
   return (
@@ -26,10 +27,11 @@ export default function App() {
         <Route path="/student" element={<Student />} />
         <Route path="/student/announcement" element={<StudentAnnouncement/>} />
         <Route path="/student/feedback" element={<FeedbackForm/>} />
+        <Route path="/student/examschedule" element={<ExamSchedule role="student" />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
         <Route path="/admin/annoucment" element={<Announcements/>}/>
-
+        <Route path="/admin/examschedule" element={<ExamSchedule role="admin" />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
