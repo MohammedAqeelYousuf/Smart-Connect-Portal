@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AppProvider } from "./context/AppContext"; // Make sure path is correct
 
-function App() {
+import Landing from "./pages/Landing";
+import Login from "./components/auth/Login";
+import ForgotPassword from "./components/auth/ForgotPassword";
+import ResetPassword from "./components/auth/ResetPassword";
+import Student from "./pages/Student";
+import Admin from "./pages/Admin";
+import StudentAnnouncement from "./features/Student/StudentAnnouncement";
+import FeedbackForm from "./features/Student/FeedbackForm";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <Routes>
+        
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+
+        
+        <Route path="/student" element={<Student />} />
+        <Route path="/student/announcement" element={<StudentAnnouncement/>} />
+        <Route path="/student/feedback" element={<FeedbackForm/>} />
+        <Route path="/admin" element={<Admin />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AppProvider>
   );
 }
-
-export default App;
