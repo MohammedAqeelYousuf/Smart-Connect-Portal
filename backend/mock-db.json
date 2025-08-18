@@ -11,6 +11,7 @@
         },
         {
             "id": "user1",
+            "role": "Student",
             "firstName": "John",
             "middleName": "Banega",
             "lastName": "Don",
@@ -28,6 +29,7 @@
         },
         {
             "id": "user2",
+            "role": "Student",
             "firstName": "Alice",
             "middleName": "Rae",
             "lastName": "Smith",
@@ -45,6 +47,7 @@
         },
         {
             "id": "user3",
+            "role": "Student",
             "firstName": "Bob",
             "middleName": "B",
             "lastName": "Johnson",
@@ -62,6 +65,7 @@
         },
         {
             "id": "user4",
+            "role": "Student",
             "firstName": "Charlie",
             "middleName": "M",
             "lastName": "Davis",
@@ -79,6 +83,7 @@
         },
         {
             "id": "user5",
+            "role": "Student",
             "firstName": "Eve",
             "middleName": "L",
             "lastName": "Martin",
@@ -96,6 +101,7 @@
         },
         {
             "id": "user6",
+            "role": "Student",
             "firstName": "David",
             "middleName": "W",
             "lastName": "Clark",
@@ -113,6 +119,7 @@
         },
         {
             "id": "user7",
+            "role": "Student",
             "firstName": "Fay",
             "middleName": "K",
             "lastName": "Green",
@@ -130,6 +137,7 @@
         },
         {
             "id": "user8",
+            "role": "Student",
             "firstName": "Grace",
             "middleName": "B",
             "lastName": "Taylor",
@@ -147,6 +155,7 @@
         },
         {
             "id": "user9",
+            "role": "Student",
             "firstName": "Henry",
             "middleName": "S",
             "lastName": "Williams",
@@ -161,6 +170,24 @@
             "placementCompanies": [],
             "noOfSem": 1,
             "semCGPA": [{"1": 7.5}]
+        },
+        {
+            "id": "admin1",
+            "role": "Admin",
+            "firstName": "Thomas",
+            "lastName": "Watson",
+            "email": "thomas.watson@smartcon.edu.in",
+            "password": "Thomas@1234",
+            "mobile": "+91-92637482627"
+        },
+         {
+            "id": "admin2",
+            "role": "Admin",
+            "firstName": "Nina",
+            "lastName": "Holmes",
+            "email": "nina.holmes@smartcon.edu.in",
+            "password": "Nina@1234",
+            "mobile": "+91-9123672834"
         }
     ],
     "class": [
@@ -379,7 +406,7 @@
             "id": "ann1",
             "title": "Lorem",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "category": "general",
+            "category": "General",
             "publishedDate": "15-02-2025",
             "eventDate": "15-02-2025",
             "location": "Seminar Hall"
@@ -388,16 +415,15 @@
             "id": "ann2",
             "title": "Placement Drive",
             "description": "Placement drive for CSE students by top tech companies.",
-            "category": "placement",
+            "category": "Placement",
             "publishedDate": "01-08-2025",
             "eventDate": "10-08-2025",
             "location": "Auditorium"
-        }
-    ],
-    "events": [
-        {
+        },
+         {
             "id": "event1",
-            "name": "Fest",
+            "title": "Fest",
+            "category": "Event",
             "description": "Annual cultural fest with performances and workshops.",
             "publishedDate": "15-02-2025",
             "eventDate": "15-03-2025",
@@ -405,9 +431,10 @@
             "location": "Seminar Hall",
             "registeredStudents": ["user1", "user7"]
         },
-        {
+                {
             "id": "event2",
-            "name": "Hackathon",
+            "title": "Hackathon",
+            "category": "Event",
             "description": "24-hour coding competition.",
             "publishedDate": "10-08-2025",
             "eventDate": "20-08-2025",
@@ -417,4 +444,3 @@
         }
     ]
 }
-
