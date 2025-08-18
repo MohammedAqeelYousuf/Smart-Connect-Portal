@@ -27,7 +27,7 @@ It provides **role-based access** for students and administrators to streamline 
 
 ### 1️⃣ Clone the Repository  
 ```bash
-git clone https://github.com/your-username/smartcon.git
+git clone https://github.com/MohammedAqeelYousuf/Smart-Connect-Portal.git
 cd smartcon
 ```
 
