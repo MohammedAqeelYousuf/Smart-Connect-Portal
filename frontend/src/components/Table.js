@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
-const Table = ({ columns, data, actions }) => {
+const Table = ({ columns, data, actions, parentRoute, isAdmin = false }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 2;
+  const navigate = useNavigate();
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -29,10 +31,22 @@ const Table = ({ columns, data, actions }) => {
         <tbody>
           {currentData?.map((row, index) => (
             <tr key={index}>
-              <th scope="row">{startIndex + index + 1}</th>
-              {Object.values(row)?.map((value, idx) => (
-                <td key={idx}>{value}</td>
-              ))}
+              <td scope="row">{startIndex + index + 1}</td>
+              {Object.entries(row)?.map(([key, value], idx) => {
+                if(key!=="_id")
+                 return <td key={idx}>{value}</td>
+                })}
+              {
+            actions && <td className='d-flex gap-2 jusitfy-items-center align-items-center'>
+              <button className='btn btn-sm m-0 btn-info' style={{fontSize:"10px"}} onClick={()=>{console.log(`${parentRoute}/${row._id}`);navigate(`${parentRoute}/${row._id}`)}}>View</button>
+              {
+                isAdmin &&  <>
+                <button className='btn btn-sm m-0 btn-warning' style={{fontSize:"10px"}}>Edit</button>
+                <button className='btn btn-sm m-0 btn-danger' style={{fontSize:"10px"}}>Delete</button>
+              </>
+              }
+            </td>
+          }
             </tr>
           ))}
         </tbody>

@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 
-function Heading({back,link,buttons,heading}){
+function Heading({back=false,link=null,buttons,heading}){
     return (
         <div className="container-fluid">
             {

@@ -1,0 +1,19 @@
+aside{
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .main{
+        height: 92vh;
+        overflow-y: hidden;
+    }
+
+    aside{
+        display: block;
+    }
+
+    .content{
+        height: 92vh;
+        overflow-y: scroll;
+    }
+}
