@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/FeedbackForm.css";
+// import "../../styles/FeedbackForm.css";
 
 const FeedbackForm = () => {
   const [category, setCategory] = useState("");
