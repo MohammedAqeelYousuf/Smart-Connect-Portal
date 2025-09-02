@@ -22,7 +22,7 @@ import ViewBatch from "./features/Admin/ViewBatch";
 export default function App() {
   const location = useLocation();
 
-  // Define routes where Navbar should NOT be shown
+ 
   const hideNavbarRoutes = ["/", "/login", "/forgot-password", "/reset-password"];
 
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
@@ -53,7 +53,7 @@ export default function App() {
           <Route path="batch/:id" element={<ViewBatch />} />
         </Route>
 
-        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
+         <Route path="*" element={<Navigate to="/" replace />} /> 
       </Routes>
     </AppProvider>
   );
