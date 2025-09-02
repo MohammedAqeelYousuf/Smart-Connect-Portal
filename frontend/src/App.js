@@ -1,5 +1,5 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { AppProvider } from "./context/AppContext"; // Make sure path is correct
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { AppProvider } from "./context/AppContext";
 
 import Landing from "./pages/Landing";
 import Login from "./components/auth/Login";
@@ -20,26 +20,30 @@ import StudentPlacement from "./features/Student/StudentPlacement";
 import ViewBatch from "./features/Admin/ViewBatch";
 
 export default function App() {
+  const location = useLocation();
+
+  // Define routes where Navbar should NOT be shown
+  const hideNavbarRoutes = ["/", "/login", "/forgot-password", "/reset-password"];
+
+  const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
+
   return (
-    <>
-    <Navbar />
     <AppProvider>
+      {shouldShowNavbar && <Navbar />}
       <Routes>
-        
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
-        
         <Route path="student/" element={<Student />}>
-          {/* <Route path="" element={} /> */}
           <Route path="announcement/" element={<StudentAnnouncement />} />
           <Route path="feedback/" element={<FeedbackForm />} />
           <Route path="examschedule/" element={<ExamSchedule role={"student"} />} />
           <Route path="placement/" element={<StudentPlacement />} />
           <Route path="company/:id" element={<CompanyDetails />} />
         </Route>
+
         <Route path="admin/" element={<Admin />}>
           <Route path="" element={<AdminDashboard />} />
           <Route path="announcement/" element={<Announcements />} />
@@ -52,6 +56,5 @@ export default function App() {
         {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
       </Routes>
     </AppProvider>
-    </>
   );
 }
