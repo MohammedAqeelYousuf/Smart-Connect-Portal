@@ -1,0 +1,201 @@
+/* Feedback Form Scoped Styles */
+.feedback-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left Panel */
+.feedback-container .left-panel {
+  flex: 1.5;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.feedback-container .left-panel p {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.feedback-container .left-panel:hover p {
+  transform: translateY(-5px);
+}
+
+/* Right Panel */
+.feedback-container .right-panel {
+  flex: 2;
+  background: linear-gradient(135deg, #8AABFF 0%, #7A9FFF 50%, #6A93FF 100%);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-container .right-panel h2 {
+  margin: 10% 0 20px;
+  font-weight: bold;
+  color: #000;
+  font-size: 32px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feedback-container .right-panel h2:hover {
+  transform: translateY(-3px);
+}
+
+.feedback-container .right-panel h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.feedback-container .right-panel h2:hover::after {
+  width: 80px;
+}
+
+/* Form */
+.feedback-container form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-container form label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #000;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.feedback-container form select,
+.feedback-container form textarea {
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  border: 2px solid #000;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-container form select:focus,
+.feedback-container form textarea:focus {
+  outline: none;
+  border-color: #3FAF46;
+  box-shadow: 0 0 0 3px rgba(63, 175, 70, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  background: #fff;
+}
+
+.feedback-container form textarea {
+  height: 130px;
+  resize: none;
+  line-height: 1.5;
+}
+
+/* Button */
+.feedback-container form button {
+  background: linear-gradient(135deg, #3FAF46 0%, #2D8F35 100%);
+  color: white;
+  padding: 14px 28px;
+  border: 2px solid #000;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  width: fit-content;
+  align-self: center;
+  margin-top: 35px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(63, 175, 70, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.feedback-container form button:hover {
+  background: linear-gradient(135deg, #2D8F35 0%, #256b45 100%);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(63, 175, 70, 0.4);
+  border-color: #1a4d28;
+}
+
+.feedback-container form button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feedback-container {
+    flex-direction: column;
+  }
+
+  .feedback-container .left-panel,
+  .feedback-container .right-panel {
+    width: 100%;
+    min-height: 50vh;
+    padding: 30px 20px;
+  }
+
+  .feedback-container .right-panel h2 {
+    font-size: 28px;
+    margin-top: 5%;
+  }
+
+  .feedback-container form {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .feedback-container form select,
+  .feedback-container form textarea {
+    padding: 10px 14px;
+  }
+
+  .feedback-container form button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}

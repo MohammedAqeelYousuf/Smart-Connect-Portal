@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { useLocation } from "react-router-dom";
 import "../../styles/Announcement.css";
 import AnnouncementCard from "../../components/AnnouncementCard";
 
@@ -17,10 +16,6 @@ function StudentAnnouncement() {
   const [loc, setLoc] = useState("");
   const [lastdate, setLastdate] = useState("");
 
-  // const location = useLocation();
-  // const roleFromURL = location.pathname.includes("/student")
-  //   ? "Student"
-  //   : "Admin";
 
   useEffect(() => {
     fetch("http://localhost:5500/announcements")
@@ -58,10 +53,6 @@ function StudentAnnouncement() {
     }
     setShowModal(true);
   };
-
-  useEffect(() => {
-    console.log("cat updated:", cat);
-  }, [cat]);
 
   const closeModal = () => {
     setShowModal(false);
