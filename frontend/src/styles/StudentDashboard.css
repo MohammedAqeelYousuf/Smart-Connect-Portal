@@ -1,0 +1,108 @@
+*{
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background */
+.dashboard-container {
+  background-color: #f4f8fc;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Main cards */
+.custom-card {
+  border-radius: 14px;
+  border-width: 2.5px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Announcement cards (gradient purple) */
+.announcement-box {
+  flex: 1;
+  min-width: 30%;
+  margin: 6px;
+  min-height: 110px;
+  background: linear-gradient(135deg, #d6c3f3, #b58de3);
+  background-color: #CCDCEB;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #2e1d47;
+  box-shadow: 0 3px 8px rgba(90, 50, 150, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.announcement-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(90, 50, 150, 0.3);
+}
+
+/* Company cards (gradient green) */
+.company-box {
+  flex: 1;
+  min-width: 30%;
+  margin: 6px;
+  min-height: 110px;
+  background: linear-gradient(135deg, #aef1c0, #75CCA8);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #103b25;
+  box-shadow: 0 3px 8px rgba(40, 130, 90, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.company-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(40, 130, 90, 0.3);
+}
+
+/* Tip badges */
+.tip-badge {
+  background: linear-gradient(135deg, #0E3458);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  border: 2px solid #aaa;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  cursor: default;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.tip-badge:hover {
+  background: linear-gradient(135deg, #92c2ef);
+  border-color: #777;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Date text (lighter look) */
+.date-text {
+  font-size: 0.8rem;
+  color: #fdfdfd;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* Divider between left and right tips */
+.tips-left {
+  border-right: 2px solid #ccc;
+}
+
+.tips-right {
+  padding-left: 20px;
+}
