@@ -7,14 +7,15 @@
       "lastName": "User",
       "email": "admin@smartcon.edu.in",
       "password": "Admin@1234",
-      "role": "staff"
+      "role": "staff",
+      "id": "fe86"
     },
     {
       "_id": "user1",
       "firstName": "John",
-      "middleName": "Banega",
-      "lastName": "Don",
-      "email": "johnthedon@smartcon.edu.in",
+      "middleName": "David",
+      "lastName": "Doe",
+      "email": "johndaviddoe@smartcon.edu.in",
       "password": "Test@1234",
       "role": "student",
       "mobile": "+91-9876543210",
@@ -32,29 +33,73 @@
           "placedStudents": 10
         },
         "students": [
-          { "_id": "user1", "firstName": "John", "lastName": "Don" },
-          { "_id": "user5", "firstName": "Eve", "lastName": "Martin" },
-          { "_id": "user4", "firstName": "Charlie", "lastName": "Davis" }
+          {
+            "_id": "user1",
+            "firstName": "John",
+            "lastName": "Doe"
+          },
+          {
+            "_id": "user5",
+            "firstName": "Eve",
+            "lastName": "Martin"
+          },
+          {
+            "_id": "user4",
+            "firstName": "Charlie",
+            "lastName": "Davis"
+          }
         ]
       },
-      "department": { "_id": "dept1", "name": "CSE", "course": "Engineering" },
-      "batch": { "_id": "batch1", "name": "2025", "placedStudents": 10 },
+      "department": {
+        "_id": "dept1",
+        "name": "CSE",
+        "course": "Engineering"
+      },
+      "batch": {
+        "_id": "batch1",
+        "name": "2025",
+        "placedStudents": 10
+      },
       "placementStatus": "Placed",
       "placementCompanies": [
         {
           "_id": "company1",
           "name": "CTS",
           "description": "Leading IT services company offering a wide range of solutions.",
-          "skills": ["JavaScript", "HTML", "CSS", "Node.js"],
+          "skills": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Node.js"
+          ],
           "lastRegisterationDate": "27-08-2025",
-          "Restrictions": ["Must have a CGPA above 7.0", "No active backlogs"],
+          "Restrictions": [
+            "Must have a CGPA above 7.0",
+            "No active backlogs"
+          ],
           "appliedStudents": [
-            { "_id": "user1", "firstName": "John", "lastName": "Don" }
+            {
+              "_id": "user1",
+              "firstName": "John",
+              "lastName": "Don"
+            }
           ]
         }
       ],
       "noOfSem": 8,
-      "semCGPA": [{ "1": 8.9, "2": 8.9, "3": 8.7, "4": 9.0, "5": 8.8, "6": 8.5, "7": 9.1, "8": 9.2 }]
+      "semCGPA": [
+        {
+          "1": 8.9,
+          "2": 8.9,
+          "3": 8.7,
+          "4": 9,
+          "5": 8.8,
+          "6": 8.5,
+          "7": 9.1,
+          "8": 9.2
+        }
+      ],
+      "id": "c8b4"
     },
     {
       "_id": "user2",
@@ -73,114 +118,277 @@
           "name": "CSE",
           "course": "Engineering"
         },
-        "batch": { "_id": "batch2", "name": "2024", "placedStudents": 8 },
+        "batch": {
+          "_id": "batch2",
+          "name": "2024",
+          "placedStudents": 8
+        },
         "students": [
-          { "_id": "user2", "firstName": "Alice", "lastName": "Smith" },
-          { "_id": "user8", "firstName": "Grace", "lastName": "Taylor" }
+          {
+            "_id": "user2",
+            "firstName": "Alice",
+            "lastName": "Smith"
+          },
+          {
+            "_id": "user8",
+            "firstName": "Grace",
+            "lastName": "Taylor"
+          }
         ]
       },
-      "department": { "_id": "dept1", "name": "CSE", "course": "Engineering" },
-      "batch": { "_id": "batch2", "name": "2024", "placedStudents": 8 },
+      "department": {
+        "_id": "dept1",
+        "name": "CSE",
+        "course": "Engineering"
+      },
+      "batch": {
+        "_id": "batch2",
+        "name": "2024",
+        "placedStudents": 8
+      },
       "placementStatus": "Placed",
       "placementCompanies": [
         {
           "_id": "company2",
           "name": "TCS",
           "description": "A global IT services and consulting company.",
-          "skills": ["Java", "Spring", "Microservices"],
+          "skills": [
+            "Java",
+            "Spring",
+            "Microservices"
+          ],
           "lastRegisterationDate": "15-08-2025",
-          "Restrictions": ["No backlog", "Willing to relocate"],
-          "appliedStudents": [{ "_id": "user2", "firstName": "Alice", "lastName": "Smith" }]
+          "Restrictions": [
+            "No backlog",
+            "Willing to relocate"
+          ],
+          "appliedStudents": [
+            {
+              "_id": "user2",
+              "firstName": "Alice",
+              "lastName": "Smith"
+            }
+          ]
         },
         {
           "_id": "company3",
           "name": "Wipro",
           "description": "IT, consulting, and business process services company.",
-          "skills": ["Python", "Django", "ML"],
+          "skills": [
+            "Python",
+            "Django",
+            "ML"
+          ],
           "lastRegisterationDate": "20-08-2025",
-          "Restrictions": ["Must have a minimum of 75% in 12th grade"],
-          "appliedStudents": [{ "_id": "user2", "firstName": "Alice", "lastName": "Smith" }]
+          "Restrictions": [
+            "Must have a minimum of 75% in 12th grade"
+          ],
+          "appliedStudents": [
+            {
+              "_id": "user2",
+              "firstName": "Alice",
+              "lastName": "Smith"
+            }
+          ]
         }
       ],
       "noOfSem": 6,
-      "semCGPA": [{ "1": 7.8, "2": 8.2, "3": 8.5, "4": 8.7, "5": 8.6, "6": 9.0 }]
+      "semCGPA": [
+        {
+          "1": 7.8,
+          "2": 8.2,
+          "3": 8.5,
+          "4": 8.7,
+          "5": 8.6,
+          "6": 9
+        }
+      ],
+      "id": "7021"
     }
   ],
-
   "examSchedules": [
     {
       "_id": "exam1",
       "name": "Mid Term",
-      "department": { "_id": "dept1", "name": "CSE", "course": "Engineering" },
+      "department": {
+        "_id": "dept1",
+        "name": "CSE",
+        "course": "Engineering"
+      },
       "class": {
         "_id": "class1",
         "name": "Second Year",
-        "department": { "_id": "dept1", "name": "CSE", "course": "Engineering" },
-        "batch": { "_id": "batch1", "name": "2025", "placedStudents": 10 }
+        "department": {
+          "_id": "dept1",
+          "name": "CSE",
+          "course": "Engineering"
+        },
+        "batch": {
+          "_id": "batch1",
+          "name": "2025",
+          "placedStudents": 10
+        }
       },
       "dates": [
         {
           "date": "31-07-2025",
-          "subject": { "_id": "subject1", "name": "HPC", "department": "CSE", "semester": 8 }
+          "subject": {
+            "_id": "subject1",
+            "name": "HPC",
+            "department": "CSE",
+            "semester": 8
+          }
         },
         {
           "date": "03-08-2025",
-          "subject": { "_id": "subject2", "name": "Algorithms", "department": "CSE", "semester": 8 }
+          "subject": {
+            "_id": "subject2",
+            "name": "Algorithms",
+            "department": "CSE",
+            "semester": 8
+          }
         }
-      ]
+      ],
+      "id": "29c4"
     },
     {
       "_id": "exam2",
       "name": "End Term",
-      "department": { "_id": "dept2", "name": "Mechanical", "course": "Engineering" },
+      "department": {
+        "_id": "dept2",
+        "name": "Mechanical",
+        "course": "Engineering"
+      },
       "class": {
         "_id": "class4",
         "name": "Second Year",
-        "department": { "_id": "dept2", "name": "Mechanical", "course": "Engineering" },
-        "batch": { "_id": "batch1", "name": "2025", "placedStudents": 10 }
+        "department": {
+          "_id": "dept2",
+          "name": "Mechanical",
+          "course": "Engineering"
+        },
+        "batch": {
+          "_id": "batch1",
+          "name": "2025",
+          "placedStudents": 10
+        }
       },
       "dates": [
         {
           "date": "10-12-2025",
-          "subject": { "_id": "subject3", "name": "Thermodynamics", "department": "Mechanical", "semester": 6 }
+          "subject": {
+            "_id": "subject3",
+            "name": "Thermodynamics",
+            "department": "Mechanical",
+            "semester": 6
+          }
         }
-      ]
+      ],
+      "id": "1ddd"
     }
   ],
-
   "studentMarks": [
     {
       "_id": "marks1",
-      "department": { "_id": "dept1", "name": "CSE", "course": "Engineering" },
-      "class": { "_id": "class1", "name": "Second Year", "department": { "_id": "dept1", "name": "CSE" }, "batch": { "_id": "batch1", "name": "2025" } },
-      "exam": { "_id": "exam1", "name": "Mid Term" },
+      "department": {
+        "_id": "dept1",
+        "name": "CSE",
+        "course": "Engineering"
+      },
+      "class": {
+        "_id": "class1",
+        "name": "Second Year",
+        "department": {
+          "_id": "dept1",
+          "name": "CSE"
+        },
+        "batch": {
+          "_id": "batch1",
+          "name": "2025"
+        }
+      },
+      "exam": {
+        "_id": "exam1",
+        "name": "Mid Term"
+      },
       "marks": [
         {
-          "student": { "_id": "user1", "firstName": "John", "lastName": "Don" },
+          "student": {
+            "_id": "user1",
+            "firstName": "John",
+            "lastName": "Don"
+          },
           "score": [
-            { "subject": { "_id": "subject1", "name": "HPC" }, "subjectScore": 72 },
-            { "subject": { "_id": "subject2", "name": "Algorithms" }, "subjectScore": 85 }
+            {
+              "subject": {
+                "_id": "subject1",
+                "name": "HPC"
+              },
+              "subjectScore": 72
+            },
+            {
+              "subject": {
+                "_id": "subject2",
+                "name": "Algorithms"
+              },
+              "subjectScore": 85
+            }
           ]
         }
-      ]
+      ],
+      "id": "02e9"
     },
     {
       "_id": "marks2",
-      "department": { "_id": "dept1", "name": "CSE", "course": "Engineering" },
-      "class": { "_id": "class2", "name": "Third Year", "department": { "_id": "dept1", "name": "CSE" }, "batch": { "_id": "batch2", "name": "2024" } },
-      "exam": { "_id": "exam2", "name": "End Term" },
+      "department": {
+        "_id": "dept1",
+        "name": "CSE",
+        "course": "Engineering"
+      },
+      "class": {
+        "_id": "class2",
+        "name": "Third Year",
+        "department": {
+          "_id": "dept1",
+          "name": "CSE"
+        },
+        "batch": {
+          "_id": "batch2",
+          "name": "2024"
+        }
+      },
+      "exam": {
+        "_id": "exam2",
+        "name": "End Term"
+      },
       "marks": [
         {
-          "student": { "_id": "user2", "firstName": "Alice", "lastName": "Smith" },
+          "student": {
+            "_id": "user2",
+            "firstName": "Alice",
+            "lastName": "Smith"
+          },
           "score": [
-            { "subject": { "_id": "subject1", "name": "HPC" }, "subjectScore": 88 },
-            { "subject": { "_id": "subject2", "name": "Algorithms" }, "subjectScore": 91 }
+            {
+              "subject": {
+                "_id": "subject1",
+                "name": "HPC"
+              },
+              "subjectScore": 88
+            },
+            {
+              "subject": {
+                "_id": "subject2",
+                "name": "Algorithms"
+              },
+              "subjectScore": 91
+            }
           ]
         }
-      ]
+      ],
+      "id": "c33e"
     }
   ],
-
   "announcements": [
     {
       "_id": "ann1",
@@ -189,7 +397,8 @@
       "category": "General",
       "publishedDate": "15-02-2025",
       "eventDate": "15-02-2025",
-      "location": "Seminar Hall"
+      "location": "Seminar Hall",
+      "id": "61a7"
     },
     {
       "_id": "ann2",
@@ -198,7 +407,8 @@
       "category": "Placement",
       "publishedDate": "01-08-2025",
       "eventDate": "10-08-2025",
-      "location": "Auditorium"
+      "location": "Auditorium",
+      "id": "1a4e"
     },
     {
       "_id": "event1",
@@ -210,9 +420,18 @@
       "lastRegisterationDate": "01-03-2025",
       "location": "Seminar Hall",
       "registeredStudents": [
-        { "_id": "user1", "firstName": "John", "lastName": "Don" },
-        { "_id": "user7", "firstName": "Fay", "lastName": "Green" }
-      ]
+        {
+          "_id": "user1",
+          "firstName": "John",
+          "lastName": "Don"
+        },
+        {
+          "_id": "user7",
+          "firstName": "Fay",
+          "lastName": "Green"
+        }
+      ],
+      "id": "ff4e"
     },
     {
       "_id": "event2",
@@ -224,147 +443,344 @@
       "lastRegisterationDate": "18-08-2025",
       "location": "Innovation Lab",
       "registeredStudents": [
-        { "_id": "user2", "firstName": "Alice", "lastName": "Smith" },
-        { "_id": "user3", "firstName": "Bob", "lastName": "Johnson" }
-      ]
+        {
+          "_id": "user2",
+          "firstName": "Alice",
+          "lastName": "Smith"
+        },
+        {
+          "_id": "user3",
+          "firstName": "Bob",
+          "lastName": "Johnson"
+        }
+      ],
+      "id": "ac6e"
     }
   ],
-
-   "batches": [
+  "batches": [
     {
       "_id": "batch1",
       "name": "2025",
       "students": [
-        { "_id": "user1", "firstName": "John", "lastName": "Don" },
-        { "_id": "user4", "firstName": "Charlie", "lastName": "Davis" },
-        { "_id": "user5", "firstName": "Eve", "lastName": "Martin" }
+        {
+          "_id": "user1",
+          "firstName": "John",
+          "lastName": "Don"
+        },
+        {
+          "_id": "user4",
+          "firstName": "Charlie",
+          "lastName": "Davis"
+        },
+        {
+          "_id": "user5",
+          "firstName": "Eve",
+          "lastName": "Martin"
+        }
       ],
-      "placedStudents": 10
+      "placedStudents": 10,
+      "id": "bd8e"
     },
     {
       "_id": "batch2",
       "name": "2024",
       "students": [
-        { "_id": "user2", "firstName": "Alice", "lastName": "Smith" },
-        { "_id": "user8", "firstName": "Grace", "lastName": "Taylor" },
-        { "_id": "user6", "firstName": "David", "lastName": "Clark" }
+        {
+          "_id": "user2",
+          "firstName": "Alice",
+          "lastName": "Smith"
+        },
+        {
+          "_id": "user8",
+          "firstName": "Grace",
+          "lastName": "Taylor"
+        },
+        {
+          "_id": "user6",
+          "firstName": "David",
+          "lastName": "Clark"
+        }
       ],
-      "placedStudents": 8
+      "placedStudents": 8,
+      "id": "365e"
     }
   ],
-
-   "departments": [
-    { "_id": "dept1", "name": "CSE", "course": "Engineering" },
-    { "_id": "dept2", "name": "Mechanical", "course": "Engineering" },
-    { "_id": "dept3", "name": "ECE", "course": "Engineering" },
-    { "_id": "dept4", "name": "Electrical", "course": "Engineering" }
+  "departments": [
+    {
+      "_id": "dept1",
+      "name": "CSE",
+      "course": "Engineering",
+      "id": "d133"
+    },
+    {
+      "_id": "dept2",
+      "name": "Mechanical",
+      "course": "Engineering",
+      "id": "4047"
+    },
+    {
+      "_id": "dept3",
+      "name": "ECE",
+      "course": "Engineering",
+      "id": "1d99"
+    },
+    {
+      "_id": "dept4",
+      "name": "Electrical",
+      "course": "Engineering",
+      "id": "1c87"
+    }
   ],
-
   "companyDetails": [
     {
       "_id": "company1",
       "name": "CTS",
       "description": "Leading IT services company offering a wide range of solutions.",
-      "skills": ["JavaScript", "HTML", "CSS", "Node.js"],
+      "skills": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Node.js"
+      ],
       "lastRegisterationDate": "27-08-2025",
-      "Restrictions": ["Must have a CGPA above 7.0", "No active backlogs"],
+      "Restrictions": [
+        "Must have a CGPA above 7.0",
+        "No active backlogs"
+      ],
       "appliedStudents": [
-        { "student": { "_id": "user1", "firstName": "John", "lastName": "Don" }, "status": "Applied" }
+        {
+          "student": {
+            "_id": "user1",
+            "firstName": "John",
+            "lastName": "Don"
+          },
+          "status": "Applied"
+        }
       ],
       "batch": {
         "_id": "batch1",
         "name": "2025",
         "students": [
-          { "_id": "user1", "firstName": "John", "lastName": "Don" },
-          { "_id": "user4", "firstName": "Charlie", "lastName": "Davis" },
-          { "_id": "user5", "firstName": "Eve", "lastName": "Martin" }
+          {
+            "_id": "user1",
+            "firstName": "John",
+            "lastName": "Don"
+          },
+          {
+            "_id": "user4",
+            "firstName": "Charlie",
+            "lastName": "Davis"
+          },
+          {
+            "_id": "user5",
+            "firstName": "Eve",
+            "lastName": "Martin"
+          }
         ],
         "placedStudents": 10
-      }
+      },
+      "id": "d7e8"
     },
     {
       "_id": "company2",
       "name": "TCS",
       "description": "A global IT services and consulting company.",
-      "skills": ["Java", "Spring", "Microservices"],
+      "skills": [
+        "Java",
+        "Spring",
+        "Microservices"
+      ],
       "lastRegisterationDate": "15-08-2025",
-      "Restrictions": ["No backlog", "Willing to relocate"],
+      "Restrictions": [
+        "No backlog",
+        "Willing to relocate"
+      ],
       "appliedStudents": [
-        { "student": { "_id": "user2", "firstName": "Alice", "lastName": "Smith" }, "status": "Placed" }
+        {
+          "student": {
+            "_id": "user2",
+            "firstName": "Alice",
+            "lastName": "Smith"
+          },
+          "status": "Placed"
+        }
       ],
       "batch": {
         "_id": "batch1",
         "name": "2025",
         "students": [
-          { "_id": "user1", "firstName": "John", "lastName": "Don" },
-          { "_id": "user4", "firstName": "Charlie", "lastName": "Davis" },
-          { "_id": "user5", "firstName": "Eve", "lastName": "Martin" }
+          {
+            "_id": "user1",
+            "firstName": "John",
+            "lastName": "Don"
+          },
+          {
+            "_id": "user4",
+            "firstName": "Charlie",
+            "lastName": "Davis"
+          },
+          {
+            "_id": "user5",
+            "firstName": "Eve",
+            "lastName": "Martin"
+          }
         ],
         "placedStudents": 10
-      }
+      },
+      "id": "15e6"
     },
     {
       "_id": "company3",
       "name": "Wipro",
       "description": "IT, consulting, and business process services company.",
-      "skills": ["Python", "Django", "ML"],
+      "skills": [
+        "Python",
+        "Django",
+        "ML"
+      ],
       "lastRegisterationDate": "20-08-2025",
-      "Restrictions": ["Must have a minimum of 75% in 12th grade"],
+      "Restrictions": [
+        "Must have a minimum of 75% in 12th grade"
+      ],
       "appliedStudents": [
-        { "student": { "_id": "user2", "firstName": "Alice", "lastName": "Smith" }, "status": "Applied" }
+        {
+          "student": {
+            "_id": "user2",
+            "firstName": "Alice",
+            "lastName": "Smith"
+          },
+          "status": "Applied"
+        }
       ],
       "batch": {
         "_id": "batch1",
         "name": "2025",
         "students": [
-          { "_id": "user1", "firstName": "John", "lastName": "Don" },
-          { "_id": "user4", "firstName": "Charlie", "lastName": "Davis" },
-          { "_id": "user5", "firstName": "Eve", "lastName": "Martin" }
+          {
+            "_id": "user1",
+            "firstName": "John",
+            "lastName": "Don"
+          },
+          {
+            "_id": "user4",
+            "firstName": "Charlie",
+            "lastName": "Davis"
+          },
+          {
+            "_id": "user5",
+            "firstName": "Eve",
+            "lastName": "Martin"
+          }
         ],
         "placedStudents": 10
-      }
+      },
+      "id": "5a59"
     },
     {
       "_id": "company4",
       "name": "Accenture",
       "description": "Global management consulting, technology services, and outsourcing company.",
-      "skills": ["SQL", "C#", "Angular"],
+      "skills": [
+        "SQL",
+        "C#",
+        "Angular"
+      ],
       "lastRegisterationDate": "25-09-2025",
-      "Restrictions": ["Minimum CGPA of 8.0"],
+      "Restrictions": [
+        "Minimum CGPA of 8.0"
+      ],
       "appliedStudents": [
-        { "student": { "_id": "user6", "firstName": "David", "lastName": "Clark" }, "status": "Rejected" }
+        {
+          "student": {
+            "_id": "user6",
+            "firstName": "David",
+            "lastName": "Clark"
+          },
+          "status": "Rejected"
+        }
       ],
       "batch": {
         "_id": "batch1",
         "name": "2025",
         "students": [
-          { "_id": "user1", "firstName": "John", "lastName": "Don" },
-          { "_id": "user4", "firstName": "Charlie", "lastName": "Davis" },
-          { "_id": "user5", "firstName": "Eve", "lastName": "Martin" }
+          {
+            "_id": "user1",
+            "firstName": "John",
+            "lastName": "Don"
+          },
+          {
+            "_id": "user4",
+            "firstName": "Charlie",
+            "lastName": "Davis"
+          },
+          {
+            "_id": "user5",
+            "firstName": "Eve",
+            "lastName": "Martin"
+          }
         ],
         "placedStudents": 10
-      }
+      },
+      "id": "3dea"
     },
     {
       "_id": "company5",
       "name": "IBM",
       "description": "Technology and consulting company.",
-      "skills": ["Cloud", "AI", "Data Science"],
+      "skills": [
+        "Cloud",
+        "AI",
+        "Data Science"
+      ],
       "lastRegisterationDate": "22-09-2025",
-      "Restrictions": ["Must have internship experience"],
+      "Restrictions": [
+        "Must have internship experience"
+      ],
       "appliedStudents": [
-        { "student": { "_id": "user6", "firstName": "David", "lastName": "Clark" }, "status": "Placed" }
+        {
+          "student": {
+            "_id": "user6",
+            "firstName": "David",
+            "lastName": "Clark"
+          },
+          "status": "Placed"
+        }
       ],
       "batch": {
         "_id": "batch1",
         "name": "2025",
         "students": [
-          { "_id": "user1", "firstName": "John", "lastName": "Don" },
-          { "_id": "user4", "firstName": "Charlie", "lastName": "Davis" },
-          { "_id": "user5", "firstName": "Eve", "lastName": "Martin" }
+          {
+            "_id": "user1",
+            "firstName": "John",
+            "lastName": "Don"
+          },
+          {
+            "_id": "user4",
+            "firstName": "Charlie",
+            "lastName": "Davis"
+          },
+          {
+            "_id": "user5",
+            "firstName": "Eve",
+            "lastName": "Martin"
+          }
         ],
         "placedStudents": 10
-      }
+      },
+      "id": "0b9c"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "9f58",
+      "category": "Academic",
+      "feedback": "Satisfied with the course structure. "
+    },
+    {
+      "id": "9cc5",
+      "category": "Academic",
+      "feedback": "good course"
     }
   ]
 }

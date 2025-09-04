@@ -18,6 +18,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import StudentPlacement from "./features/Student/StudentPlacement";
 import ViewBatch from "./features/Admin/ViewBatch";
+import StudentDashboard from "./features/Student/StudentDashboard";
 
 export default function App() {
   return (
@@ -33,7 +34,7 @@ export default function App() {
 
         
         <Route path="student/" element={<Student />}>
-          {/* <Route path="" element={} /> */}
+          <Route path="" element={<StudentDashboard/>} />
           <Route path="announcement/" element={<StudentAnnouncement />} />
           <Route path="feedback/" element={<FeedbackForm />} />
           <Route path="examschedule/" element={<ExamSchedule role={"student"} />} />

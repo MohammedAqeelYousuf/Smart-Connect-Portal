@@ -1,17 +1,36 @@
 import React, { useState } from "react";
-// import "../../styles/FeedbackForm.css";
+import "../../styles/FeedbackForm.css";
 
 const FeedbackForm = () => {
   const [category, setCategory] = useState("");
   const [feedback, setFeedback] = useState("");
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Category:", category);
-    console.log("Feedback:", feedback);
-    alert("Feedback submitted successfully!");
-    setCategory("");
-    setFeedback("");
+    try {
+      const response = await fetch("http://localhost:5500/feedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          category: category,
+          feedback: feedback
+        }),
+      });
+
+      if (response.ok) {
+        alert("Feedback submitted!");
+        setCategory("");
+        setFeedback("");
+      } else {
+        throw new Error("Failed to submit feedback");
+      }
+    } catch (error) {
+      alert("Error submitting feedback");
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -49,6 +68,8 @@ const FeedbackForm = () => {
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             required
+            minLength={10}
+            maxLength={50}
           ></textarea>
 
           <button type="submit">Submit</button>
