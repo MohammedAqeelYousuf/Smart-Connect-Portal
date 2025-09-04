@@ -1,21 +1,33 @@
-function Sidebar() {
-    return (
-                <aside className="bg-primary text-white p-3 d-none d-lg-flex flex-column" style={{ width: '80px', minWidth: '80px',alignItems:"center", height:"92vh" }}>
-                    <div className="list-group list-group-flush">
-                        <a href="#" className="list-group-item list-group-item-action bg-primary text-white border-0 rounded my-1" aria-current="true">
-                            <i className="bi bi-megaphone me-2"style={{fontSize:"1.5rem"}}></i>
-                        </a>
-                        <a href="#" className="list-group-item list-group-item-action bg-primary text-white border-0 rounded my-1">
-                            <i className="bi bi-bell me-3"style={{fontSize:"1.5rem"}}></i>
-                        </a>
-                        <a href="#" className="list-group-item list-group-item-action bg-primary text-white border-0 rounded my-1">
-                            <i className="bi bi-briefcase-fill me-2" style={{fontSize:"1.5rem"}}></i>
-                        </a>
-                        <a href="#" className="list-group-item list-group-item-action bg-primary text-white border-0 rounded my-1">
-                            <i className="bi bi-calendar-check me-2" style={{fontSize:"1.5rem"}}></i>
-                        </a>
-                    </div>
-                </aside>
-            );
+import { Link } from "react-router-dom";
+import { FaBullhorn, FaUser, FaClipboardList, FaBriefcase, FaChartBar, FaComment } from "react-icons/fa";
+
+export default function Sidebar() {
+  return (
+    <div style={{
+      backgroundColor: "#3f62c2",
+      width: "60px",
+      height: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      paddingTop: "35px"
+    }}>
+     <Link to="/student/announcement" title="Announcements">
+  <FaBullhorn size={30} color="white" style={{ marginBottom: "30px", cursor: "pointer" }} />
+</Link>
+
+<Link to="/student/feedback" title="Feedback">
+  <FaComment size={30} color="white" style={{ marginBottom: "30px", cursor: "pointer" }} />
+</Link>
+
+<Link to="/student/examschedule" title="Exams">
+  <FaClipboardList size={30} color="white" style={{ marginBottom: "30px", cursor: "pointer" }} />
+</Link>
+
+<Link to="/student/placement" title="Jobs">
+  <FaBriefcase size={30} color="white" style={{ cursor: "pointer" }} />
+</Link>
+
+    </div>
+  );
 }
-export default Sidebar;
