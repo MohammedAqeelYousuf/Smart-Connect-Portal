@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/Announcement.css";
 import AnnouncementCard from "../../components/AnnouncementCard";
+import Sidebar from "../../components/Sidebar";
 
 
 

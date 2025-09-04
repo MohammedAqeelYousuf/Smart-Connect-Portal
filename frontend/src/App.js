@@ -23,9 +23,8 @@ export default function App() {
   return (
     <>
     <Navbar />
-    <AppProvider>
+    {/* <AppProvider> */}
       <Routes>
-        
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -51,7 +50,7 @@ export default function App() {
 
         {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
       </Routes>
-    </AppProvider>
+    {/* </AppProvider> */}
     </>
   );
 }

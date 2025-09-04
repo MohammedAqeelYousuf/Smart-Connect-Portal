@@ -183,7 +183,7 @@ function CompanyDetails(){
 
       xlsx.writeFile(workbook, "PlacementStatus.xlsx")
     }
-
+    console.log(currentUser);
     return(
         <div className="container-fluid p-2 vh-100">
             {companyDetails &&
