@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../../styles/FeedbackForm.css";
 
+//feedback form - student dashboard
+
 const FeedbackForm = () => {
   const [category, setCategory] = useState("");
   const [feedback, setFeedback] = useState("");
