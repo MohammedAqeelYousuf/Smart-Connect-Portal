@@ -16,46 +16,8 @@ export default function SmartCon() {
 
   return (
     <div className="smartcon-container ">
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary landing-navbar">
-  <div className="container no-bg">
-    
-    {/* Left: Logo */}
-    <a className="navbar-brand d-flex align-items-center" href="#">
-      <img src={Logo} alt="logo" className="me-2 Logo" />
-      SmartCon
-    </a>
-
-    {/* Toggler for mobile */}
-    <button
-      className="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-    >
-      <span className="navbar-toggler-icon"></span>
-    </button>
-
-    {/* Center: Nav links */}
-    <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav mx-auto">  {/* <-- mx-auto centers horizontally */}
-        <li className="nav-item">
-          <a className="nav-link" href="#home">Home</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#services">Services</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#about">About Us</a>
-        </li>
-      </ul>
-
-      {/* Right: Login button */}
-      <button className="btn btn-light ms-lg-3" onClick={() => navigate("/login")}>Login</button>
-    </div>
-
-  </div>
-</nav>
+  
+      
 
 
       {/* Hero Section */}

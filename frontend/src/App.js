@@ -29,8 +29,9 @@ export default function App() {
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
 
   return (
-    <AppProvider>
-      {shouldShowNavbar && <Navbar />}
+    <>
+    <Navbar />
+    {/* <AppProvider> */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -57,6 +58,7 @@ export default function App() {
 
          <Route path="*" element={<Navigate to="/" replace />} /> 
       </Routes>
-    </AppProvider>
+    {/* </AppProvider> */}
+    </>
   );
 }
