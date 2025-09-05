@@ -19,6 +19,10 @@ import "./App.css";
 import StudentPlacement from "./features/Student/StudentPlacement";
 import ViewBatch from "./features/Admin/ViewBatch";
 import StudentDashboard from "./features/Student/StudentDashboard";
+import AddCompanyDetails from "./features/Admin/AddCompanyDetails";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import UpdateCompanyDetails from "./features/Admin/UpdateCompanyDetails";
+
 
 export default function App() {
   const location = useLocation();
@@ -52,7 +56,9 @@ export default function App() {
           <Route path="announcement/" element={<Announcements />} />
           <Route path="examschedule/" element={<ExamSchedule role={"admin"} />} />
           <Route path="placement/" element={<Placement />} />
-          <Route path="company/:id" element={<CompanyDetails />} />
+          <Route path="company/view/:id" element={<CompanyDetails />} />
+          <Route path="company/add" element={<AddCompanyDetails />} />
+          <Route path="company/update" element={<UpdateCompanyDetails />} />
           <Route path="batch/:id" element={<ViewBatch />} />
         </Route>
 
