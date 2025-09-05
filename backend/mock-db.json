@@ -557,7 +557,7 @@
           "status": "Applied"
         }
       ],
-      "batch": {
+      "batch": [{
         "_id": "batch1",
         "name": "2025",
         "students": [
@@ -578,7 +578,7 @@
           }
         ],
         "placedStudents": 10
-      },
+      }],
       "id": "d7e8"
     },
     {
@@ -605,7 +605,7 @@
           "status": "Placed"
         }
       ],
-      "batch": {
+      "batch": [{
         "_id": "batch1",
         "name": "2025",
         "students": [
@@ -626,7 +626,7 @@
           }
         ],
         "placedStudents": 10
-      },
+      }],
       "id": "15e6"
     },
     {
@@ -652,7 +652,7 @@
           "status": "Applied"
         }
       ],
-      "batch": {
+      "batch": [{
         "_id": "batch1",
         "name": "2025",
         "students": [
@@ -673,7 +673,7 @@
           }
         ],
         "placedStudents": 10
-      },
+      }],
       "id": "5a59"
     },
     {
@@ -699,7 +699,7 @@
           "status": "Rejected"
         }
       ],
-      "batch": {
+      "batch": [{
         "_id": "batch1",
         "name": "2025",
         "students": [
@@ -720,7 +720,7 @@
           }
         ],
         "placedStudents": 10
-      },
+      }],
       "id": "3dea"
     },
     {
@@ -746,7 +746,7 @@
           "status": "Placed"
         }
       ],
-      "batch": {
+      "batch": [{
         "_id": "batch1",
         "name": "2025",
         "students": [
@@ -767,7 +767,7 @@
           }
         ],
         "placedStudents": 10
-      },
+      }],
       "id": "0b9c"
     }
   ],

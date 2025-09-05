@@ -35,7 +35,7 @@ function Login() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/users");
+      const response = await fetch("http://localhost:5500/users");
       if (!response.ok) throw new Error("Network response not OK");
 
       const users = await response.json();
