@@ -16,7 +16,9 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.17.1"
+    "mongoose": "^8.17.1",
+    "@sendgrid/mail": "^8.1.5",
+    "body-parser": "^2.2.0"
   },
   "devDependencies": {
     "json-server": "^1.0.0-beta.3",

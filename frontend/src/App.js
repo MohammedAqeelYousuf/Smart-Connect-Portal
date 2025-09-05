@@ -35,7 +35,6 @@ export default function App() {
   return (
     <>
     <Navbar />
-    {/* <AppProvider> */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -58,13 +57,12 @@ export default function App() {
           <Route path="placement/" element={<Placement />} />
           <Route path="company/view/:id" element={<CompanyDetails />} />
           <Route path="company/add" element={<AddCompanyDetails />} />
-          <Route path="company/update" element={<UpdateCompanyDetails />} />
-          <Route path="batch/:id" element={<ViewBatch />} />
+          <Route path="company/edit/:id" element={<UpdateCompanyDetails />} />
+          <Route path="batch/view/:id" element={<ViewBatch />} />
         </Route>
 
          <Route path="*" element={<Navigate to="/" replace />} /> 
       </Routes>
-    {/* </AppProvider> */}
     </>
   );
 }

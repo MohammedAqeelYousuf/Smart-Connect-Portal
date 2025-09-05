@@ -1,133 +1,184 @@
-.smartcon-container {
+.landing-container {
   font-family: 'Segoe UI', sans-serif;
-  color:black;
+  color: black;
   background-color: #e4ecf6;
-  
 }
-.Logo{
-height : 40px;
-width: 40px;
- 
-}
-.landing-navbar,footer{
-  background-color: #375CB8!important;
-}
-navbar-nav{
-  align-items:center ;
-}
-/* Hero Section */
 
- .hero-section {
+.landing-text {
+  font-size: 1.2rem;
+}
+
+.landing-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+}
+
+.landing-logo {
+  height: 40px;
+  width: 40px;
+}
+
+.landing-navbar,
+.landing-footer {
+  background-color: #375CB8 !important;
+}
+
+.landing-hero-section {
   position: relative;
   height: 75vh;
   overflow: hidden;
 }
 
-.hero-section::before {
+.landing-text-center {
+  text-align: center !important;
+}
+
+.landing-hero-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  
   background: url("https://t4.ftcdn.net/jpg/06/34/14/27/240_F_634142702_krpVzitHatLALEzzwN5TXBJGr8JeOr1C.jpg") center / cover no-repeat;
   filter: blur(1px);
-  transform: scale(1.05); 
+  transform: scale(1.05);
   z-index: 0;
 }
 
-.hero-section > * {
+.landing-hero-section > * {
   position: relative;
-  z-index: 1; 
+  z-index: 1;
 }
 
-.hero-content{
-    margin-top: 10rem;
-    width: 50%;
-    margin-left: 28px;
- 
+.landing-hero-content {
+  margin-top: 10rem;
+  width: 50%;
+  margin-left: 28px;
 }
 
-/* About Section */
-.about-section {
+.landing-about-section {
   background-color: #f3f6fa;
 }
 
-/* Services Section */
-.services-section {
+.landing-services-section {
   background-color: #f3f6fa;
 }
 
-
-.service-card {
+.landing-service-card {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
 }
-.service-card:hover {
+
+.landing-service-card:hover {
   transform: translateY(-5px);
 }
-.service-row {
-  margin-top: 2rem; 
+
+.landing-service-row {
+  margin-top: 2rem;
   font-size: 14px;
 }
-.service-icon{
-  height: 3rem; 
 
+.landing-service-icon {
+  height: 3rem;
 }
-.container{
+
+.landing-container-box {
   background-color: #CCDCEC;
   padding: 20px;
-  width: 100%;
+  width: 95%;
+  margin: auto;
   border-radius: 10px;
-      width: 95%;
-    max-width: 100%;
+  max-width: 100%;
 }
 
-.container.no-bg {
+.landing-container-box.no-bg {
   background-color: transparent;
   padding: 0px;
 }
-/* FAQ Section */
-.faq-section {
+
+.landing-faq-section {
   background-color: #f3f6fa;
   border: 2px;
 }
 
-.faq-section .accordion {
-  max-width: 800px; 
+.landing-faq-section .accordion {
+  max-width: 800px;
   margin: auto;
 }
 
-
-.faq-card {
+.landing-faq-card {
   border: 1px solid #ddd;
   border-radius: 12px;
-  overflow: hidden; 
+  overflow: hidden;
   margin-bottom: 1rem;
 }
 
-
-.faq-card .accordion-button {
+.landing-faq-card .accordion-button {
   box-shadow: none;
 }
 
-
-.faq-card .accordion-button:not(.collapsed),
-.faq-card .accordion-collapse.show .accordion-body {
-  background-color: #f0f6ff; 
-  color: #003366; 
+.landing-faq-card .accordion-button:not(.collapsed),
+.landing-faq-card .accordion-collapse.show .accordion-body {
+  background-color: #f0f6ff;
+  color: #003366;
 }
 
-.faq-card .accordion-body {
+.landing-faq-card .accordion-body {
   transition: background-color 0.3s ease;
 }
 
-
-/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .hero-section {
+  .landing-hero-section {
     height: 50vh;
     text-align: center;
     padding: 2rem;
+  }
+  .landing-hero-content {
+    margin-top: 5rem;
+    margin-left: 0;
+  }
+  .landing-hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .landing-hero-content p {
+    font-size: 1rem;
+  }
+  .landing-text {
+    font-size: 1rem;
+  }
+  .landing-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  .landing-service-card h5 {
+    font-size: 1rem;
+  }
+  .landing-faq-card .accordion-button {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-hero-content {
+    margin-top: 5rem;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 71px;
+  }
+  .landing-hero-section {
+    height: 50vh;
+  }
+  .landing-hero-content h1 {
+    font-size: 1rem;
+  }
+  .landing-hero-content p {
+    font-size: 0.9rem;
+  }
+  .landing-text {
+    font-size: 0.85rem;
+  }
+  .landing-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
   }
 }

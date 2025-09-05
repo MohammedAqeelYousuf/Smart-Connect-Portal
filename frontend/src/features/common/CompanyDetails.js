@@ -137,6 +137,7 @@ function CompanyDetails() {
   const context = useContext(AppContext);
   const { getCompanyById, currentCompany, allCompaines, currentUser } = context;
 
+  console.log(currentUser)
   useEffect(() => {
     const matched = allCompaines?.find(c => c._id === id);
     if (matched) {
@@ -169,7 +170,7 @@ function CompanyDetails() {
         <>
           <div className="d-flex justify-content-between align-items-center mb-3">
             <div>
-              <Link to="/student/placement" className="text-decoration-none text-secondary">← Back</Link>
+              <Link to={`/${currentUser?.role === "admin" || currentUser?.role === "staff" ?"admin":"student"}/placement`} className="text-decoration-none text-secondary">← Back</Link>
               <h2 className="mt-2">{companyDetails.name}</h2>
             </div>
             <div>
@@ -192,7 +193,7 @@ function CompanyDetails() {
           <CompanyDetailsFields type="badge" fieldName="Batches" fieldDescription={companyDetails?.batch?.map(b => b.name)} />
 
 
-          {currentUser?.role === "Admin" && (
+          {currentUser?.role === "admin" || currentUser?.role === "staff" && (
             <>
               <CompanyDetailsFields type="text" fieldName="Applied Students" fieldDescription={companyDetails?.appliedStudents?.length || 0} />
               <CompanyDetailsFields type="checkbox" fieldName="Restrictions" />

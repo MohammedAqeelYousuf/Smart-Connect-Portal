@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Table = ({ columns, data = [], actions, parentRoute, isAdmin = false }) => {
+const Table = ({ columns, data = [], actions, parentRoute, isAdmin = false, onEdit }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 5;
   const navigate = useNavigate();
@@ -45,13 +45,20 @@ const Table = ({ columns, data = [], actions, parentRoute, isAdmin = false }) =>
                       <div className="btn-group btn-group-sm">
                         <button
                           className="btn btn-outline-info"
-                          onClick={() => navigate(`${parentRoute}/${row._id}`)}
+                          onClick={() => navigate(`${parentRoute}/view/${row._id}`)}
                         >
                           View
                         </button>
                         {isAdmin && (
                           <>
-                            <button className="btn btn-outline-warning">Edit</button>
+                            <button
+                              className="btn btn-outline-warning"
+                              onClick={() =>
+                                onEdit ? onEdit(row) : navigate(`${parentRoute}/edit/${row._id}`)
+                              }
+                            >
+                              Edit
+                            </button>
                             <button className="btn btn-outline-danger">Delete</button>
                           </>
                         )}
