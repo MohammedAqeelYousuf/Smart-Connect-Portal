@@ -1,42 +1,37 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-//import "bootstrap-icons/font/bootstrap-icons.css";
-import Logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
-// import examIcon from "../Assets/exam-icon.png";
 import "../styles/Landing.css";
 
 export default function SmartCon() {
- const navigate = useNavigate();
-
- const handleLoginClick = (e) => {
-    e.preventDefault(); // stops form submission or page reload
-    navigate("/login");
-  };
+  const navigate = useNavigate();
 
   return (
-    <div className="smartcon-container ">
-  
-      
-
-
-      {/* Hero Section */}
-      <section id="home" className="hero-section text-center text-white d-flex align-items-left justify-content-left">
-        <div className="hero-content">
+    <div className="landing-container">
+    
+      <section
+        id="home"
+        className="landing-hero-section landing-text-center text-white d-flex align-items-left justify-content-left"
+      >
+        <div className="landing-hero-content">
           <h1 className="fw-bold">Welcome To SmartCon</h1>
           <p className="lead">
             A Smart Connect Portal. <br />
             Your digital gateway to stay updated with all campus happenings, announcements and more!
           </p>
-          <button className="btn btn-primary btn-lg" onClick={() => navigate("/login")}>Get Started</button>
+          <button
+            className="btn btn-primary landing-btn"
+            onClick={() => navigate("/login")}
+          >
+            Get Started
+          </button>
         </div>
       </section>
 
-      {/* About Us */}
-      <section id="about" className="about-section py-5">
-        <div className="container text-center">
+      <section id="about" className="landing-about-section py-5">
+        <div className="landing-container-box landing-text-center">
           <h2 className="fw-bold mb-3">About Us</h2>
-          <p className="text-center mb-5 fs-5">
+          <p className="landing-text-center mb-5 landing-text">
             SmartCon is a unified digital platform designed to streamline communication, collaboration,
             and campus engagement for students, faculty, and administrators. Our goal is to centralize essential
             academic services—like announcements, placements, results, and feedback—into one easy-to-use interface.
@@ -46,17 +41,16 @@ export default function SmartCon() {
         </div>
       </section>
 
-      {/* Services */}
-      <section id="services" className="services-section py-5">
-        <div className="container text-center">
+      <section id="services" className="landing-services-section py-5">
+        <div className="landing-container-box landing-text-center">
           <h2 className="fw-bold mb-3">Services</h2>
-          <p className="mb-5 fs-5">
+          <p className="mb-5 landing-text">
             Comprehensive digital solutions for students and faculty to streamline campus life and academic excellence.
           </p>
 
-          <div className="row g-4 service-row " >
+          <div className="row g-4 landing-service-row">
             <div className="col-12 col-sm-6 col-md-6 col-lg-3">
-              <div className="service-card p-4 h-100">
+              <div className="landing-service-card p-4 h-100">
                 <i className="bi bi-calendar-event fs-1 mb-3"></i>
                 <h5>Events</h5>
                 <p>Stay updated with college events, workshops, seminars, and cultural activities happening around campus.</p>
@@ -64,16 +58,15 @@ export default function SmartCon() {
             </div>
 
             <div className="col-12 col-sm-6 col-md-6 col-lg-3">
-              <div className="service-card p-4 h-100">
+              <div className="landing-service-card p-4 h-100">
                 <i className="bi bi-journal-text fs-1 mb-3"></i>
                 <h5>Exams</h5>
-                {/* <img src={examIcon} alt="exam icon" className="service-icon" /> */}
                 <p>Access exam timetables, important dates, result announcements, and academic calendar updates.</p>
               </div>
             </div>
 
             <div className="col-12 col-sm-6 col-md-6 col-lg-3">
-              <div className="service-card p-4 h-100">
+              <div className="landing-service-card p-4 h-100">
                 <i className="bi bi-briefcase fs-1 mb-3"></i>
                 <h5>Placements</h5>
                 <p>Get notified about job openings, campus recruitment drives, company visits, and placement statistics.</p>
@@ -81,7 +74,7 @@ export default function SmartCon() {
             </div>
 
             <div className="col-12 col-sm-6 col-md-6 col-lg-3">
-              <div className="service-card p-4 h-100">
+              <div className="landing-service-card p-4 h-100">
                 <i className="bi bi-chat-dots fs-1 mb-3"></i>
                 <h5>Feedback</h5>
                 <p>Share feedback about courses, faculty, facilities, and help improve the college experience for everyone.</p>
@@ -91,17 +84,16 @@ export default function SmartCon() {
         </div>
       </section>
 
-     
-          {/* FAQ */}
-      <section className="faq-section py-5">
-        <div className="container">
-          <h2 className="fw-bold text-center mb-4">Frequently Asked Questions</h2>
-          <p className="text-center mb-5 fs-5">
+   
+      <section className="landing-faq-section py-5">
+        <div className="landing-container-box">
+          <h2 className="fw-bold landing-text-center mb-4">Frequently Asked Questions</h2>
+          <p className="landing-text-center mb-5 landing-text">
             Find answers to common questions about using SmartCon for your college experience.
           </p>
 
           <div className="accordion" id="faqAccordion">
-            <div className="accordion-item faq-card">
+            <div className="accordion-item landing-faq-card">
               <h2 className="accordion-header">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                   How do I get notifications for exam schedules?
@@ -114,7 +106,7 @@ export default function SmartCon() {
               </div>
             </div>
 
-            <div className="accordion-item faq-card">
+            <div className="accordion-item landing-faq-card">
               <h2 className="accordion-header">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                   Can I track placement opportunities for my specific course?
@@ -127,7 +119,7 @@ export default function SmartCon() {
               </div>
             </div>
 
-            <div className="accordion-item faq-card">
+            <div className="accordion-item landing-faq-card">
               <h2 className="accordion-header">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
                   Where can I submit feedback about college facilities?
@@ -140,7 +132,7 @@ export default function SmartCon() {
               </div>
             </div>
 
-            <div className="accordion-item faq-card">
+            <div className="accordion-item landing-faq-card">
               <h2 className="accordion-header">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
                   How are campus events and activities announced?
@@ -156,11 +148,9 @@ export default function SmartCon() {
         </div>
       </section>
 
-
-      {/* Footer */}
-      <footer className="text-center text-white py-3 footer">
+      <footer className="landing-text-center text-white py-3 landing-footer">
         <p className="mb-0">2025 Smart Connect Portal. All Rights Reserved.</p>
       </footer>
     </div>
   );
-}                
+}
