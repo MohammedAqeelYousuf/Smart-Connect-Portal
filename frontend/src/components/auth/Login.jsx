@@ -1,10 +1,9 @@
-
 import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AppContext from "../../context/AppContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/Auth.css";
-import Loginimage from "../../assets/login-image.png"; 
+import Loginimage from "../../assets/login-image.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -21,6 +20,7 @@ function Login() {
     setErrors({});
     setGeneralError("");
 
+    // Validate inputs
     const newErrors = {};
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -35,43 +35,38 @@ function Login() {
     }
 
     try {
-      const response = await fetch("http://localhost:5500/users");
-      if (!response.ok) throw new Error("Network response not OK");
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, role }),
+      });
 
-      const users = await response.json();
+      const data = await res.json();
 
-      const user = users.find(
-        (u) =>
-          u.email?.trim().toLowerCase() === email.trim().toLowerCase() &&
-          u.password === password &&
-          u.role?.trim().toLowerCase() === role.trim().toLowerCase()
-      );
-
-      if (!user) {
-        setGeneralError("Invalid email, password, or role.");
+      if (!res.ok) {
+        setGeneralError(data.error || "Login failed");
         return;
       }
 
-      const userData = {
-        id: user.id,
-        name: user.firstName + (user.lastName ? " " + user.lastName : ""),
-        email: user.email,
-        role: user.role,
-      };
-      localStorage.setItem("currentUser", JSON.stringify(userData));
-      setCurrentUser(userData);
+      // Save token + user in localStorage safely
+      if (data.token) localStorage.setItem("token", data.token);
+      if (data.user) localStorage.setItem("currentUser", JSON.stringify(data.user));
 
-      if (user.role.toLowerCase() === "staff") navigate("/admin");
-      else if (user.role.toLowerCase() === "student") navigate("/student");
-    } catch (error) {
-      console.error("Login error:", error);
+      // Update context safely
+      if (data.user) setCurrentUser(data.user);
+
+      // Navigate based on role
+      const userRole = data.user?.role?.toLowerCase();
+      if (userRole === "staff") navigate("/admin");
+      else navigate("/student");
+    } catch (err) {
+      console.error("Login error:", err);
       setGeneralError("Server error. Please try again.");
     }
   };
 
   return (
     <div className="auth-container">
- 
       <div className="auth-left">
         <h2>Welcome to SmartCon!</h2>
         <img src={Loginimage} alt="Login" className="img-fluid" />
@@ -82,6 +77,7 @@ function Login() {
         <div className="auth-card">
           <h3 className="text-center mb-4">Login</h3>
           {generalError && <div className="alert alert-danger">{generalError}</div>}
+
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label>Email</label>
