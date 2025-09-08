@@ -176,35 +176,48 @@ function Announcements() {
         )}
       </div>
 
-      {/* View Modal */}
-      {showViewModal && (
-        <div className="announcement-present-modal">
-          <div className="announcement-present-modal-content">
-            <button
-              type="button"
-              className="announcement-present-close-btn"
-              onClick={closeViewModal}
-              aria-label="Close modal"
-            >
-              &times;
-            </button>
-            <div className="announcement-present-modal-body">
-              <div>
-                <h2>{heading}</h2>
-                <p>{cat}</p>
-              </div>
-              <p className="announcement-present-date">{desc}</p>
-              <p>Event Date: {edate}</p>
-              <p>Location: {loc}</p>
-            </div>
-            {cat === "Event" && (
-              <div>
-                <p>Last date for Registration: {lastdate}</p>
-              </div>
-            )}
-          </div>
+      {/* View Modal with delete ui*/}
+     {showViewModal && (
+  <div className="announcement-present-modal">
+    <div className="announcement-present-modal-content">
+      <div className="announcement-present-action-buttons">
+       
+        <button
+          type="button"
+          className="announcement-present-close-btn"
+          onClick={closeViewModal}
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div className="announcement-present-modal-body">
+        <div>
+          <h2>{heading}</h2>
+          <p>{cat}</p>
+        </div>
+        <p className="announcement-present-date">{desc}</p>
+        <p>Event Date: {edate}</p>
+        <p>Location: {loc}</p>
+      </div>
+      {cat === "Event" && (
+        <div>
+          <p>Last date for Registration: {lastdate}</p>
         </div>
       )}
+       
+        <button
+          type="button"
+          className="announcement-present-delete-btn"
+         // 🔹 implement this handler
+        >
+          DELETE
+        </button>
+    </div>
+  </div>
+)}
+
 
       {/* Create Announcement Modal */}
       {showCreateModal && (

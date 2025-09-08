@@ -1,7 +1,9 @@
-/* ===== Main Container ===== */
-*{
+/* ===== Global Font ===== */
+* {
   font-family: "Poppins", sans-serif;
 }
+
+/* ===== Main Container ===== */
 .announcement-present-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -13,14 +15,35 @@
 /* ===== Header Section ===== */
 .announcement-present-header {
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .announcement-present-header h1 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #2c3e50;
-  margin-bottom: 1.5rem;
-  text-align: left;
+  margin: 0;
+}
+
+/* ===== Create Announcement Button ===== */
+.create-announcement-btn {
+  background: #6a0dad;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.create-announcement-btn:hover {
+  background: #5a0b9a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.3);
 }
 
 /* ===== Filter Buttons ===== */
@@ -55,25 +78,6 @@
   box-shadow: 0 4px 12px rgba(123, 44, 191, 0.3);
 }
 
-.announcement-present-admin-btn {
-  background: #6a0dad;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-  margin-left: auto;
-}
-
-.announcement-present-admin-btn:hover {
-  background: #5a0b9a;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.3);
-}
-
 /* ===== Grid Layout ===== */
 .announcement-present-grid {
   display: grid;
@@ -82,16 +86,14 @@
   margin-top: 2rem;
 }
 
-/* ===== Announcement Cards ===== */
+/* ===== Announcement Card ===== */
 .announcement-present-card {
   background: #122F78;
-  border: none;
   border-radius: 16px;
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
-  width: 100%;
   height: 200px;
   position: relative;
   overflow: hidden;
@@ -145,22 +147,7 @@
   flex-grow: 1;
 }
 
-.announcement-present-card-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.8rem;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.announcement-present-card-meta span {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-/* ===== Loading/Empty State ===== */
+/* ===== Empty State ===== */
 .text-center {
   text-align: center;
   grid-column: 1 / -1;
@@ -211,6 +198,7 @@
   }
 }
 
+/* Close Button */
 .announcement-present-close-btn {
   position: absolute;
   top: 20px;
@@ -236,6 +224,7 @@
   transform: rotate(90deg);
 }
 
+/* Modal Body */
 .announcement-present-modal-body {
   margin-top: 0.5rem;
 }
@@ -266,93 +255,157 @@
   line-height: 1.5;
 }
 
-/* Register Section */
-.announcement-present-modal-content > div:last-child {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+/* ===== Create Form ===== */
+.create-announcement-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
 }
 
-.announcement-present-modal-content > div:last-child p {
+.create-announcement-form label {
   font-weight: 600;
-  color: #fff;
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
+  margin-bottom: 2px;
+  color: white;
 }
 
-.announcement-present-modal-content button {
-  background: white;
-  color: #667eea;
-  padding: 0.8rem 2rem;
-  border-radius: 12px;
+.create-announcement-form input,
+.create-announcement-form textarea {
+  padding: 10px 12px;
   border: none;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: all 0.2s ease;
 }
 
-.announcement-present-modal-content button:hover {
-  background: #f8f9ff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.create-announcement-form input:focus,
+.create-announcement-form textarea:focus {
+  background: rgba(255, 255, 255, 0.25);
 }
 
-/* ===== Responsive Design ===== */
+.create-announcement-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .announcement-present-container {
-    padding: 1rem;
-  }
-  
   .announcement-present-header h1 {
     font-size: 2rem;
   }
-  
-  .announcement-filters {
-    gap: 0.5rem;
-  }
-  
-  .filter-btn,
-  .announcement-present-admin-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-  }
-  
   .announcement-present-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
   .announcement-present-card {
     height: 180px;
   }
-  
   .announcement-present-modal-content {
     padding: 2rem;
     margin: 1rem;
   }
-  
   .announcement-present-modal-body h2 {
     font-size: 1.6rem;
   }
 }
 
-@media (max-width: 480px) {
-  .announcement-filters {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .filter-btn,
-  .announcement-present-admin-btn {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .announcement-present-admin-btn {
-    margin-left: 0;
-    margin-top: 0.5rem;
-  }
+/* ==============================
+   Create / Save Announcement Buttons
+============================== */
+.create-announcement-btn {
+  background: #28a745; /* Green background */
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.create-announcement-btn:hover {
+  background: #218838; /* Darker green on hover */
+  transform: scale(1.03);
+}
+
+.create-announcement-btn:active {
+  background: #1e7e34; /* Even darker on click */
+  transform: scale(0.97);
+}
+
+
+
+/*action button edit n delete*/
+/* Action Buttons Container */
+.announcement-present-action-buttons {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 12px; /* 🔹 spacing between buttons */
+  align-items: center;
+}
+
+/* Edit Button */
+.announcement-present-edit-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.announcement-present-edit-btn:hover {
+  background: #218838;
+}
+
+/* Delete Button */
+.announcement-present-delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.announcement-present-delete-btn:hover {
+  background: #c82333;
+}
+
+/* Close Button */
+.announcement-present-close-btn {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.announcement-present-close-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: rotate(90deg);
+}
+.announcement-present-action-buttons {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
 }
