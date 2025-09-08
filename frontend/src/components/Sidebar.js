@@ -19,6 +19,7 @@ function Sidebar() {
       { to: "/admin/announcement", icon: "bi-megaphone", title: "Announcements" },
       { to: "/admin/examschedule", icon: "bi-calendar-check", title: "Exam Schedule" },
       { to: "/admin/placement", icon: "bi-briefcase-fill", title: "Placements" },
+      { to: "/admin/feedback/view", icon: "bi-chat-dots", title: "Feedback" }
     ],
   };
 
