@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
-import logo from "../assets/logo.png";
+import logoSC from "../assets/logoSC.png";
 
 const Navbar = () => {
   const { currentUser, setCurrentUser } = useContext(AppContext);
@@ -57,7 +57,7 @@ const Navbar = () => {
           onClick={handleLogoClick}
           className="navbar-brand d-flex align-items-center btn btn-link text-white text-decoration-none"
         >
-          <img src={logo} alt="logo" className="me-2" style={{ height: "40px" }} />
+          <img src={logoSC} alt="logo" className="me-2" style={{ height: "40px" }} />
           <span className="fw-bold">SmartCon</span>
         </button>
 

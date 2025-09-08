@@ -11,7 +11,7 @@ export default function SmartCon() {
     
       <section
         id="home"
-        className="landing-hero-section landing-text-center text-white d-flex align-items-left justify-content-left"
+        className="landing-hero-section landing-text-center text-white d-flex align-items-center justify-content-center"
       >
         <div className="landing-hero-content">
           <h1 className="fw-bold">Welcome To SmartCon</h1>
