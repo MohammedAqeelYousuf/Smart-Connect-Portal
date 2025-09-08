@@ -6,7 +6,7 @@
       "middleName": "",
       "lastName": "User",
       "email": "admin@smartcon.edu.in",
-      "password": "Admin@1234",
+      "password": "$2b$10$fHrwOWHa2rXiueYZ1R49COuptAbRWSVMwdzUQj2xhYLMlEqSXs0da",
       "role": "staff",
       "id": "fe86"
     },
@@ -16,7 +16,7 @@
       "middleName": "David",
       "lastName": "Doe",
       "email": "weilaweilanash@gmail.com",
-      "password": "Test@1234",
+      "password": "$2b$10$145CP1sQGe4IkKsBDROtCeF0JinT.iqAUxKXByNE8ALGY9RzChd3C",
       "role": "student",
       "mobile": "+91-9876543210",
       "class": {

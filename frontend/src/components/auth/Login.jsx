@@ -11,7 +11,6 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
   const [errors, setErrors] = useState({});
   const [generalError, setGeneralError] = useState("");
 
@@ -20,14 +19,12 @@ function Login() {
     setErrors({});
     setGeneralError("");
 
-    // Validate inputs
     const newErrors = {};
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!email) newErrors.email = "Email is required.";
     else if (!emailPattern.test(email)) newErrors.email = "Invalid email format.";
     if (!password) newErrors.password = "Password is required.";
-    if (!role) newErrors.role = "Please select a role.";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -38,29 +35,27 @@ function Login() {
       const res = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, role }),
+        body: JSON.stringify({ email, password }), // ✅ no role here
       });
 
       const data = await res.json();
-
       if (!res.ok) {
         setGeneralError(data.error || "Login failed");
         return;
       }
 
-      // Save token + user in localStorage safely
-      if (data.token) localStorage.setItem("token", data.token);
-      if (data.user) localStorage.setItem("currentUser", JSON.stringify(data.user));
+      // Save token + user in localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("User", JSON.stringify(data.user));
 
-      // Update context safely
-      if (data.user) setCurrentUser(data.user);
+      // Update context
+      setCurrentUser(data.user);
 
-      // Navigate based on role
-      const userRole = data.user?.role?.toLowerCase();
-      if (userRole === "staff") navigate("/admin");
+      // Navigate based on role (decided by backend)
+      if (data.user.role.toLowerCase() === "staff") navigate("/admin");
       else navigate("/student");
     } catch (err) {
-      console.error("Login error:", err);
+      console.error(err);
       setGeneralError("Server error. Please try again.");
     }
   };
@@ -77,7 +72,6 @@ function Login() {
         <div className="auth-card">
           <h3 className="text-center mb-4">Login</h3>
           {generalError && <div className="alert alert-danger">{generalError}</div>}
-
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label>Email</label>
@@ -101,20 +95,6 @@ function Login() {
                 placeholder="Enter your password"
               />
               {errors.password && <div className="invalid-feedback">{errors.password}</div>}
-            </div>
-
-            <div className="mb-3">
-              <label>Role</label>
-              <select
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                className={`form-control ${errors.role ? "is-invalid" : ""}`}
-              >
-                <option value="">Select role</option>
-                <option value="student">Student</option>
-                <option value="staff">Staff</option>
-              </select>
-              {errors.role && <div className="invalid-feedback">{errors.role}</div>}
             </div>
 
             <div className="mb-3 text-end">

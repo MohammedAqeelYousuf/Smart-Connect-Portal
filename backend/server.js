@@ -15,25 +15,24 @@ app.use(bodyParser.json());
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const dbFile = path.join(__dirname, "mock-db.json");
-let codes = {}; 
-app.post("/login", (req, res) => {
-  const { email, password, role } = req.body;
+let codes = {}; // store OTP temporarily
+
+// ---------------- LOGIN ----------------
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;   // no role here
   const db = JSON.parse(fs.readFileSync(dbFile));
-  const user = db.users.find(
-    (u) => u.email === email && u.role.toLowerCase() === role.toLowerCase()
-  );
 
-  if (!user) return res.status(400).json({ error: "Invalid email or role" });
+  // find by email only
+  const user = db.users.find((u) => u.email === email);
 
-  // Compare using bcrypt if hashed, fallback to plain text
-  const passwordMatches =
-    bcrypt.compareSync(password, user.password) || password === user.password;
+  if (!user) return res.status(400).json({ error: "Invalid email or password" });
 
-  if (!passwordMatches)
-    return res.status(400).json({ error: "Invalid password" });
+  // compare bcrypt hashed password
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) return res.status(400).json({ error: "Invalid email or password" });
 
   const payload = {
-    id: user.id,
+    id: user._id,
     name: user.firstName + (user.lastName ? " " + user.lastName : ""),
     email: user.email,
     role: user.role,
@@ -46,8 +45,7 @@ app.post("/login", (req, res) => {
   res.json({ token, user: userWithoutPassword });
 });
 
-
-
+// ---------------- FORGOT PASSWORD ----------------
 app.post("/send-code", async (req, res) => {
   const { email } = req.body;
   const code = Math.floor(100000 + Math.random() * 900000).toString();
@@ -55,9 +53,9 @@ app.post("/send-code", async (req, res) => {
 
   const msg = {
     to: email,
-    from: "kash963852@gmail.com", 
+    from: "kash963852@gmail.com", // must be verified in SendGrid
     subject: "SmartCon Password Reset Code",
-    text: `Your verification code is ${code}`
+    text: `Your verification code is ${code}`,
   };
 
   try {
@@ -79,34 +77,35 @@ app.post("/verify-code", (req, res) => {
   }
 });
 
-
-app.post("/reset-password", (req, res) => {
+// ---------------- RESET PASSWORD ----------------
+app.post("/reset-password", async (req, res) => {
   const { email, password } = req.body;
   const db = JSON.parse(fs.readFileSync(dbFile));
-  const user = db.users.find(u => u.email === email);
+  const user = db.users.find((u) => u.email === email);
 
   if (!user) return res.status(404).json({ error: "User not found" });
 
-
-  user.password = password;
+  // hash new password
+  const hashedPassword = await bcrypt.hash(password, 10);
+  user.password = hashedPassword;
 
   fs.writeFileSync(dbFile, JSON.stringify(db, null, 2));
 
-  
   const payload = {
     id: user.id,
     name: user.firstName + (user.lastName ? " " + user.lastName : ""),
     email: user.email,
-    role: user.role
+    role: user.role,
   };
   const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
 
   res.json({ token });
 });
 
+// ---------------- USERS (for testing) ----------------
 app.get("/users", (req, res) => {
   const db = JSON.parse(fs.readFileSync(dbFile));
-  res.json(db.users);
+  res.json(db.users.map(u => ({ ...u, password: "****" }))); // hide password
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));
