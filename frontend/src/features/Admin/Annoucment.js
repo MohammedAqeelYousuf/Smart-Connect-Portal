@@ -176,7 +176,7 @@ function Announcements() {
         )}
       </div>
 
-      {/* View Modal */}
+      {/* View Modal with delete ui*/}
      {showViewModal && (
   <div className="announcement-present-modal">
     <div className="announcement-present-modal-content">
