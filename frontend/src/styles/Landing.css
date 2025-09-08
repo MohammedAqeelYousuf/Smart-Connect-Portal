@@ -27,6 +27,7 @@
   position: relative;
   height: 75vh;
   overflow: hidden;
+   text-shadow: 0 5px 9px rgba(0,0,0,0.6); 
 }
 
 .landing-text-center {
@@ -37,8 +38,9 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("https://images.template.net/515668/Education-Banner-Background-Template-edit-online.png") center / cover no-repeat;
-  /* filter: blur(1px); */
+  /*background: url("https://images.template.net/515668/Education-Banner-Background-Template-edit-online.png") center / cover no-repeat;*/
+  background: url("https://images.pexels.com/photos/8199246/pexels-photo-8199246.jpeg") center / cover no-repeat;
+  filter: blur(1px); 
   transform: scale(1.05);
   z-index: 0;
 }
@@ -54,7 +56,10 @@
   margin-left: 28px;
   
 }
-
+.landing-hero-content p{
+  padding: 3px 7px 7px 0px;
+  margin: 9px 14px 14px 18px;
+}
 .landing-about-section {
   background-color: #f3f6fa;
 }

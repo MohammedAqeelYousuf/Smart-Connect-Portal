@@ -8,7 +8,7 @@ function ForgotPassword() {
   const [code, setCode] = useState("");
   const [errors, setErrors] = useState({});
   const [step, setStep] = useState(1);
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const validateEmail = () => {
     let newErrors = {};
@@ -65,7 +65,11 @@ function ForgotPassword() {
         <p className="auth-footer">© 2025 SmartCon. All rights reserved.</p>
       </div>
 
-      <div className="auth-right">
+      <div className="auth-right"style={
+          isMobile
+            ? { backgroundImage: `url(${Loginimage})`, backgroundSize: "cover", backgroundPosition: "center" }
+            : {}
+        }>
         <div className="auth-card">
           <h3 className="text-center mb-4">Forgot Password?</h3>
 

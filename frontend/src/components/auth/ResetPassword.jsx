@@ -9,7 +9,7 @@ function ResetPassword() {
   const [confirm, setConfirm] = useState("");
   const [errors, setErrors] = useState({});
   const email = new URLSearchParams(window.location.search).get("email");
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const validate = () => {
     let newErrors = {};
@@ -54,7 +54,11 @@ function ResetPassword() {
       </div>
 
      
-      <div className="auth-right">
+      <div className="auth-right" style={
+          isMobile
+            ? { backgroundImage: `url(${Loginimage})`, backgroundSize: "cover", backgroundPosition: "center" }
+            : {}
+        }>
         <div className="auth-card">
           <h3 className="text-center mb-4">Reset Password</h3>
           <form onSubmit={handleReset}>

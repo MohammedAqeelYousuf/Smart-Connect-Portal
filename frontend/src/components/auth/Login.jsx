@@ -13,7 +13,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [generalError, setGeneralError] = useState("");
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
@@ -68,7 +68,11 @@ function Login() {
         <p className="auth-footer">© 2025 SmartCon. All rights reserved.</p>
       </div>
 
-      <div className="auth-right">
+      <div className="auth-right" style={
+          isMobile
+            ? { backgroundImage: `url(${Loginimage})`, backgroundSize: "cover", backgroundPosition: "center" }
+            : {}
+        }>
         <div className="auth-card">
           <h3 className="text-center mb-4">Login</h3>
           {generalError && <div className="alert alert-danger">{generalError}</div>}
