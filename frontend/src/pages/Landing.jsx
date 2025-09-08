@@ -106,7 +106,7 @@ export default function SmartCon() {
               </div>
             </div>
 
-            <div className="accordion-item landing-faq-card">
+            {/* <div className="accordion-item landing-faq-card">
               <h2 className="accordion-header">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                   Can I track placement opportunities for my specific course?
@@ -117,7 +117,7 @@ export default function SmartCon() {
                   Yes, placement opportunities are filtered based on your course and department preferences.
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="accordion-item landing-faq-card">
               <h2 className="accordion-header">
