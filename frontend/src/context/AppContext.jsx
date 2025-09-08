@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')) || null);
   const [allBatches,setAllBatches] = useState([])
   const [allCompanies,setAllCompanies] = useState([]);
   const [currentCompany,setCurrentCompany] = useState(null);

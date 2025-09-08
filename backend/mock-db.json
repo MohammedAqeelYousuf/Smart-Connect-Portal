@@ -6,7 +6,7 @@
       "middleName": "",
       "lastName": "User",
       "email": "admin@smartcon.edu.in",
-      "password": "Admin@1234",
+      "password": "$2b$10$fHrwOWHa2rXiueYZ1R49COuptAbRWSVMwdzUQj2xhYLMlEqSXs0da",
       "role": "staff",
       "id": "fe86"
     },
@@ -15,8 +15,8 @@
       "firstName": "John",
       "middleName": "David",
       "lastName": "Doe",
-      "email": "johndaviddoe@smartcon.edu.in",
-      "password": "Test@1234",
+      "email": "weilaweilanash@gmail.com",
+      "password": "$2b$10$E.oI2cW58LAJNz7Er/8ciO5aDRyFUHWVxVdI69XgJmcGIzspS8hEu",
       "role": "student",
       "mobile": "+91-9876543210",
       "class": {
@@ -204,6 +204,24 @@
         }
       ],
       "id": "7021"
+    },
+    {
+      "id": "75d9",
+      "email": "weilaweilanash@gmail.com",
+      "password": "Test@123",
+      "role": "student"
+    },
+    {
+      "id": "1847",
+      "email": "weilaweilanash@gmail.com",
+      "password": "Test@1234",
+      "role": "student"
+    },
+    {
+      "id": "6d24",
+      "email": "weilaweilanash@gmail.com",
+      "password": "Test@1234",
+      "role": "student"
     }
   ],
   "examSchedules": [
@@ -557,28 +575,30 @@
           "status": "Applied"
         }
       ],
-      "batch": {
-        "_id": "batch1",
-        "name": "2025",
-        "students": [
-          {
-            "_id": "user1",
-            "firstName": "John",
-            "lastName": "Don"
-          },
-          {
-            "_id": "user4",
-            "firstName": "Charlie",
-            "lastName": "Davis"
-          },
-          {
-            "_id": "user5",
-            "firstName": "Eve",
-            "lastName": "Martin"
-          }
-        ],
-        "placedStudents": 10
-      },
+      "batch": [
+        {
+          "_id": "batch1",
+          "name": "2025",
+          "students": [
+            {
+              "_id": "user1",
+              "firstName": "John",
+              "lastName": "Don"
+            },
+            {
+              "_id": "user4",
+              "firstName": "Charlie",
+              "lastName": "Davis"
+            },
+            {
+              "_id": "user5",
+              "firstName": "Eve",
+              "lastName": "Martin"
+            }
+          ],
+          "placedStudents": 10
+        }
+      ],
       "id": "d7e8"
     },
     {
@@ -605,28 +625,30 @@
           "status": "Placed"
         }
       ],
-      "batch": {
-        "_id": "batch1",
-        "name": "2025",
-        "students": [
-          {
-            "_id": "user1",
-            "firstName": "John",
-            "lastName": "Don"
-          },
-          {
-            "_id": "user4",
-            "firstName": "Charlie",
-            "lastName": "Davis"
-          },
-          {
-            "_id": "user5",
-            "firstName": "Eve",
-            "lastName": "Martin"
-          }
-        ],
-        "placedStudents": 10
-      },
+      "batch": [
+        {
+          "_id": "batch1",
+          "name": "2025",
+          "students": [
+            {
+              "_id": "user1",
+              "firstName": "John",
+              "lastName": "Don"
+            },
+            {
+              "_id": "user4",
+              "firstName": "Charlie",
+              "lastName": "Davis"
+            },
+            {
+              "_id": "user5",
+              "firstName": "Eve",
+              "lastName": "Martin"
+            }
+          ],
+          "placedStudents": 10
+        }
+      ],
       "id": "15e6"
     },
     {
@@ -652,28 +674,30 @@
           "status": "Applied"
         }
       ],
-      "batch": {
-        "_id": "batch1",
-        "name": "2025",
-        "students": [
-          {
-            "_id": "user1",
-            "firstName": "John",
-            "lastName": "Don"
-          },
-          {
-            "_id": "user4",
-            "firstName": "Charlie",
-            "lastName": "Davis"
-          },
-          {
-            "_id": "user5",
-            "firstName": "Eve",
-            "lastName": "Martin"
-          }
-        ],
-        "placedStudents": 10
-      },
+      "batch": [
+        {
+          "_id": "batch1",
+          "name": "2025",
+          "students": [
+            {
+              "_id": "user1",
+              "firstName": "John",
+              "lastName": "Don"
+            },
+            {
+              "_id": "user4",
+              "firstName": "Charlie",
+              "lastName": "Davis"
+            },
+            {
+              "_id": "user5",
+              "firstName": "Eve",
+              "lastName": "Martin"
+            }
+          ],
+          "placedStudents": 10
+        }
+      ],
       "id": "5a59"
     },
     {
@@ -699,28 +723,30 @@
           "status": "Rejected"
         }
       ],
-      "batch": {
-        "_id": "batch1",
-        "name": "2025",
-        "students": [
-          {
-            "_id": "user1",
-            "firstName": "John",
-            "lastName": "Don"
-          },
-          {
-            "_id": "user4",
-            "firstName": "Charlie",
-            "lastName": "Davis"
-          },
-          {
-            "_id": "user5",
-            "firstName": "Eve",
-            "lastName": "Martin"
-          }
-        ],
-        "placedStudents": 10
-      },
+      "batch": [
+        {
+          "_id": "batch1",
+          "name": "2025",
+          "students": [
+            {
+              "_id": "user1",
+              "firstName": "John",
+              "lastName": "Don"
+            },
+            {
+              "_id": "user4",
+              "firstName": "Charlie",
+              "lastName": "Davis"
+            },
+            {
+              "_id": "user5",
+              "firstName": "Eve",
+              "lastName": "Martin"
+            }
+          ],
+          "placedStudents": 10
+        }
+      ],
       "id": "3dea"
     },
     {
@@ -746,28 +772,30 @@
           "status": "Placed"
         }
       ],
-      "batch": {
-        "_id": "batch1",
-        "name": "2025",
-        "students": [
-          {
-            "_id": "user1",
-            "firstName": "John",
-            "lastName": "Don"
-          },
-          {
-            "_id": "user4",
-            "firstName": "Charlie",
-            "lastName": "Davis"
-          },
-          {
-            "_id": "user5",
-            "firstName": "Eve",
-            "lastName": "Martin"
-          }
-        ],
-        "placedStudents": 10
-      },
+      "batch": [
+        {
+          "_id": "batch1",
+          "name": "2025",
+          "students": [
+            {
+              "_id": "user1",
+              "firstName": "John",
+              "lastName": "Don"
+            },
+            {
+              "_id": "user4",
+              "firstName": "Charlie",
+              "lastName": "Davis"
+            },
+            {
+              "_id": "user5",
+              "firstName": "Eve",
+              "lastName": "Martin"
+            }
+          ],
+          "placedStudents": 10
+        }
+      ],
       "id": "0b9c"
     }
   ],

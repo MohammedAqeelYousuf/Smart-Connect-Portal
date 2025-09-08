@@ -37,10 +37,10 @@ cd smartcon
 npm install
 ```
 
-### 3️⃣ Start JSON Server (for mock backend)
+### 3️⃣ Start Backend Server 
 
 ```bash
-npx json-server --watch backend/mock-db.json --port 5500
+node backend/server.js
 ```
 
 ### 4️⃣ Run the React App

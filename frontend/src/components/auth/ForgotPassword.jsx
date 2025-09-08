@@ -1,80 +1,119 @@
-import React, { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ForgotPassword = () => {
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Loginimage from "../../assets/login-image.png"; // replace with your image path
+import "../../styles/Auth.css";
+function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [errors, setErrors] = useState({});
+  const [step, setStep] = useState(1);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const validate = () => {
+  const validateEmail = () => {
     let newErrors = {};
     if (!email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Invalid email format";
     }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const validateCode = () => {
+    let newErrors = {};
     if (!code.trim()) {
-      newErrors.code = "Code is required";
+      newErrors.code = "Verification code is required";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSendCode = async (e) => {
     e.preventDefault();
-    if (!validate()) return;
-    alert("Password reset code verified!");
+    if (!validateEmail()) return;
+    await fetch("http://localhost:5000/send-code", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    setStep(2);
+  };
+
+  const handleVerifyCode = async (e) => {
+    e.preventDefault();
+    if (!validateCode()) return;
+    const res = await fetch("http://localhost:5000/verify-code", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, code }),
+    });
+    if (res.ok) {
+      window.location.href = "/reset-password?email=" + email;
+    } else {
+      setErrors({ code: "Invalid verification code" });
+    }
   };
 
   return (
-    <div className="container-fluid vh-100 d-flex p-0">
+    <div className="auth-container">
 
-      {/* Left Section */}
-      <div
-        className="col-md-6 d-flex flex-column justify-content-center align-items-center text-white p-5"
-        style={{ backgroundColor: "#7ca6ff" }}
-      >
-        <h2 className="fw-bold">Welcome to SmartCon!</h2>
-        <p className="mt-3 text-center" style={{ maxWidth: "400px" }}>
-          Your digital gateway to stay updated with all campus happenings, announcements, and more!
-          <br /><small>Stay connected, stay informed — all in one place!</small>
-        </p>
-        <p className="mt-5 mb-0">&copy; 2025 SmartCon. All rights reserved.</p>
+      <div className="auth-left">
+        <h2>Welcome to SmartCon!</h2>
+        <img src={Loginimage} alt="SmartCon" className="img-fluid" />
+        <p className="auth-footer">© 2025 SmartCon. All rights reserved.</p>
       </div>
 
-      {/* Right Section */}
-      <div className="col-md-6 d-flex flex-column justify-content-center align-items-center p-5 bg-white">
-        <div style={{ maxWidth: "350px", width: "100%" }}>
-          <h3 className="fw-bold text-center mb-4">Forgot Password?</h3>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Email:</label>
-              <input
-                type="email"
-                className={`form-control ${errors.email ? "is-invalid" : ""}`}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              {errors.email && <div className="invalid-feedback">{errors.email}</div>}
-            </div>
+      <div className="auth-right"style={
+          isMobile
+            ? { backgroundImage: `url(${Loginimage})`, backgroundSize: "cover", backgroundPosition: "center" }
+            : {}
+        }>
+        <div className="auth-card">
+          <h3 className="text-center mb-4">Forgot Password?</h3>
 
-            <div className="mb-3">
-              <label className="form-label">Code:</label>
-              <input
-                type="text"
-                className={`form-control ${errors.code ? "is-invalid" : ""}`}
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-              />
-              {errors.code && <div className="invalid-feedback">{errors.code}</div>}
-            </div>
-
-            <button type="submit" className="btn btn-success w-100">Submit</button>
-          </form>
+          {step === 1 ? (
+            <form onSubmit={handleSendCode}>
+              <div className="mb-3">
+                <label>Email</label>
+                <input
+                  type="email"
+                  className={`form-control ${errors.email ? "is-invalid" : ""}`}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                {errors.email && (
+                  <div className="invalid-feedback">{errors.email}</div>
+                )}
+              </div>
+              <button type="submit" className="auth-btn w-100">
+                Send Code
+              </button>
+            </form>
+          ) : (
+            <form onSubmit={handleVerifyCode}>
+              <div className="mb-3">
+                <label>Verification Code</label>
+                <input
+                  type="text"
+                  className={`form-control ${errors.code ? "is-invalid" : ""}`}
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                />
+                {errors.code && (
+                  <div className="invalid-feedback">{errors.code}</div>
+                )}
+              </div>
+              <button type="submit" className="auth-btn w-100">
+                Verify Code
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default ForgotPassword;

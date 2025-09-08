@@ -14,7 +14,7 @@ const StudentPlacement = () => {
     return <>
         <Heading heading="Placement" />
 
-        <Table columns={["Company Name","Last Reg. Date"]} actions={true} data={allCompanies?.map((d,i)=>{return {_id:d._id,name:d.name,lastDate:d.lastRegisterationDate,batch:d.batch.name}})} parentRoute={"/student/company"} />
+        <Table columns={["Company Name","Last Reg. Date", "Batch"]} actions={true} data={allCompanies?.map((d,i)=>{return {_id:d._id,name:d.name,lastDate:d.lastRegisterationDate,batch:d.batch.name}})} parentRoute={"/student/company/view"} />
     </>
 
 }

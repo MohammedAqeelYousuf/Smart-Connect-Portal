@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AppContext from "../../context/AppContext";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../../styles/Auth.css";
+import Loginimage from "../../assets/login-image.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -9,10 +11,9 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
   const [errors, setErrors] = useState({});
   const [generalError, setGeneralError] = useState("");
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
@@ -24,7 +25,6 @@ function Login() {
     if (!email) newErrors.email = "Email is required.";
     else if (!emailPattern.test(email)) newErrors.email = "Invalid email format.";
     if (!password) newErrors.password = "Password is required.";
-    if (!role) newErrors.role = "Please select a role.";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -32,64 +32,53 @@ function Login() {
     }
 
     try {
-      const response = await fetch("http://localhost:5500/users");
-      if (!response.ok) throw new Error("Network response not OK");
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }), 
+      });
 
-      const users = await response.json();
-
-      const user = users.find(
-        (u) =>
-          u.email?.trim().toLowerCase() === email.trim().toLowerCase() &&
-          u.password === password &&
-          u.role?.trim().toLowerCase() === role.trim().toLowerCase()
-      );
-
-      if (!user) {
-        setGeneralError("Invalid email, password, or role.");
+      const data = await res.json();
+      if (!res.ok) {
+        setGeneralError(data.error || "Login failed");
         return;
       }
 
-      const userData = {
-        id: user.id,
-        name: user.firstName + (user.lastName ? " " + user.lastName : ""),
-        email: user.email,
-        role: user.role,
-      };
-      localStorage.setItem("currentUser", JSON.stringify(userData));
-      setCurrentUser(userData);
+      // Save token + user in localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("User", JSON.stringify(data.user));
 
-      if (user.role.toLowerCase() === "staff") navigate("/admin");
-      else if (user.role.toLowerCase() === "student") navigate("/student");
-    } catch (error) {
-      console.error("Login error:", error);
+      // Update context
+      setCurrentUser(data.user);
+
+      // Navigate based on role (decided by backend)
+      if (data.user.role.toLowerCase() === "staff") navigate("/admin");
+      else navigate("/student");
+    } catch (err) {
+      console.error(err);
       setGeneralError("Server error. Please try again.");
     }
   };
 
   return (
-    <div className="container-fluid vh-100 d-flex p-0">
-      
-      {/* Left Section */}
-      <div
-        className="col-md-6 d-flex flex-column justify-content-center align-items-center text-white p-5"
-        style={{ backgroundColor: "#7ca6ff" }}
-      >
-        <h2 className="fw-bold">Welcome to SmartCon!</h2>
-        <p className="mt-3 text-center" style={{ maxWidth: "400px" }}>
-          Your digital gateway to stay updated with all campus happenings, announcements, and more!
-          <br /><small>Stay connected, stay informed — all in one place!</small>
-        </p>
-        <p className="mt-5 mb-0">&copy; 2025 SmartCon. All rights reserved.</p>
+    <div className="auth-container">
+      <div className="auth-left">
+        <h2>Welcome to SmartCon!</h2>
+        <img src={Loginimage} alt="Login" className="img-fluid" />
+        <p className="auth-footer">© 2025 SmartCon. All rights reserved.</p>
       </div>
 
-      {/* Right Section */}
-      <div className="col-md-6 d-flex flex-column justify-content-center align-items-center p-5 bg-white">
-        <div style={{ maxWidth: "350px", width: "100%" }}>
-          <h3 className="fw-bold text-center mb-4">Login</h3>
+      <div className="auth-right" style={
+          isMobile
+            ? { backgroundImage: `url(${Loginimage})`, backgroundSize: "cover", backgroundPosition: "center" }
+            : {}
+        }>
+        <div className="auth-card">
+          <h3 className="text-center mb-4">Login</h3>
           {generalError && <div className="alert alert-danger">{generalError}</div>}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label">Email:</label>
+              <label>Email</label>
               <input
                 type="text"
                 value={email}
@@ -101,7 +90,7 @@ function Login() {
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Password:</label>
+              <label>Password</label>
               <input
                 type="password"
                 value={password}
@@ -112,29 +101,15 @@ function Login() {
               {errors.password && <div className="invalid-feedback">{errors.password}</div>}
             </div>
 
-            <div className="mb-3">
-              <label className="form-label">Role:</label>
-              <select
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                className={`form-control ${errors.role ? "is-invalid" : ""}`}
-              >
-                <option value="">Select role</option>
-                <option value="student">Student</option>
-                <option value="staff">Staff</option>
-              </select>
-              {errors.role && <div className="invalid-feedback">{errors.role}</div>}
-            </div>
-
-            <div className="mb-3">
-              <button type="submit" className="btn btn-success w-100">Login</button>
-            </div>
-
-            <div className="text-center">
+            <div className="mb-3 text-end">
               <Link to="/forgot-password" className="text-decoration-none">
                 Forgot Password?
               </Link>
             </div>
+
+            <button type="submit" className="auth-btn w-100">
+              Login
+            </button>
           </form>
         </div>
       </div>

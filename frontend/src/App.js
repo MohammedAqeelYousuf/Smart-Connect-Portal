@@ -19,6 +19,12 @@ import "./App.css";
 import StudentPlacement from "./features/Student/StudentPlacement";
 import ViewBatch from "./features/Admin/ViewBatch";
 import StudentDashboard from "./features/Student/StudentDashboard";
+import AddCompanyDetails from "./features/Admin/AddCompanyDetails";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import UpdateCompanyDetails from "./features/Admin/UpdateCompanyDetails";
+import ViewFeedback from "./features/Admin/ViewFeedback";
+import Error from "./pages/Error";
+
 
 export default function App() {
   const location = useLocation();
@@ -31,7 +37,6 @@ export default function App() {
   return (
     <>
     <Navbar />
-    {/* <AppProvider> */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -52,13 +57,15 @@ export default function App() {
           <Route path="announcement/" element={<Announcements />} />
           <Route path="examschedule/" element={<ExamSchedule role={"admin"} />} />
           <Route path="placement/" element={<Placement />} />
-          <Route path="company/:id" element={<CompanyDetails />} />
-          <Route path="batch/:id" element={<ViewBatch />} />
+          <Route path="company/view/:id" element={<CompanyDetails />} />
+          <Route path="company/add" element={<AddCompanyDetails />} />
+          <Route path="company/edit/:id" element={<UpdateCompanyDetails />} />
+          <Route path="batch/view/:id" element={<ViewBatch />} />
+          <Route path="feedback/view" element={<ViewFeedback/>} />
         </Route>
 
-         <Route path="*" element={<Navigate to="/" replace />} /> 
+         <Route path="*" element={<Error/>}  /> 
       </Routes>
-    {/* </AppProvider> */}
     </>
   );
 }
