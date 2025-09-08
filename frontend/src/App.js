@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 
+
 import Landing from "./pages/Landing";
 import Login from "./components/auth/Login";
 import ForgotPassword from "./components/auth/ForgotPassword";
@@ -22,6 +23,13 @@ import StudentDashboard from "./features/Student/StudentDashboard";
 import AddCompanyDetails from "./features/Admin/AddCompanyDetails";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UpdateCompanyDetails from "./features/Admin/UpdateCompanyDetails";
+import ViewProfile from "./features/Student/ViewProfile";
+import AdminCreateUser from "./features/Admin/AdminCreate";
+import AdminEditProfile from "./features/Admin/AdminEditProfile";
+import AdminViewProfile from "./features/Admin/AdminViewProfile";
+import CreateUser from "./features/Admin/CreateUser";
+import EditProfile from "./features/Student/EditProfile";
+import ProfileResetPassword from "./features/Admin/ProfileResetPassword";
 
 
 export default function App() {
@@ -43,6 +51,8 @@ export default function App() {
 
         <Route path="student/" element={<Student />}>
           <Route path="" element={<StudentDashboard/>} />
+          <Route path="profile/" element={<ViewProfile/>} />
+          <Route path="edit-profile/" element={<EditProfile/>} />
           <Route path="announcement/" element={<StudentAnnouncement />} />
           <Route path="feedback/" element={<FeedbackForm />} />
           <Route path="examschedule/" element={<ExamSchedule role={"student"} />} />
@@ -52,6 +62,11 @@ export default function App() {
 
         <Route path="admin/" element={<Admin />}>
           <Route path="" element={<AdminDashboard />} />
+          <Route path="admin-create-profile/" element={<AdminCreateUser />} />
+          <Route path="admin-edit-profile/" element={<AdminEditProfile/>} />
+          <Route path="admin-view-profile/" element={<AdminViewProfile/>} />
+          <Route path="user-create-profile/" element={<CreateUser/>} />
+          <Route path="reset-password/" element={<ProfileResetPassword/>} />
           <Route path="announcement/" element={<Announcements />} />
           <Route path="examschedule/" element={<ExamSchedule role={"admin"} />} />
           <Route path="placement/" element={<Placement />} />

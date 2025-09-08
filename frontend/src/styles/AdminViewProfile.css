@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400&display=swap');
+
+.profile-container {
+  
+  background: #fff;
+  font-family: 'Poppins', Arial, 'Segoe UI', sans-serif;
+}
+.main {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 30px;
+  max-height: fit-content;
+}
+
+
+.topBar {
+  background: #3256b3;
+  height: 70px;
+  position: relative;
+  
+}
+
+.title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 18px;
+  top: 8px;
+}
+
+.profileCircle {
+  height: 40px;
+  width: 40px;
+  border-radius: 20%;
+  background: #ddd;
+  position: absolute;
+  right: 18px;
+  top: 4px;
+}
+
+.layout {
+  display: flex;
+}
+
+
+
+.icon {
+  color: #fff;
+  margin-bottom: 32px;
+  font-size: 22px;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  padding: 45px 20px 0 40px;
+  box-sizing: border-box;
+}
+
+.heading {
+  font-family: 'Poppins', Arial, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 100%;
+  width: 202px;
+  height: 79px;
+  margin-top: 32px;
+  margin-bottom: 20px;
+  letter-spacing: 0;
+  opacity: 1;
+  vertical-align: middle;
+}
+
+.hr {
+  border: 1.5px solid #222;
+  margin-bottom: 18px;
+}
+
+.hr2 {
+  border: 1.5px solid #222;
+  margin: 36px 0 18px 0;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin: 28px;
+  object-fit: cover;      /* Ensures image covers entire area */
+  border-radius: 50%;     /* Makes the image circular */
+  border: 2px solid #ccc; /* Optional border for better look */
+  cursor: pointer;        /* Indicate it's clickable */
+  display: block;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 15px;
+}
+
+.input {
+  border: 1px solid #bbb;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  min-width: 160px;
+  background: #eee;
+}
+
+.inputRow {
+  margin-bottom: 18px;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.buttonRow {
+  margin-top: 10px;
+  display: flex;
+  gap: 32px;
+}
+
+.resetBtn {
+  background: #39b54a;
+  color: #fff;
+  border: none;
+  border-radius: 28px;
+  padding: 10px 42px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(60, 180, 75, 0.08);
+  margin-right: 10px;
+}
+
+.editBtn {
+  background: #bb835b;
+  color: #fff;
+  border: none;
+  border-radius: 28px;
+  padding: 10px 42px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(187,131,91,0.10);
+}

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400&display=swap');
+
+.profile-container {
+  min-height: 100vh;
+  background: #fff;
+  font-family: 'Poppins', Arial, 'Segoe UI', sans-serif;
+}
+
+.main {
+  max-width:none;
+  margin: auto;
+  padding: 30px;
+}
+
+.heading {
+  font-family: 'Poppins', Arial, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+  margin-bottom: 12px;
+  line-height: 100%;
+}
+
+.hr {
+  border: 1.5px solid #222;
+  margin-bottom: 18px;
+}
+
+.profile-row {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.profile-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.avatar {
+  width: 70px;
+  margin-right: 18px;
+  margin-top: 12px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* makes label/input stretch equally */
+}
+.avatar {
+  width: 100px;           /* Adjust size as needed */
+  height: 100px;          /* Same as width for a perfect circle */
+  object-fit: cover;      /* Ensures image covers entire area */
+  border-radius: 50%;     /* Makes the image circular */
+  border: 2px solid #ccc; /* Optional border for better look */
+  cursor: pointer;        /* Indicate it's clickable */
+  display: block;
+}
+
+
+.label {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  margin-right: 10px;
+}
+
+.input {
+  border: 1px solid #bbb;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  min-width: 175px;
+  background: #eee;
+  width: 100%; /* ensures all fields fill group width */
+    box-sizing: border-box;
+}
+
+.input-short {
+  border: 1px solid #bbb;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  width: 95px;
+  background: #eee;
+  margin-left: 10px;
+}
+
+.subheading {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 20px 0 12px 0;
+}
+
+.academic-row {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin-bottom: 18px;
+}
+
+.semester-table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-bottom: 28px;
+}
+
+.semester-table th,
+.semester-table td {
+  border: 1px solid #222;
+  padding: 7px 18px;
+  text-align: center;
+}
+
+.button-row {
+  margin-top: 20px;
+  display: flex;
+  gap: 26px;
+}
+
+.reset-btn {
+  background: #39b54a;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 5px rgba(60, 180, 75, 0.1);
+}
+
+.edit-btn {
+  background: #bb835b;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 5px rgba(187,131,91,0.08);
+}
+

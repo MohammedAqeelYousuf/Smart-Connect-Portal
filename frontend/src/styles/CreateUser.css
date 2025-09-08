@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400&display=swap');
+
+.create-user-modal {
+  width: 500px;
+  background: #8ab4f8;
+  border-radius: 15px;
+  border: 1px solid #bbb;
+  padding: 36px 35px 35px 35px;
+  position: relative;
+  margin: 60px auto;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+  font-family: 'Poppins', Arial, 'Segoe UI', sans-serif;
+}
+
+.close-btn {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  cursor: pointer;
+  color: #444;
+}
+input[name="customDepartment"] {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 48px; /* Large enough for clear gap */
+  color: fff;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+select {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 4px;
+  appearance: none; /* Removes default arrow for some browsers */
+  cursor: pointer;
+}
+
+
+select {
+  margin-bottom: 4px;
+}
+
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.span-4 {
+  grid-column: span 4;
+}
+
+.span-6 {
+  grid-column: span 6;
+}
+
+.span-8 {
+  grid-column: span 8;
+}
+
+.span-10 {
+  grid-column: span 10;
+}
+
+.modal-label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #fff;
+  font-size: 1rem;
+}
+
+input {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create-btn {
+  background: #39b54a;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  display: block;
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 12px 0;
+  width: 136px;
+  margin: 30px auto 0 auto;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(60,180,75,0.12);
+  grid-column: span 10;
+}
+
+.toggleShowPassBtn {
+  position: absolute;
+  right: 10px;
+  top: 73%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #444;
+}
