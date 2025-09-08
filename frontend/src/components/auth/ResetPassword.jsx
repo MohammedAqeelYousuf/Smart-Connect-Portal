@@ -38,7 +38,7 @@ function ResetPassword() {
 
     if (res.ok) {
       alert("Password reset successful!");
-      window.location.href = "/";
+      window.location.href = "/login";
     } else {
       alert("Failed to reset password. Try again.");
     }

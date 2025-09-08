@@ -53,7 +53,7 @@ app.post("/send-code", async (req, res) => {
 
   const msg = {
     to: email,
-    from: "kash963852@gmail.com", // must be verified in SendGrid
+    from: "kash963852@gmail.com", //  verified in SendGrid
     subject: "SmartCon Password Reset Code",
     text: `Your verification code is ${code}`,
   };

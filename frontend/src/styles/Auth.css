@@ -68,7 +68,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .auth-container {
     flex-direction: column;
   }
