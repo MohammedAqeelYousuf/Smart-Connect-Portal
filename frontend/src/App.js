@@ -22,6 +22,8 @@ import StudentDashboard from "./features/Student/StudentDashboard";
 import AddCompanyDetails from "./features/Admin/AddCompanyDetails";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UpdateCompanyDetails from "./features/Admin/UpdateCompanyDetails";
+import ViewFeedback from "./features/Admin/ViewFeedback";
+import Error from "./pages/Error";
 
 
 export default function App() {
@@ -59,9 +61,10 @@ export default function App() {
           <Route path="company/add" element={<AddCompanyDetails />} />
           <Route path="company/edit/:id" element={<UpdateCompanyDetails />} />
           <Route path="batch/view/:id" element={<ViewBatch />} />
+          <Route path="feedback/view" element={<ViewFeedback/>} />
         </Route>
 
-         <Route path="*" element={<Navigate to="/" replace />} /> 
+         <Route path="*" element={<Error/>}  /> 
       </Routes>
     </>
   );
