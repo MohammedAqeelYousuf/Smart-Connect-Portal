@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "../../styles/AdminViewProfile.css";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminEditProfile() {
   // Initial profile values - for demo, same as view
  
   //Initialize editProfile state including avatar fields
+
+  const navigate =useNavigate();
 const savedAdminProfile = JSON.parse(localStorage.getItem("adminProfile") || "{}");
 const [profile, setProfile] = useState({
   name: savedAdminProfile.name || "",
@@ -36,10 +39,12 @@ const [editProfile, setEditProfile] = useState({ ...profile });
     localStorage.setItem("adminProfile", JSON.stringify(editProfile));
   
     alert("Profile updated!");
+    navigate("/admin/admin-view-profile");
   };
 
   const handleCancel = () => {
     setEditProfile({ ...profile }); // revert changes
+     navigate("/admin/admin-view-profile");
   };
 
   // Handle avatar file input and preview the image

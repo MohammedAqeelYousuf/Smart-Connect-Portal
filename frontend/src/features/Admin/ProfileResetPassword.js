@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../../styles/CreateUser.css"; // Reuse existing styles for consistency
+import "../../styles/CreateUser.css";
 
-export default function ProfileResetPassword() {
+export default function ProfileResetPassword({ onClose }) {
   const [form, setForm] = useState({
     currentPassword: "",
     newPassword: "",
@@ -12,7 +12,6 @@ export default function ProfileResetPassword() {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // Regex for password validation (at least 8 chars, uppercase, lowercase, number, special char)
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^_])[A-Za-z\d@$!%*?&#^_]{8,}$/;
 
   const handleChange = (e) => {
@@ -28,14 +27,12 @@ export default function ProfileResetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Retrieve saved user password (simulating login state). For demo, assume first user in localStorage
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     if (users.length === 0) {
       alert("No user data found. Please create an account first.");
       return;
     }
-    const savedPassword = users[0].password; // Change logic as per your auth flow
+    const savedPassword = users[0].password;
 
     if (form.currentPassword !== savedPassword) {
       alert("Current password does not match.");
@@ -54,7 +51,6 @@ export default function ProfileResetPassword() {
       return;
     }
 
-    // Update password in localStorage (demo logic)
     users[0].password = form.newPassword;
     localStorage.setItem("users", JSON.stringify(users));
 
@@ -68,11 +64,14 @@ export default function ProfileResetPassword() {
     setShowCurrentPassword(false);
     setShowNewPassword(false);
     setShowConfirmPassword(false);
+
+    onClose(); // Close modal after successful reset
   };
 
   return (
     <div className="create-user-modal" style={{ width: 450 }}>
       <h2 className="modal-title">Reset Password</h2>
+
       <form onSubmit={handleSubmit} className="form-grid">
         {/* Current Password */}
         <div className="grid-item span-10" style={{ position: "relative" }}>
@@ -84,7 +83,8 @@ export default function ProfileResetPassword() {
             onChange={handleChange}
             required
             placeholder="Enter current password"
-            style={{ paddingRight: "40px" }}
+            
+            style={{ paddingRight: "10px", width:"90%"}}
           />
           <button
             type="button"
@@ -106,7 +106,7 @@ export default function ProfileResetPassword() {
             onChange={handleChange}
             required
             placeholder="Enter new password"
-            style={{ paddingRight: "40px" }}
+            style={{ paddingRight: "40px" , width:"90%" }}
           />
           <button
             type="button"
@@ -128,23 +128,26 @@ export default function ProfileResetPassword() {
             onChange={handleChange}
             required
             placeholder="Confirm new password"
-            style={{ paddingRight: "40px" }}
+            style={{ paddingRight: "40px" , width:"90%"}}
           />
           <button
             type="button"
             onClick={() => toggleShowPassword("confirm")}
             className="toggleShowPassBtn"
-            aria-label={
-              showConfirmPassword ? "Hide password" : "Show password"
-            }
+            aria-label={showConfirmPassword ? "Hide password" : "Show password"}
           >
             {showConfirmPassword ? "🙈" : "👁️"}
           </button>
         </div>
 
-        <button type="submit" className="create-btn" style={{ marginTop: "24px" }}>
-          Reset Password
-        </button>
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "24px" }}>
+          <button type="submit" className="create-btn">
+            Reset Password
+          </button>
+          <button type="button" className="create-btn" onClick={onClose} style={{ backgroundColor: "#f44336" }}>
+            Close
+          </button>
+        </div>
       </form>
     </div>
   );
